@@ -1,0 +1,8 @@
+{
+  "name": "UDD Bodoland Territorial Region",
+  "description": "Official website for the Urban Development Department, BTR, Kokrajhar, Assam.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
