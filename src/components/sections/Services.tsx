@@ -49,10 +49,18 @@ const borderMap: { [key: string]: string } = {
 export default function Services() {
   return (
     <section id="services" className="py-24 px-6 md:px-16 lg:px-32 bg-white">
-      <div className="text-center mb-20">
-        <span className="text-saffron font-bold text-xs uppercase tracking-[5px] block mb-3">Service Delivery</span>
-        <h2 className="text-3xl md:text-5xl font-serif text-navy mb-4">E-Governance Services</h2>
-        <div className="w-16 h-1.5 bg-saffron mx-auto rounded-full"></div>
+      <div className="flex flex-col items-center mb-20 text-center">
+        <div className="w-24 h-24 rounded-full flex items-center justify-center relative mb-8 group">
+          <div className="absolute inset-0 bg-saffron/40 blur-3xl rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
+          <div className="w-20 h-20 bg-gradient-to-br from-saffron to-orange-600 rounded-full flex items-center justify-center border border-white/20 shadow-xl relative z-10 transition-transform group-hover:scale-110 shadow-[0_0_40px_rgba(247,148,31,0.5)]">
+            <Users className="w-10 h-10 text-white" />
+          </div>
+          <div className="absolute inset-0 rounded-full shadow-[0_0_50px_rgba(247,148,31,0.4)] animate-pulse -z-10"></div>
+        </div>
+        <div className="inline-block border-b-4 border-saffron pb-2 mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-navy uppercase tracking-tight">E-Governance Services</h2>
+        </div>
+        <p className="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Access essential municipal services and portals digitally for a faster experience.</p>
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -68,9 +76,9 @@ export default function Services() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className={`bg-white p-6 md:p-8 rounded-2xl border-2 ${border} group cursor-pointer transition-all duration-300 hover:shadow-lg flex flex-col items-center`}
+              className={`bg-white p-6 md:p-8 rounded-lg border-2 ${border} group cursor-pointer transition-all duration-300 hover:shadow-lg flex flex-col items-center`}
             >
-              <div className={`w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center text-white mb-6 shadow-md bg-gradient-to-br ${gradient}`}>
+              <div className={`w-14 h-14 md:w-16 md:h-16 rounded-md flex items-center justify-center text-white mb-6 shadow-md bg-gradient-to-br ${gradient}`}>
                 <IconComponent className="w-6 h-6 md:w-7 md:h-7" strokeWidth={1.5} />
               </div>
               <h3 className="font-bold text-navy text-sm md:text-base mb-3 leading-tight group-hover:text-saffron transition-colors">{service.label}</h3>

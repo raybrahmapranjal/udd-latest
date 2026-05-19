@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Newspaper, Target, Bell } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Newspaper, Target, Bell, LayoutDashboard } from 'lucide-react';
 
 interface Item {
   title: string;
@@ -82,11 +82,25 @@ export default function IntegratedSection() {
 
   return (
     <section className="py-24 px-6 md:px-16 lg:px-32 bg-gray-50">
+      <div className="flex flex-col items-center mb-20 text-center">
+        <div className="w-24 h-24 rounded-full flex items-center justify-center relative mb-8 group">
+          <div className="absolute inset-0 bg-blue-600/40 blur-3xl rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
+          <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center border border-white/20 shadow-xl relative z-10 transition-transform group-hover:scale-110 shadow-[0_0_40px_rgba(37,99,235,0.5)]">
+            <LayoutDashboard className="w-10 h-10 text-white" />
+          </div>
+          <div className="absolute inset-0 rounded-full shadow-[0_0_50px_rgba(37,99,235,0.4)] animate-pulse -z-10"></div>
+        </div>
+        <div className="inline-block border-b-4 border-blue-600 pb-2 mb-4">
+          <h2 className="text-4xl md:text-5xl font-black text-navy uppercase tracking-tight">Integrated Dashboard</h2>
+        </div>
+        <p className="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Real-time updates, news, and notifications from the Urban Development Department at one place.</p>
+      </div>
+
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {sectionData.map((section, sIdx) => {
           const item = section.items[activeIndices[sIdx]];
           return (
-          <div key={sIdx} className={`bg-gradient-to-br ${section.bg} via-white to-white/50 p-6 sm:p-8 rounded-3xl border-2 ${section.border} shadow-lg relative`}>
+          <div key={sIdx} className={`bg-gradient-to-br ${section.bg} via-white to-white/50 p-6 sm:p-8 rounded-md border-2 ${section.border} shadow-lg relative`}>
             <div className="flex justify-between items-center mb-6">
                 <div className="flex items-center gap-3">
                     <section.icon className={`w-8 h-8 ${section.iconColor}`} />
@@ -95,7 +109,7 @@ export default function IntegratedSection() {
                 <span className={`px-3 py-1 ${section.badgeBg} ${section.badgeText} text-[10px] sm:text-xs font-bold rounded-full whitespace-nowrap`}>{section.badge}</span>
             </div>
             
-            <div className={`h-48 border ${section.border} bg-white/40 rounded-2xl p-4 sm:p-6 mb-4`}>
+            <div className={`h-48 border ${section.border} border-l-4 ${section.iconColor.replace('text-', 'border-')} bg-white/40 rounded-lg p-4 sm:p-6 mb-4`}>
                 <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
                 <p className="text-sm sm:text-md text-gray-700 mb-4">{item.desc}</p>
                 <div className="flex flex-wrap gap-2">

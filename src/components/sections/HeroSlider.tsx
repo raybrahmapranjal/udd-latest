@@ -54,7 +54,7 @@ export default function HeroSlider() {
                 <span className="inline-block bg-saffron text-white text-[10px] font-bold uppercase tracking-[4px] px-3 py-1 mb-6 rounded-sm">
                   UDD BTR Official
                 </span>
-                <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif text-white mb-4 md:mb-6 leading-tight">
+                <h2 className="text-3xl sm:text-4xl md:text-6xl font-sans font-black text-white mb-4 md:mb-6 leading-tight">
                   {slide.title}
                 </h2>
                 <p className="text-sm sm:text-base md:text-xl text-white/80 mb-8 md:mb-10 leading-relaxed font-medium">

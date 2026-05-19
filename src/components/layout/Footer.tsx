@@ -17,18 +17,18 @@ export default function Footer() {
             </div>
          </div>
          
-         <div className="flex gap-6 mb-12">
+          <div className="flex gap-6 mb-12">
             {[ 
-              { icon: FaFacebook, bg: 'bg-blue-600', shadow: 'shadow-[0_0_15px_rgba(37,99,235,0.6)]' },
-              { icon: FaTwitter, bg: 'bg-sky-400', shadow: 'shadow-[0_0_15px_rgba(56,189,248,0.6)]' },
-              { icon: FaYoutube, bg: 'bg-red-500', shadow: 'shadow-[0_0_15px_rgba(239,68,68,0.6)]' },
-              { icon: FaInstagram, bg: 'bg-pink-500', shadow: 'shadow-[0_0_15px_rgba(236,72,153,0.6)]' }
+              { icon: FaFacebook, bg: 'bg-gradient-to-br from-[#1877F2] to-[#0A4EA3]', shadow: 'shadow-[0_0_15px_rgba(24,119,242,0.5)]' },
+              { icon: FaTwitter, bg: 'bg-gradient-to-br from-[#1DA1F2] to-[#0D8BD9]', shadow: 'shadow-[0_0_15px_rgba(29,161,242,0.5)]' },
+              { icon: FaYoutube, bg: 'bg-gradient-to-br from-[#FF0000] to-[#CC0000]', shadow: 'shadow-[0_0_15px_rgba(255,0,0,0.5)]' },
+              { icon: FaInstagram, bg: 'bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F56040]', shadow: 'shadow-[0_0_15px_rgba(253,29,29,0.5)]' }
             ].map((social, i) => (
-              <a key={i} href="#" className={`w-14 h-14 border-2 border-white/20 rounded-full flex items-center justify-center ${social.bg} ${social.shadow}`}>
+              <a key={i} href="#" className={`w-14 h-14 border-2 border-white/20 rounded-full flex items-center justify-center ${social.bg} ${social.shadow} hover:scale-110 transition-transform`}>
                 <social.icon className="text-2xl text-white" />
               </a>
             ))}
-         </div>
+          </div>
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-20 relative z-10 border-t border-white/10 pt-16">

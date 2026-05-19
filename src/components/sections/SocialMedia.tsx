@@ -1,6 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Youtube, ExternalLink, Heart, MessageSquare, Clock, BookOpen, Target, ShieldCheck } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, ExternalLink, Heart, MessageSquare, Clock, Share2 } from 'lucide-react';
 
 export default function SocialMedia() {
   const platforms = [
@@ -49,10 +49,23 @@ export default function SocialMedia() {
   return (
     <section className="py-24 px-6 md:px-16 lg:px-32 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-serif text-navy mb-16 text-center">Our Social Media Handles</h2>
+        <div className="flex flex-col items-center mb-20 text-center">
+          <div className="w-24 h-24 rounded-full flex items-center justify-center relative mb-8 group">
+            <div className="absolute inset-0 bg-pink-600/40 blur-3xl rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
+            <div className="w-20 h-20 bg-gradient-to-br from-pink-600 to-rose-600 rounded-full flex items-center justify-center border border-white/20 shadow-xl relative z-10 transition-transform group-hover:scale-110 shadow-[0_0_40px_rgba(219,39,119,0.5)]">
+              <Share2 className="w-10 h-10 text-white" />
+            </div>
+            <div className="absolute inset-0 rounded-full shadow-[0_0_50px_rgba(219,39,119,0.4)] animate-pulse -z-10"></div>
+          </div>
+          <div className="inline-block border-b-4 border-pink-600 pb-2 mb-4">
+            <h2 className="text-4xl md:text-5xl font-black text-navy uppercase tracking-tight">Social Connect</h2>
+          </div>
+          <p className="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Follow our official channels for real-time updates and community engagement.</p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {platforms.map((platform, idx) => (
-            <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col">
+            <div key={idx} className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col">
               {/* Header */}
               <div className={`bg-gradient-to-br ${platform.gradient} p-5 text-white flex justify-between items-start`}>
                 <div className="flex gap-3">
@@ -68,7 +81,7 @@ export default function SocialMedia() {
               {/* Body */}
               <div className="p-5 flex-grow space-y-4">
                 {platform.posts.map((post, pIdx) => (
-                    <div key={pIdx} className="text-xs text-gray-700 bg-gray-100 p-4 rounded-xl border border-gray-100 space-y-2">
+                    <div key={pIdx} className="text-xs text-gray-700 bg-gray-100 p-4 rounded-md border border-gray-100 space-y-2">
                         <p className="italic">&quot;{post.content}&quot;</p>
                         <div className="flex items-center gap-3 text-gray-500 mt-2">
                             <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {post.time}</span>
@@ -89,7 +102,7 @@ export default function SocialMedia() {
 
         {/* Bottom Section */}
         <div className="mt-20 text-center">
-            <h3 className="text-xl font-serif text-gray-800 mb-8">Join our growing community and be part of Bodoland&apos;s urban transformation</h3>
+            <h3 className="text-xl font-sans font-bold text-gray-800 mb-8">Join our growing community and be part of Bodoland&apos;s urban transformation</h3>
             <div className="flex justify-center gap-4">
                 <motion.button whileHover={{scale: 1.05}} className="flex items-center gap-2 bg-blue-700 text-white px-6 py-3 rounded-full font-medium shadow-md">
                     <Facebook className="w-4 h-4" /> Follow on Facebook
