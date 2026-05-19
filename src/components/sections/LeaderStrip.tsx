@@ -10,7 +10,7 @@ export default function LeaderStrip() {
       name: "Shri Hagrama Mohilary",
       role: "Visionary Leader & Former CEM",
       subRole: "Bodoland Territorial Council",
-      img: "/images/leaders/hagrama.png",
+      img: "/images/leaders/hagrama_mohilary.png",
       content: "To transform BTR into a model of self-reliance and urban excellence through sustainable growth and inclusive governance.",
       contentType: "Key Vision"
     },
@@ -18,7 +18,7 @@ export default function LeaderStrip() {
       name: "Smt. Moon Moon Brahma",
       role: "Hon'ble Executive Member",
       subRole: "Urban Development Dept, BTC",
-      img: "/images/leaders/moon_moon.png",
+      img: "/images/leaders/moon_moon_brahma.png",
       content: "Empowering our urban centers with modern infrastructure while preserving our unique cultural heritage and green landscapes.",
       contentType: "Key Vision"
     },
@@ -26,7 +26,7 @@ export default function LeaderStrip() {
        name: "Shri Lankeshwar Owarie",
        role: "Secretary & CHD",
        subRole: "Urban Development Dept, BTC",
-       img: "/images/leaders/chd.png",
+       img: "/images/leaders/lankeshwar_owarie.png",
        content: "Implementation of urban policies, technical supervision of infrastructure projects, and ensuring efficient service delivery across all Urban Local Bodies.",
        contentType: "Key Responsibilities"
     }
