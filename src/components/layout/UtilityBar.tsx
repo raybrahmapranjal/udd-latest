@@ -1,26 +1,162 @@
-import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
+"use client";
+import React, { useEffect } from 'react';
+import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaClipboardList, FaGlobe } from 'react-icons/fa';
 
 export default function UtilityBar() {
+  useEffect(() => {
+    // Check if script already exists
+    if (document.querySelector('script[src*="translate.google.com"]')) {
+      if ((window as any).google && (window as any).google.translate) {
+        try {
+          new (window as any).google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'as,hi,en', 
+            autoDisplay: false
+          }, 'google_translate_element');
+        } catch (e) {
+          console.error('Google Translate Init Error:', e);
+        }
+      }
+      return;
+    }
+
+    const addScript = document.createElement('script');
+    addScript.setAttribute('src', 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+    addScript.setAttribute('crossorigin', 'anonymous');
+    addScript.async = true;
+    document.body.appendChild(addScript);
+
+    (window as any).googleTranslateElementInit = () => {
+      new (window as any).google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'as,hi,en', 
+        autoDisplay: false
+      }, 'google_translate_element');
+    };
+  }, []);
+
+  const notices = [
+    "Annual Development Plan 2025-26 Open for Public Consultation till 31st December 2025",
+    "Tender Notice for Road Construction Works in Kokrajhar Municipal Board Area",
+    "Applications invited for Trade License Renewal 2024-25"
+  ];
+
   return (
-    <div className="bg-navy text-white py-1 px-6 text-[10px] sm:text-xs">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <div>
-          <span className="hidden sm:inline">Government of Bodoland Territorial Region, Assam</span>
-          <span className="sm:hidden">Govt. of BTR, Assam</span>
+    <div className="bg-[#0f172a] text-white py-2 px-4 shadow-inner relative z-[150]">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
+        {/* Social Icons Left */}
+        <div className="flex items-center gap-2 shrink-0">
+          {[
+            { Icon: FaFacebookF, href: "#" },
+            { Icon: FaTwitter, href: "#" },
+            { Icon: FaInstagram, href: "#" },
+            { Icon: FaYoutube, href: "#" }
+          ].map(({ Icon, href }, i) => (
+            <a 
+              key={i} 
+              href={href} 
+              className="w-7 h-7 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-all text-xs"
+            >
+              <Icon />
+            </a>
+          ))}
         </div>
-        <div className="flex items-center gap-4">
-          <div className="flex gap-3 border-r border-white/20 pr-4 mr-1">
-            <a href="#" className="hover:text-saffron transition-colors"><FaFacebook /></a>
-            <a href="#" className="hover:text-saffron transition-colors"><FaTwitter /></a>
-            <a href="#" className="hover:text-saffron transition-colors"><FaYoutube /></a>
-            <a href="#" className="hover:text-saffron transition-colors"><FaInstagram /></a>
+
+        {/* Professional Scrolling News */}
+        <div className="flex-1 overflow-hidden h-6 flex items-center bg-black/5 rounded-full px-4">
+          <div className="animate-marquee whitespace-nowrap flex items-center font-medium text-[11px] uppercase tracking-wide">
+             {notices.map((notice, idx) => (
+               <span key={idx} className="flex items-center gap-2 mx-8">
+                  <FaClipboardList className="text-white/80" />
+                  {notice}
+               </span>
+             ))}
+             {/* Duplicate for loop */}
+             {notices.map((notice, idx) => (
+               <span key={`dup-${idx}`} className="flex items-center gap-2 mx-8">
+                  <FaClipboardList className="text-white/80" />
+                  {notice}
+               </span>
+             ))}
           </div>
-          <div className="hidden md:flex gap-3">
-             <a href="#" className="hover:text-saffron">Screen Reader</a>
-             <a href="#" className="hover:text-saffron">Sitemap</a>
+        </div>
+
+        {/* Language Right (Custom Styled Dropdown) */}
+        <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded border border-white/20 hover:bg-white/20 transition-all">
+            <FaGlobe className="text-[10px] opacity-80" />
+            <span className="text-[9px] font-black tracking-tighter uppercase whitespace-nowrap hidden lg:inline">Language</span>
+            <div id="google_translate_element" className="google-translate-styled"></div>
           </div>
         </div>
       </div>
+      
+      <style jsx global>{`
+        /* Aggressively hide ALL Google Translate UI */
+        .goog-te-banner-frame,
+        .goog-te-banner,
+        .goog-te-balloon-frame,
+        #goog-gt-tt,
+        .goog-te-spinner-pos,
+        .goog-te-gadget-icon,
+        .skiptranslate > iframe,
+        .goog-tooltip,
+        .goog-tooltip:hover {
+          display: none !important;
+          visibility: hidden !important;
+          height: 0 !important;
+          width: 0 !important;
+          opacity: 0 !important;
+        }
+
+        /* Prevent body shift/scrolling issues caused by Translate */
+        html, body {
+          top: 0px !important;
+          position: static !important;
+        }
+
+        /* Hide Clutter in the gadget */
+        .goog-te-gadget {
+          color: transparent !important;
+          font-size: 0 !important;
+          line-height: 0 !important;
+          display: flex !important;
+          align-items: center !important;
+        }
+        
+        .goog-te-gadget span,
+        .goog-te-gadget div {
+          display: none !important;
+        }
+
+        /* Style the actual dropdown */
+        .google-translate-styled select.goog-te-combo {
+          display: inline-block !important;
+          background-color: transparent !important;
+          color: white !important;
+          border: none !important;
+          font-size: 9px !important;
+          font-weight: 800 !important;
+          text-transform: uppercase !important;
+          outline: none !important;
+          cursor: pointer !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          font-family: inherit !important;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          min-width: 70px;
+        }
+
+        .google-translate-styled select.goog-te-combo option {
+          background-color: #f26522 !important;
+          color: white !important;
+          font-weight: 700 !important;
+          padding: 10px !important;
+        }
+      `}</style>
     </div>
+
   );
 }

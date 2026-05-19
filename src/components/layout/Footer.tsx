@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center mb-16 relative z-10">
          {/* Centralized Header */}
          <div className="flex flex-col items-center gap-4 mb-8">
-            <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center p-4">
-               <img src="https://bodoland.gov.in/bodoland/bodoland/assets/images/btc-logo.png" alt="BTC" className="h-12 w-auto grayscale invert" />
+            <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center p-2">
+               <img src="/images/logo.png" alt="BTC" className="h-16 w-auto" />
             </div>
             <div>
                <h4 className="font-bold text-3xl leading-tight">Urban Development Department, BTR</h4>

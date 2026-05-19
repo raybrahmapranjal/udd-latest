@@ -1,7 +1,7 @@
 export const navLinks = [
   { label: 'Home', href: '/' },
   { 
-    label: 'About Us', 
+    label: 'About UDD', 
     href: '#', 
     children: [
       { label: 'Wings of UDD BTR', href: '/wings' },
@@ -12,16 +12,7 @@ export const navLinks = [
     ]
   },
   { 
-    label: 'Urban Local Bodies', 
-    href: '#', 
-    children: [
-      { label: 'Municipal Boards (MBs)', href: '/ulb/mb' },
-      { label: 'Town Committees (TCs)', href: '/ulb/tc' },
-      { label: 'ULB Map', href: '/ulb/map' }
-    ]
-  },
-  { 
-    label: 'Schemes', 
+    label: 'Services', 
     href: '#', 
     children: [
       { label: 'PMAY-U', href: '/schemes/pmay' },
@@ -32,18 +23,15 @@ export const navLinks = [
     ]
   },
   { 
-    label: 'Documents', 
+    label: 'ULBs', 
     href: '#', 
     children: [
-      { label: 'Acts & Rules', href: '/docs/acts' },
-      { label: 'Notifications', href: '/docs/notifications' },
-      { label: 'Tenders', href: '/docs/tenders' },
-      { label: 'Recruitment', href: '/docs/recruitment' },
-      { label: 'Forms', href: '/docs/forms' }
+      { label: 'Municipal Boards (MBs)', href: '/ulb/mb' },
+      { label: 'Town Committees (TCs)', href: '/ulb/tc' },
+      { label: 'ULB Map', href: '/ulb/map' }
     ]
   },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export const stats = [

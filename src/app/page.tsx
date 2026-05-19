@@ -1,8 +1,6 @@
 import UtilityBar from '@/components/layout/UtilityBar';
 import Header from '@/components/layout/Header';
-import Navbar from '@/components/layout/Navbar';
-import NoticeTicker from '@/components/layout/NoticeTicker';
-import HeroSlider from '@/components/sections/HeroSlider';
+import Hero from '@/components/sections/Hero';
 import LeaderStrip from '@/components/sections/LeaderStrip';
 import StatsStrip from '@/components/sections/StatsStrip';
 import Services from '@/components/sections/Services';
@@ -19,11 +17,9 @@ export default function Home() {
     <div id="home" className="min-h-screen">
       <UtilityBar />
       <Header />
-      <Navbar />
-      <NoticeTicker />
       
       {/* Sections */}
-      <HeroSlider />
+      <Hero />
       <LeaderStrip />
       <StatsStrip />
       

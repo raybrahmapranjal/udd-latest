@@ -12,17 +12,18 @@ interface Item {
   status?: string;
 }
 
-const sectionData: { title: string; badge: string; icon: any; items: Item[]; bg:string; border:string; topBorder: string; badgeBg:string; badgeText:string; iconColor:string }[] = [
+const sectionData: { title: string; badge: string; icon: any; items: Item[]; bg:string; border:string; accentColor: string; badgeBgGradient:string; badgeText:string; iconBgGradient:string; glowColor: string }[] = [
   {
     title: 'Latest News',
     badge: 'Updated Today',
     icon: Newspaper,
     bg: 'bg-white',
     border: 'border-blue-200',
-    topBorder: 'border-blue-300',
-    badgeBg: 'bg-green-100',
-    badgeText: 'text-green-800',
-    iconColor: 'text-blue-600',
+    accentColor: 'border-blue-500',
+    badgeBgGradient: 'from-blue-600 to-indigo-700',
+    badgeText: 'text-white',
+    iconBgGradient: 'from-blue-600 to-indigo-700',
+    glowColor: 'rgba(37,99,235,0.5)',
     items: [
       { title: 'Digital Payment Integration Completed', desc: 'All ULBs now support online payment for services', date: '10 Dec 2024', tag: 'Technology' },
       { title: 'New Sanitation Drive Launched', desc: 'Focusing on waste management in urban areas', date: '05 Dec 2024', tag: 'Sanitation' },
@@ -35,10 +36,11 @@ const sectionData: { title: string; badge: string; icon: any; items: Item[]; bg:
     icon: Target,
     bg: 'bg-emerald-50',
     border: 'border-emerald-200',
-    topBorder: 'border-emerald-300',
-    badgeBg: 'bg-emerald-200',
-    badgeText: 'text-emerald-900',
-    iconColor: 'text-emerald-700',
+    accentColor: 'border-emerald-500',
+    badgeBgGradient: 'from-emerald-500 to-teal-600',
+    badgeText: 'text-white',
+    iconBgGradient: 'from-emerald-500 to-teal-600',
+    glowColor: 'rgba(16,185,129,0.5)',
     items: [
       { title: 'National Urban Livelihoods Mission', desc: 'Skill development and employment generation', amount: '₹8.2 Cr', status: 'Active' },
       { title: 'Smart City Initiative', desc: 'Modernizing core infrastructure in BTR', amount: '₹15 Cr', status: 'Ongoing' },
@@ -51,10 +53,11 @@ const sectionData: { title: string; badge: string; icon: any; items: Item[]; bg:
     icon: Bell,
     bg: 'bg-orange-50',
     border: 'border-orange-200',
-    topBorder: 'border-orange-300',
-    badgeBg: 'bg-orange-200',
-    badgeText: 'text-orange-900',
-    iconColor: 'text-orange-700',
+    accentColor: 'border-orange-500',
+    badgeBgGradient: 'from-orange-500 to-red-600',
+    badgeText: 'text-white',
+    iconBgGradient: 'from-orange-500 to-red-600',
+    glowColor: 'rgba(249,115,22,0.5)',
     items: [
       { title: 'Public Consultation on Master Plan', desc: 'Citizens invited to provide feedback and suggestions', status: 'High' },
       { title: 'ULB Meeting Schedule', desc: 'Meeting for all municipal board members', status: 'Medium' },
@@ -81,55 +84,104 @@ export default function IntegratedSection() {
   };
 
   return (
-    <section className="py-24 px-6 md:px-16 lg:px-32 bg-gray-50">
-      <div className="flex flex-col items-center mb-20 text-center">
-        <div className="w-24 h-24 rounded-full flex items-center justify-center relative mb-8 group">
+    <section className="py-12 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-gray-50 overflow-hidden">
+      <div className="flex flex-col items-center mb-12 md:mb-20 text-center">
+        <motion.div 
+          initial={{ scale: 0.5, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center relative mb-6 md:mb-8 group"
+        >
           <div className="absolute inset-0 bg-blue-600/40 blur-3xl rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
-          <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center border border-white/20 shadow-xl relative z-10 transition-transform group-hover:scale-110 shadow-[0_0_40px_rgba(37,99,235,0.5)]">
-            <LayoutDashboard className="w-10 h-10 text-white" />
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center border border-white/20 shadow-xl relative z-10 transition-transform group-hover:scale-110 shadow-[0_0_40px_rgba(37,99,235,0.5)]">
+            <LayoutDashboard className="w-8 h-8 md:w-10 md:h-10 text-white" />
           </div>
           <div className="absolute inset-0 rounded-full shadow-[0_0_50px_rgba(37,99,235,0.4)] animate-pulse -z-10"></div>
-        </div>
+        </motion.div>
+        
         <div className="inline-block border-b-4 border-blue-600 pb-2 mb-4">
-          <h2 className="text-4xl md:text-5xl font-black text-navy uppercase tracking-tight">Integrated Dashboard</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-navy uppercase tracking-tight">Integrated Dashboard</h2>
         </div>
-        <p className="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Real-time updates, news, and notifications from the Urban Development Department at one place.</p>
+        <p className="text-gray-500 max-w-2xl mx-auto font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
+          Real-time updates, news, and notifications from the Urban Development Department at one place.
+        </p>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
         {sectionData.map((section, sIdx) => {
           const item = section.items[activeIndices[sIdx]];
           return (
-          <div key={sIdx} className={`bg-gradient-to-br ${section.bg} via-white to-white/50 p-6 sm:p-8 rounded-md border-2 ${section.border} shadow-lg relative`}>
-            <div className="flex justify-between items-center mb-6">
-                <div className="flex items-center gap-3">
-                    <section.icon className={`w-8 h-8 ${section.iconColor}`} />
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{section.title}</h3>
-                </div>
-                <span className={`px-3 py-1 ${section.badgeBg} ${section.badgeText} text-[10px] sm:text-xs font-bold rounded-full whitespace-nowrap`}>{section.badge}</span>
+          <motion.div 
+            key={sIdx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: sIdx * 0.1 }}
+            className={`bg-gradient-to-br ${section.bg} via-white to-white/50 p-5 sm:p-8 rounded-xl border-2 ${section.border} shadow-lg relative flex flex-col justify-between`}
+          >
+            <div>
+              <div className="flex justify-between items-start sm:items-center mb-6 gap-2">
+                  <div className="flex items-center gap-3">
+                      <div 
+                        className={`p-2 sm:p-2.5 rounded-full bg-gradient-to-br ${section.iconBgGradient} border border-white/20 shadow-lg relative cursor-default`}
+                        style={{ boxShadow: `0 0 15px ${section.glowColor}` }}
+                      >
+                        <section.icon className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+                        <div className="absolute inset-0 rounded-full animate-pulse blur-md bg-white/20 -z-10"></div>
+                      </div>
+                      <h3 className="text-lg sm:text-2xl font-bold text-gray-900 leading-tight">{section.title}</h3>
+                  </div>
+                  <span className={`px-3 py-1 sm:px-4 sm:py-1.5 bg-gradient-to-r ${section.badgeBgGradient} ${section.badgeText} text-[9px] sm:text-xs font-black rounded-full whitespace-nowrap shadow-sm uppercase tracking-wider`}>
+                    {section.badge}
+                  </span>
+              </div>
+              
+              <AnimatePresence mode="wait">
+                <motion.div 
+                  key={`${sIdx}-${activeIndices[sIdx]}`}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  className={`min-h-[12rem] md:min-h-[14rem] border ${section.border} border-l-4 ${section.accentColor} bg-white/60 backdrop-blur-sm rounded-lg p-4 sm:p-6 mb-4 flex flex-col`}
+                >
+                    <h4 className="text-base sm:text-xl font-bold text-gray-900 mb-2 line-clamp-2">{item.title}</h4>
+                    <p className="text-xs sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3 md:line-clamp-none">{item.desc}</p>
+                    <div className="flex flex-wrap gap-2 mt-auto">
+                        {item.date && <span className="text-[10px] sm:text-xs font-bold text-blue-700 bg-blue-50/50 px-2.5 py-1 rounded-md border border-blue-200/50 shadow-sm">{item.date}</span>}
+                        {item.tag && <span className="text-[10px] sm:text-xs font-bold text-indigo-700 bg-indigo-50/50 px-2.5 py-1 rounded-md border border-indigo-200/50 shadow-sm">{item.tag}</span>}
+                        {item.amount && <span className="text-[10px] sm:text-xs font-black text-emerald-700 bg-emerald-50/80 px-2.5 py-1 rounded-md border border-emerald-300 shadow-sm">{item.amount}</span>}
+                        {item.status && <span className="text-[10px] sm:text-xs font-black text-amber-700 bg-amber-50/80 px-2.5 py-1 rounded-md border border-amber-300 shadow-sm">{item.status}</span>}
+                    </div>
+                 </motion.div>
+              </AnimatePresence>
             </div>
-            
-            <div className={`h-48 border ${section.border} border-l-4 ${section.iconColor.replace('text-', 'border-')} bg-white/40 rounded-lg p-4 sm:p-6 mb-4`}>
-                <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
-                <p className="text-sm sm:text-md text-gray-700 mb-4">{item.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                    {item.date && <span className="text-xs sm:text-sm text-gray-600 bg-white/70 px-3 py-1 rounded-full border border-gray-200">{item.date}</span>}
-                    {item.tag && <span className="text-xs sm:text-sm text-gray-600 bg-white/70 px-3 py-1 rounded-full border border-gray-200">{item.tag}</span>}
-                    {item.amount && <span className="text-xs sm:text-sm font-bold text-emerald-800 bg-emerald-50/70 px-3 py-1 rounded-full border border-emerald-200">{item.amount}</span>}
-                    {item.status && <span className="text-xs sm:text-sm font-bold text-gray-800 bg-gray-50/70 px-3 py-1 rounded-full border border-gray-200">{item.status}</span>}
-                </div>
-             </div>
 
-             <div className="flex justify-between items-center mt-4">
-                 <div className="flex gap-1">
-                     {section.items.map((_, dotIdx) => <div key={dotIdx} className={`w-2 h-2 rounded-full ${dotIdx === activeIndices[sIdx] ? 'bg-navy' : 'bg-gray-200'}`}></div>)}
+             <div className="flex justify-between items-center mt-2 px-1">
+                 <div className="flex gap-1.5">
+                     {section.items.map((_, dotIdx) => (
+                       <button 
+                        key={dotIdx}
+                        onClick={() => setActiveIndices(prev => prev.map((idx, i) => i === sIdx ? dotIdx : idx))}
+                        className={`w-2 h-2 rounded-full transition-all ${dotIdx === activeIndices[sIdx] ? 'bg-blue-600 w-4' : 'bg-gray-300 hover:bg-gray-400'}`}
+                       />
+                     ))}
                  </div>
                  <div className="flex gap-2">
-                     <button onClick={() => handlePrev(sIdx)} className="p-1 rounded-full border border-gray-200 hover:bg-gray-100"><ChevronLeft className="w-4 h-4" /></button>
-                     <button onClick={() => handleNext(sIdx)} className="p-1 rounded-full border border-gray-200 hover:bg-gray-100"><ChevronRight className="w-4 h-4" /></button>
+                     <button 
+                        onClick={() => handlePrev(sIdx)} 
+                        className="p-1.5 rounded-full border border-gray-200 bg-white hover:bg-gray-50 transition-colors shadow-sm"
+                     >
+                        <ChevronLeft className="w-4 h-4 text-gray-600" />
+                     </button>
+                     <button 
+                        onClick={() => handleNext(sIdx)} 
+                        className="p-1.5 rounded-full border border-gray-200 bg-white hover:bg-gray-50 transition-colors shadow-sm"
+                     >
+                        <ChevronRight className="w-4 h-4 text-gray-600" />
+                     </button>
                  </div>
              </div>
-          </div>
+          </motion.div>
         )})}
       </div>
     </section>
