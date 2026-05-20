@@ -4,7 +4,7 @@ export const navLinks = [
     label: 'About UDD', 
     href: '#', 
     children: [
-      { label: 'Wings of UDD BTR', href: '/wings' },
+      { label: 'Wings of UDD BTC', href: '/wings' },
       { label: 'Vision & Mission', href: '/vision' },
       { label: 'Org Structure', href: '/structure' },
       { label: 'Our Team', href: '/team' },
@@ -22,6 +22,15 @@ export const navLinks = [
       { label: '15th Finance Commission', href: '/schemes/15fc' }
     ]
   },
+  {
+    label: 'AI Services',
+    href: '#',
+    children: [
+      { label: 'Grievance Chatbot AI', href: '#' },
+      { label: 'Scheme Eligibility Chat', href: '#' },
+      { label: 'Document/Notice Summarizer', href: '#' }
+    ]
+  },
   { 
     label: 'ULBs', 
     href: '#', 
@@ -36,7 +45,7 @@ export const navLinks = [
 
 export const stats = [
   { value: 12, label: 'Urban Local Bodies', suffix: '', icon: 'building' },
-  { value: 4, label: 'Districts of BTR', suffix: '', icon: 'map' },
+  { value: 4, label: 'Districts of BTC', suffix: '', icon: 'map' },
   { value: 3.5, label: 'Lakh+ Urban Population', suffix: 'L+', icon: 'users' },
   { value: 250, label: 'Project Milestones', suffix: '+', icon: 'zap' },
 ];
@@ -74,7 +83,7 @@ export const ulbs = [
 export const newsNotices = [
   { date: '20 May 2024', title: 'Notification regarding Ward Delimitation for ULB Elections', type: 'notice' },
   { date: '18 May 2024', title: 'Tender for Solid Waste Management Equipment at Kajalgaon', type: 'tender' },
-  { date: '15 May 2024', title: 'UDD BTR Organizes Workshop on Climate Resilient Cities', type: 'news' },
+  { date: '15 May 2024', title: 'UDD BTC Organizes Workshop on Climate Resilient Cities', type: 'news' },
   { date: '10 May 2024', title: 'Applications invited for PMAY-U Beneficiary Led Construction', type: 'notice' },
 ];
 

@@ -7,9 +7,9 @@ export default function LeaderStrip() {
   const leaders = [
     {
       name: "Shri Hagrama Mohilary",
-      role: "Visionary Leader & Former CEM",
+      role: "Visionary Leader & CEM",
       subRole: "Bodoland Territorial Council",
-      img: "/images/leaders/hagrama_mohilary.jpg",
+      img: "https://uddbtr.online/images/hagrama_mohilary.jpg",
       description: "Shri Hagrama Mohilary is the Chief Executive of the Bodoland Territorial Region and a prominent leader who has played a decisive role in shaping peace, stability, and development in Bodoland.",
       focusTitle: "KEY FOCUS AREAS",
       focusItems: [
@@ -23,7 +23,7 @@ export default function LeaderStrip() {
       name: "Smt. Moon Moon Brahma",
       role: "Hon'ble Executive Member",
       subRole: "Urban Development Dept, BTC",
-      img: "/images/leaders/moon_moon_brahma.jpg",
+      img: "https://uddbtr.online/images/moon_moon_brahma.jpg",
       description: "Smt. Moon Moon Brahma, representing Parbatjhora constituency (BPF), oversees the Urban Development Department and was sworn in on October 14, 2025, marking a historic milestone as one of the first female EMs in BTC in 22 years.",
       focusTitle: "KEY FOCUS AREAS",
       focusItems: [
@@ -37,7 +37,7 @@ export default function LeaderStrip() {
       name: "Shri Lankeshwar Owarie",
       role: "Council Head of Department",
       subRole: "Urban Development Dept, BTC",
-      img: "/images/leaders/lankeshwar_owarie.jpg",
+      img: "https://uddbtr.online/images/lankeshwar_owarie.jpg",
       description: "Shri Lankeshwar Owarie serves as the Council Head of Department for Urban Development. He holds an M.R.P. (Urban Planning) from IIT Kharagpur (1990-91) and is responsible for operational leadership across 9 Municipal Boards and 1 Development Authority.",
       focusTitle: "KEY RESPONSIBILITIES",
       focusItems: [
@@ -91,40 +91,46 @@ export default function LeaderStrip() {
   };
 
   return (
-    <section className="bg-[#f8f9fb] py-20 px-6 md:px-16 lg:px-32 border-b border-gray-100">
+    <section className="bg-[#f8f9fb] py-16 md:py-20 px-4 sm:px-6 md:px-16 lg:px-32 border-b border-gray-100">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col items-center mb-20 text-center">
-          <div className="w-24 h-24 rounded-full flex items-center justify-center relative mb-8 group">
+        <div className="flex flex-col items-center mb-12 md:mb-20 text-center">
+          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center relative mb-6 md:mb-8 group">
             <div className="absolute inset-0 bg-navy/40 blur-3xl rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
-            <div className="w-20 h-20 bg-gradient-to-br from-navy to-blue-800 rounded-full flex items-center justify-center border border-white/20 shadow-xl relative z-10 transition-transform group-hover:scale-110 shadow-[0_0_40px_rgba(30,58,138,0.5)]">
-              <Landmark className="w-10 h-10 text-white" />
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-navy to-blue-800 rounded-full flex items-center justify-center border border-white/20 shadow-xl relative z-10 transition-transform group-hover:scale-110 shadow-[0_0_40px_rgba(30,58,138,0.5)]">
+              <Landmark className="w-8 h-8 md:w-10 md:h-10 text-white" />
             </div>
             <div className="absolute inset-0 rounded-full shadow-[0_0_50px_rgba(30,58,138,0.4)] animate-pulse -z-10"></div>
           </div>
           <div className="inline-block border-b-4 border-navy pb-2 mb-4">
-            <h2 className="text-4xl md:text-5xl font-black text-navy uppercase tracking-tight">Leadership & Vision</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-navy uppercase tracking-tight">Leadership & Vision of UDD BTC Governance</h2>
           </div>
-          <p className="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Guided by the commitment to sustainable urban development and citizen welfare.</p>
+          <p className="text-gray-500 max-w-2xl mx-auto font-medium text-sm md:text-lg leading-relaxed px-4">Guided by the commitment to sustainable urban development and citizen welfare.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-12">
           {leaders.map((leader, idx) => {
             const theme = getThemeClasses(leader.theme);
             return (
               <div key={idx} className="relative group pt-16">
-                {/* Fixed Image Circle - No Animation on this part as requested */}
-                <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 rounded-full border-4 z-20 overflow-hidden bg-gradient-to-br transition-all duration-300 ${
-                  leader.theme === 'sky' ? 'from-sky-100 to-sky-200 shadow-[0_0_20px_rgba(56,189,248,0.4)] group-hover:shadow-[0_0_40px_rgba(56,189,248,0.6)]' : 
-                  leader.theme === 'purple' ? 'from-purple-100 to-purple-200 shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:shadow-[0_0_40px_rgba(168,85,247,0.6)]' : 
-                  'from-orange-100 to-orange-200 shadow-[0_0_20px_rgba(251,146,60,0.4)] group-hover:shadow-[0_0_40px_rgba(251,146,60,0.6)]'
-                } ${theme.border}`}>
-                  <Image 
-                    src={leader.img} 
-                    alt={leader.name} 
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110" 
-                    referrerPolicy="no-referrer"
-                  />
+                {/* Custom multi-layered themed circular border mimicking the exact double-circle visual */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20">
+                  <div className={`p-1.5 rounded-full transition-all duration-500 ${
+                    leader.theme === 'sky' ? 'bg-sky-400/35 shadow-[0_4px_25px_rgba(56,189,248,0.3)] group-hover:bg-sky-400/45' : 
+                    leader.theme === 'purple' ? 'bg-purple-400/35 shadow-[0_4px_25px_rgba(168,85,247,0.3)] group-hover:bg-purple-400/45' : 
+                    'bg-orange-400/35 shadow-[0_4px_25px_rgba(251,146,60,0.3)] group-hover:bg-orange-400/45'
+                  }`}>
+                    <div className="bg-white p-1 rounded-full shadow-lg">
+                      <div className="w-[128px] h-[128px] rounded-full overflow-hidden relative bg-white">
+                        <Image 
+                          src={leader.img} 
+                          alt={leader.name} 
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Animated Card Content */}

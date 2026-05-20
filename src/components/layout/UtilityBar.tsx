@@ -42,7 +42,7 @@ export default function UtilityBar() {
   ];
 
   return (
-    <div className="bg-[#0f172a] text-white py-2 px-4 shadow-inner relative z-[150]">
+    <div className="hidden lg:block bg-[#ff6600] text-white py-2.5 px-4 shadow-inner relative z-[150]">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-4">
         {/* Social Icons Left */}
         <div className="flex items-center gap-2 shrink-0">
@@ -55,7 +55,7 @@ export default function UtilityBar() {
             <a 
               key={i} 
               href={href} 
-              className="w-7 h-7 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-all text-xs"
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-all text-sm text-white"
             >
               <Icon />
             </a>
@@ -63,18 +63,18 @@ export default function UtilityBar() {
         </div>
 
         {/* Professional Scrolling News */}
-        <div className="flex-1 overflow-hidden h-6 flex items-center bg-black/5 rounded-full px-4">
-          <div className="animate-marquee whitespace-nowrap flex items-center font-medium text-[11px] uppercase tracking-wide">
+        <div className="flex-1 overflow-hidden h-7 flex items-center bg-black/10 rounded-full px-4">
+          <div className="animate-marquee whitespace-nowrap flex items-center font-bold text-xs lg:text-[13px] uppercase tracking-wider text-white">
              {notices.map((notice, idx) => (
-               <span key={idx} className="flex items-center gap-2 mx-8">
-                  <FaClipboardList className="text-white/80" />
+               <span key={idx} className="flex items-center gap-2 mx-8 text-white">
+                  <FaClipboardList className="text-white" />
                   {notice}
                </span>
              ))}
              {/* Duplicate for loop */}
              {notices.map((notice, idx) => (
-               <span key={`dup-${idx}`} className="flex items-center gap-2 mx-8">
-                  <FaClipboardList className="text-white/80" />
+               <span key={`dup-${idx}`} className="flex items-center gap-2 mx-8 text-white">
+                  <FaClipboardList className="text-white" />
                   {notice}
                </span>
              ))}
@@ -83,9 +83,9 @@ export default function UtilityBar() {
 
         {/* Language Right (Custom Styled Dropdown) */}
         <div className="flex items-center gap-2 shrink-0">
-          <div className="flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded border border-white/20 hover:bg-white/20 transition-all">
-            <FaGlobe className="text-[10px] opacity-80" />
-            <span className="text-[9px] font-black tracking-tighter uppercase whitespace-nowrap hidden lg:inline">Language</span>
+          <div className="flex items-center gap-1.5 bg-white/15 px-3 py-1 rounded border border-white/20 hover:bg-white/25 transition-all">
+            <FaGlobe className="text-xs text-white" />
+            <span className="text-[11px] font-extrabold tracking-tight uppercase whitespace-nowrap">Language</span>
             <div id="google_translate_element" className="google-translate-styled"></div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function UtilityBar() {
           background-color: transparent !important;
           color: white !important;
           border: none !important;
-          font-size: 9px !important;
+          font-size: 11px !important;
           font-weight: 800 !important;
           text-transform: uppercase !important;
           outline: none !important;

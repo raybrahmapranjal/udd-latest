@@ -12,8 +12,8 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Urban Development Department BTR",
-  description: "Official website of Urban Development Department, Bodoland Territorial Region",
+  title: "Urban Development Department BTC",
+  description: "Official website of Urban Development Department, Bodoland Territorial Council",
 };
 
 export default function RootLayout({

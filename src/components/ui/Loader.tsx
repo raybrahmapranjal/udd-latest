@@ -20,7 +20,7 @@ export default function Loader() {
         >
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 border-4 border-navy border-t-saffron rounded-full animate-spin"></div>
-            <p className="mt-4 font-bold text-navy uppercase tracking-widest text-xs">UDD BTR Portal</p>
+            <p className="mt-4 font-bold text-navy uppercase tracking-widest text-xs">UDD BTC Portal</p>
           </div>
         </motion.div>
       )}

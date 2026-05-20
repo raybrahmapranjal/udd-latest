@@ -45,7 +45,7 @@ export default function Schemes() {
               <div className="absolute inset-0 rounded-full shadow-[0_0_50px_rgba(5,150,105,0.4)] animate-pulse -z-10"></div>
            </div>
            <div className="inline-block border-b-4 border-emerald-500 pb-2 mb-4">
-              <h2 className="text-4xl md:text-5xl font-black text-navy uppercase tracking-tight">Active Schemes</h2>
+              <h2 className="text-4xl md:text-5xl font-black text-navy uppercase tracking-tight">Active Schemes of UDD BTC</h2>
            </div>
            <p className="text-gray-500 max-xl mx-auto font-medium text-lg leading-relaxed">Flagship programs and initiatives driving urban growth in Bodoland.</p>
         </div>

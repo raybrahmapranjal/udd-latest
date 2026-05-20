@@ -10,7 +10,7 @@ export default function CitizenEngagement() {
   ];
 
   return (
-    <section className="bg-navy py-24 px-6 md:px-16 lg:px-32 text-white relative overflow-hidden">
+    <section id="citizen-engagement" className="bg-navy py-24 px-6 md:px-16 lg:px-32 text-white relative overflow-hidden">
       <div className="dot-pattern absolute inset-0 opacity-10"></div>
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col items-center mb-20 text-center">
@@ -22,9 +22,9 @@ export default function CitizenEngagement() {
             <div className="absolute inset-0 rounded-full shadow-[0_0_50px_rgba(255,255,255,0.2)] animate-pulse -z-10"></div>
           </div>
           <div className="inline-block border-b-4 border-saffron pb-2 mb-4">
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">Citizen Engagement</h2>
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight">UDD BTC Citizen Engagement</h2>
           </div>
-          <p className="text-white/60 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Your participation is vital in shaping the future of Bodoland Territorial Region.</p>
+          <p className="text-white/60 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Your participation is vital in shaping the future of Bodoland Territorial Council.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

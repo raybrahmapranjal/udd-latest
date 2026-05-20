@@ -32,7 +32,7 @@ export default function Contact() {
                  </div>
                  <div>
                     <h4 className="font-bold mb-1">Our Location</h4>
-                    <p className="text-white/60 text-sm font-medium">UDD Office, Kokrajhar, BTR, Assam — 783370</p>
+                    <p className="text-white/60 text-sm font-medium">UDD Office, Kokrajhar, BTC, Assam — 783370</p>
                  </div>
               </div>
               <div className="flex items-start gap-6">

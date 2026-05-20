@@ -16,15 +16,20 @@ export default function OfficeLocation() {
           <div className="inline-block border-b-4 border-orange-500 pb-2 mb-4">
             <h2 className="text-4xl md:text-5xl font-black text-navy uppercase tracking-tight">Our Reach</h2>
           </div>
-          <p className="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Headquartered in Kokrajhar, we manage urban development across the entire BTR region.</p>
+          <p className="text-gray-500 max-w-2xl mx-auto font-medium text-lg leading-relaxed">Headquartered in Kokrajhar, we manage urban development across the entire BTC region.</p>
         </div>
 
-        <div className="w-full h-96 rounded-lg bg-slate-200 border-2 border-slate-300 shadow-xl flex items-center justify-center relative overflow-hidden">
-             <div className="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=Kokrajhar,BTR&zoom=12&size=600x400&key=YOUR_API_KEY')] bg-cover opacity-80"></div>
-             <div className="relative z-10 text-slate-700 text-xl font-bold flex items-center gap-2">
-                <MapPin className="w-8 h-8 text-orange-600" />
-                Office Location Map
-             </div>
+        <div className="w-full h-[450px] rounded-lg bg-slate-200 border-2 border-slate-300 shadow-xl relative overflow-hidden">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.1250764309643!2d90.2783701!3d26.41944000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x37588a9e2fb3f68f%3A0x270c51c94ec0f719!2sOffice%20of%20the%20CHD%2C%20Urban%20Development%20Office%20BTC!5e0!3m2!1sen!2sin!4v1779260508619!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            className="absolute inset-0 w-full h-full"
+          ></iframe>
         </div>
       </div>
     </section>

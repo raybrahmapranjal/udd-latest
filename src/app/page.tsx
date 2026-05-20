@@ -15,8 +15,10 @@ import Footer from '@/components/layout/Footer';
 export default function Home() {
   return (
     <div id="home" className="min-h-screen">
-      <UtilityBar />
-      <Header />
+      <div className="sticky top-0 z-[110]">
+        <UtilityBar />
+        <Header />
+      </div>
       
       {/* Sections */}
       <Hero />

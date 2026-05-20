@@ -43,7 +43,7 @@ const sectionData: { title: string; badge: string; icon: any; items: Item[]; bg:
     glowColor: 'rgba(16,185,129,0.5)',
     items: [
       { title: 'National Urban Livelihoods Mission', desc: 'Skill development and employment generation', amount: '₹8.2 Cr', status: 'Active' },
-      { title: 'Smart City Initiative', desc: 'Modernizing core infrastructure in BTR', amount: '₹15 Cr', status: 'Ongoing' },
+      { title: 'Smart City Initiative', desc: 'Modernizing core infrastructure in BTC', amount: '₹15 Cr', status: 'Ongoing' },
       { title: 'Urban Sanitation Program', desc: 'Enhancing sanitation facilities in ULBs', amount: '₹5 Cr', status: 'Upcoming' },
     ]
   },
@@ -100,7 +100,7 @@ export default function IntegratedSection() {
         </motion.div>
         
         <div className="inline-block border-b-4 border-blue-600 pb-2 mb-4">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-navy uppercase tracking-tight">Integrated Dashboard</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-navy uppercase tracking-tight">Integrated UDD BTC Dashboard</h2>
         </div>
         <p className="text-gray-500 max-w-2xl mx-auto font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
           Real-time updates, news, and notifications from the Urban Development Department at one place.

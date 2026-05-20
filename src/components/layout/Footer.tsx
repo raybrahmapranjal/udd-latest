@@ -1,4 +1,5 @@
 import { FaFacebook, FaTwitter, FaYoutube, FaInstagram, FaChevronRight } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,12 +9,22 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center mb-16 relative z-10">
          {/* Centralized Header */}
          <div className="flex flex-col items-center gap-4 mb-8">
-            <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center p-2">
-               <img src="/images/logo.png" alt="BTC" className="h-16 w-auto" />
+            <div className="w-32 h-32 md:w-36 md:h-36 rounded-full bg-transparent flex items-center justify-center p-2">
+               <div className="relative w-full h-full">
+                  <Image 
+                     src="https://cdn.abacus.ai/images/8409d4a8-4907-46a5-ac73-f478108354d6.png" 
+                     alt="BTC Logo" 
+                     fill 
+                     sizes="144px"
+                     className="object-contain" 
+                     referrerPolicy="no-referrer"
+                     priority
+                  />
+               </div>
             </div>
             <div>
-               <h4 className="font-bold text-3xl leading-tight">Urban Development Department, BTR</h4>
-               <p className="text-sm text-white/50 uppercase tracking-widest mt-1">Bodoland Territorial Region</p>
+               <h4 className="font-bold text-3xl leading-tight">Urban Development Department, BTC</h4>
+               <p className="text-sm text-white/50 uppercase tracking-widest mt-1">Bodoland Territorial Council</p>
             </div>
          </div>
          
@@ -91,7 +102,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto border-t border-white/10 pt-12 flex flex-col md:flex-row justify-center items-center gap-6 relative z-10">
          <p className="text-[10px] text-white/40 font-bold uppercase tracking-widest text-center">
-           © {currentYear} Urban Development Department, BTR | All Rights Reserved
+           © {currentYear} Urban Development Department, BTC | All Rights Reserved
          </p>
       </div>
     </footer>
