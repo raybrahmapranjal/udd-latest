@@ -82,7 +82,31 @@ export default function Services() {
                 <IconComponent className="w-5 h-5 md:w-7 md:h-7" strokeWidth={1.5} />
               </div>
               <h3 className="font-bold text-navy text-xs sm:text-sm md:text-base mb-2 md:mb-3 leading-tight group-hover:text-saffron transition-colors text-center">{service.label}</h3>
-              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-3 md:mb-4 opacity-60">Online Service</p>
+              
+              <div className="flex items-center gap-1.5 mb-3 md:mb-4">
+                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${
+                  service.color === 'sky' ? 'bg-sky-500' :
+                  service.color === 'orange' ? 'bg-orange-500' :
+                  service.color === 'emerald' ? 'bg-emerald-500' :
+                  service.color === 'purple' ? 'bg-purple-500' :
+                  service.color === 'rose' ? 'bg-rose-500' :
+                  service.color === 'indigo' ? 'bg-indigo-500' :
+                  service.color === 'amber' ? 'bg-amber-500' :
+                  'bg-teal-500'
+                }`} />
+                <p className={`text-[10px] font-bold uppercase tracking-widest ${
+                  service.color === 'sky' ? 'text-sky-600' :
+                  service.color === 'orange' ? 'text-orange-600' :
+                  service.color === 'emerald' ? 'text-emerald-600' :
+                  service.color === 'purple' ? 'text-purple-600' :
+                  service.color === 'rose' ? 'text-rose-600' :
+                  service.color === 'indigo' ? 'text-indigo-600' :
+                  service.color === 'amber' ? 'text-amber-600' :
+                  'text-teal-600'
+                }`}>
+                  Online Service
+                </p>
+              </div>
               
               <div className="mt-auto w-full pt-4">
                 <div className="w-full py-2 px-3 md:py-2.5 md:px-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-md flex items-center justify-center gap-1.5 shadow-sm group-hover:from-orange-600 group-hover:to-amber-600 transition-all duration-300 font-black text-[9px] md:text-[10px] uppercase tracking-wider">

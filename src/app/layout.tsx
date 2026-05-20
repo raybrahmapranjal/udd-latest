@@ -14,6 +14,9 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   title: "Urban Development Department BTC",
   description: "Official website of Urban Development Department, Bodoland Territorial Council",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
