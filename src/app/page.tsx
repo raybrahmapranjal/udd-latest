@@ -3,7 +3,7 @@ import Header from '@/components/layout/Header';
 import Hero from '@/components/sections/Hero';
 import LeaderStrip from '@/components/sections/LeaderStrip';
 import StatsStrip from '@/components/sections/StatsStrip';
-import Services from '@/components/sections/Services';
+import Schemes from '@/components/sections/Schemes';
 import UrbanLocalBodies from '@/components/sections/UrbanLocalBodies';
 import IntegratedDashboardSection from '@/components/sections/IntegratedDashboardSection';
 import QuickAccessServices from '@/components/sections/QuickAccessServices';
@@ -26,7 +26,7 @@ export default function Home() {
       <StatsStrip />
       
       <div className="bg-white">
-        <Services />
+        <Schemes />
         <UrbanLocalBodies />
         <IntegratedDashboardSection />
         <QuickAccessServices />

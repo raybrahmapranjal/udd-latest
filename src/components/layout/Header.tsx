@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { navLinks } from '@/lib/data';
-import { Menu, X, ChevronDown, Home, Building, Briefcase, MapPin, Phone, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, Home, Building, Briefcase, MapPin, Phone, Sparkles, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
@@ -13,6 +13,7 @@ export default function Header() {
       case 'Home': return <Home className="w-4 h-4 text-orange-500" />;
       case 'About UDD': return <Building className="w-4 h-4 text-blue-600" />;
       case 'Services': return <Briefcase className="w-4 h-4 text-green-600" />;
+      case 'Grievance': return <MessageSquare className="w-4 h-4 text-red-500 animate-pulse" />;
       case 'AI Services': return <Sparkles className="w-4 h-4 text-purple-600 animate-pulse" />;
       case 'ULBs': return <MapPin className="w-4 h-4 text-teal-600" />;
       case 'Contact': return <Phone className="w-4 h-4 text-green-600" />;

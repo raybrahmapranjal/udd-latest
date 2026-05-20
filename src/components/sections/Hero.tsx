@@ -2,7 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowRight, MessageSquare } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, MessageSquare, Briefcase } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -104,20 +105,29 @@ export default function Hero() {
             &quot;Committed to planned urban growth, transparent governance, and citizen-first services through innovation and technology.&quot;
           </p>
           
-          {/* Submit Grievance Action Button */}
+          {/* Submit Grievance & Our Services Action Buttons */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
-            className="mb-12 mt-2"
+            className="mb-12 mt-2 flex flex-col sm:flex-row items-center justify-center gap-4 w-full"
           >
             <a 
-              href="#citizen-engagement"
-              className="group inline-flex items-center gap-3 bg-white/5 backdrop-blur-md border border-purple-500 rounded-xl px-5 py-3.5 text-left shadow-lg transition-all duration-300 relative overflow-hidden select-none hover:bg-purple-600/15 hover:border-purple-400 hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:scale-[1.02] text-white"
+              href="/grievance"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/5 backdrop-blur-md border border-purple-500 rounded-xl px-5 py-3.5 shadow-lg transition-all duration-300 relative overflow-hidden select-none hover:bg-purple-600/15 hover:border-purple-400 hover:shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:scale-[1.02] text-white"
             >
-              <MessageSquare className="w-4 h-4 text-amber-400 group-hover:text-amber-300 transition-colors duration-300" />
+              <MessageSquare className="w-4 h-4 text-amber-400 group-hover:text-amber-300 transition-colors duration-300 shrink-0" />
               <span className="font-extrabold text-xs md:text-sm tracking-widest uppercase">Submit Grievance</span>
-              <ArrowRight className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-transform duration-300 ease-out transform group-hover:translate-x-1.5" />
+              <ArrowRight className="w-4 h-4 text-purple-400 group-hover:text-purple-300 transition-transform duration-300 ease-out transform group-hover:translate-x-1.5 shrink-0" />
+            </a>
+
+            <a 
+              href="/services"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/5 backdrop-blur-md border border-emerald-500 rounded-xl px-5 py-3.5 shadow-lg transition-all duration-300 relative overflow-hidden select-none hover:bg-emerald-600/15 hover:border-emerald-400 hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:scale-[1.02] text-white"
+            >
+              <Briefcase className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300 shrink-0" />
+              <span className="font-extrabold text-xs md:text-sm tracking-widest uppercase">Our Services</span>
+              <ArrowRight className="w-4 h-4 text-emerald-400 group-hover:text-emerald-300 transition-transform duration-300 ease-out transform group-hover:translate-x-1.5 shrink-0" />
             </a>
           </motion.div>
         </motion.div>

@@ -1,10 +1,34 @@
 import { BriefcaseBusiness, FileText, Award, Droplets, Building } from 'lucide-react';
 
 const services = [
-  { name: 'PROPERTY TAX', icon: FileText },
-  { name: 'TRADE LICENCE', icon: Award },
-  { name: 'WATER CONNECTION', icon: Droplets },
-  { name: 'BUILDING PERMISSION', icon: Building },
+  { 
+    name: 'PROPERTY TAX', 
+    icon: FileText,
+    bgGradient: 'bg-gradient-to-br from-blue-50/70 to-blue-100/30',
+    borderColor: 'border-blue-400',
+    iconGradient: 'from-blue-500 to-indigo-600 shadow-blue-500/20'
+  },
+  { 
+    name: 'TRADE LICENCE', 
+    icon: Award,
+    bgGradient: 'bg-gradient-to-br from-emerald-50/70 to-emerald-100/30',
+    borderColor: 'border-emerald-400',
+    iconGradient: 'from-emerald-500 to-teal-600 shadow-emerald-500/20'
+  },
+  { 
+    name: 'WATER CONNECTION', 
+    icon: Droplets,
+    bgGradient: 'bg-gradient-to-br from-sky-50/70 to-sky-100/30',
+    borderColor: 'border-sky-400',
+    iconGradient: 'from-sky-400 to-blue-500 shadow-sky-500/20'
+  },
+  { 
+    name: 'BUILDING PERMISSION', 
+    icon: Building,
+    bgGradient: 'bg-gradient-to-br from-purple-50/70 to-purple-100/30',
+    borderColor: 'border-purple-400',
+    iconGradient: 'from-purple-500 to-indigo-600 shadow-purple-500/20'
+  },
 ];
 
 export default function QuickAccessServices() {
@@ -26,12 +50,16 @@ export default function QuickAccessServices() {
 
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {services.map((service, idx) => (
-          <div key={idx} className="border-2 border-orange-500 rounded-lg p-4 sm:p-8 shadow-lg flex flex-col items-center justify-center gap-4 sm:gap-6 hover:shadow-xl transition-all cursor-pointer bg-white group hover:-translate-y-1 duration-300">
-            <div className="bg-gradient-to-tr from-orange-500 to-orange-700 p-3 sm:p-4 rounded-full text-white shadow-md group-hover:scale-110 transition-transform">
+          <a 
+            key={idx} 
+            href="/services"
+            className={`group border-2 ${service.borderColor} ${service.bgGradient} rounded-2xl p-6 sm:p-10 shadow-md hover:shadow-xl flex flex-col items-center justify-center gap-4 sm:gap-6 transition-all duration-300 transform hover:-translate-y-1.5 cursor-pointer relative overflow-hidden`}
+          >
+            <div className={`bg-gradient-to-tr ${service.iconGradient} p-3 sm:p-4 rounded-xl text-white shadow-md group-hover:scale-110 transition-transform duration-300`}>
                <service.icon className="w-6 h-6 sm:w-8 sm:h-8" />
             </div>
-            <h3 className="font-bold text-gray-900 text-center tracking-tight text-xs sm:text-base leading-tight uppercase">{service.name}</h3>
-          </div>
+            <h3 className="font-extrabold text-[#003366] text-center tracking-tight text-xs sm:text-base leading-tight uppercase">{service.name}</h3>
+          </a>
         ))}
       </div>
     </section>

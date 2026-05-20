@@ -52,30 +52,30 @@ export default function LeaderStrip() {
   const getThemeClasses = (theme: string) => {
     switch(theme) {
       case 'sky': return {
-        border: 'border-sky-400',
+        border: 'border-sky-450',
         bg: 'bg-sky-50/50',
         text: 'text-sky-600',
         button: 'bg-blue-600 hover:bg-blue-700',
         bullet: 'bg-blue-500',
-        cardBorder: 'border-sky-200',
+        cardBorder: 'border-sky-400',
         cardBg: 'bg-gradient-to-br from-white to-sky-50'
       };
       case 'purple': return {
-        border: 'border-purple-400',
+        border: 'border-purple-450',
         bg: 'bg-purple-50/50',
         text: 'text-purple-600',
         button: 'bg-purple-600 hover:bg-purple-700',
         bullet: 'bg-purple-500',
-        cardBorder: 'border-purple-200',
+        cardBorder: 'border-purple-400',
         cardBg: 'bg-gradient-to-br from-white to-purple-50'
       };
       case 'orange': return {
-        border: 'border-orange-400',
+        border: 'border-orange-450',
         bg: 'bg-orange-50/50',
         text: 'text-orange-600',
         button: 'bg-orange-600 hover:bg-orange-700',
         bullet: 'bg-orange-500',
-        cardBorder: 'border-orange-200',
+        cardBorder: 'border-orange-400',
         cardBg: 'bg-gradient-to-br from-white to-orange-50'
       };
       default: return {
@@ -84,7 +84,7 @@ export default function LeaderStrip() {
         text: 'text-gray-600',
         button: 'bg-gray-600 hover:bg-gray-700',
         bullet: 'bg-gray-500',
-        cardBorder: 'border-gray-200',
+        cardBorder: 'border-gray-400',
         cardBg: 'bg-gradient-to-br from-white to-gray-50'
       };
     }
