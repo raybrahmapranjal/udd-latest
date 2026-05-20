@@ -2,7 +2,7 @@ import fs from 'fs';
 import https from 'https';
 
 console.log("Downloading updated favicon from CDN...");
-const url = 'https://cdn.abacus.ai/images/8409d4a8-4907-46a5-ac73-f478108354d6.png/';
+const url = 'https://uddbtr.online/favicon.png';
 const dest = './public/favicon.png';
 
 try {
