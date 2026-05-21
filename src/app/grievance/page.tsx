@@ -187,10 +187,11 @@ export default function GrievancePage() {
 
   // District wise ULBs dictionary
   const districtUlbs: { [key: string]: string[] } = {
-    'Kokrajhar': ['Kokrajhar Municipal Board', 'Gossaigaon Municipal Board', 'Fakiragram Town Committee'],
-    'Chirang': ['Kajalgaon Town Committee', 'Basugaon Municipal Board', 'Bijni Town Committee'],
-    'Udalguri': ['Udalguri Municipal Board', 'Tangla Municipal Board'],
-    'Baksa': ['Mushalpur Town Committee']
+    'Kokrajhar': ['Kokrajhar Municipal Board', 'Gossaigaon Municipal Board', 'Fakiragram Municipal Board'],
+    'Chirang': ['Basugaon Municipal Board', 'Kajalgaon Municipal Board', 'Bijni Municipal Board'],
+    'Udalguri': ['Tangla Municipal Board'],
+    'Baksa': ['Mushalpur Municipal Board', 'Goreswar Municipal Board'],
+    'Tamulpur': ['Tamulpur Municipal Board']
   };
 
   const categories = [
@@ -388,17 +389,27 @@ export default function GrievancePage() {
         <Header />
       </div>
 
-      {/* Styled Banner Section */}
-      <section className="bg-gradient-to-r from-[#002244] to-[#003366] text-white py-12 md:py-16 px-4 text-center relative overflow-hidden border-b-4 border-[#ff6600]">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ff6600_1px,transparent_1px)] [background-size:16px_16px]" />
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 bg-[#ff6600]/20 text-orange-300 font-bold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest mb-4 border border-[#ff6600]/30">
-            <ShieldCheck className="w-4 h-4 text-[#ff6600]" /> Integrated Redressal Portal
+      {/* Styled Banner Section with traditional Bodo Aronai horizontal pattern */}
+      <section className="relative py-16 overflow-hidden bg-slate-950 text-white border-b border-purple-950/30 shadow-lg text-center">
+        {/* Traditional Bodo Aronai vertical pattern tiling horizontally */}
+        <div 
+          className="absolute inset-0 z-0 opacity-45 bg-repeat-x bg-center"
+          style={{ 
+            backgroundImage: "url('https://as2.ftcdn.net/jpg/05/39/19/59/1000_F_539195979_di6c1j1rrc8wrybNOkactpWEgWlDioV1.webp')",
+            backgroundSize: "auto 100%"
+          }}
+        />
+        {/* Light Purple Overlay with decreased intensity */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#21113a]/70 via-[#180a2d]/60 to-[#2d114c]/70 mix-blend-multiply" />
+
+        <div className="max-w-4xl mx-auto relative z-20 px-4">
+          <div className="inline-flex items-center gap-2 bg-sky-455/15 border border-sky-400/30 text-sky-200 font-extrabold px-4 py-1.5 rounded-full text-xs uppercase tracking-widest mb-4 backdrop-blur-sm">
+            <ShieldCheck className="w-4 h-4 text-amber-200 drop-shadow-[0_0_8px_rgba(251,191,36,0.35)]" /> Integrated Redressal Portal
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight leading-tight text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight text-white font-sans drop-shadow-sm">
             Citizen Grievance Redressal
           </h1>
-          <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-medium">
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-sky-100/90 max-w-2xl mx-auto font-medium leading-relaxed">
             Welcome to the official UDD BTC online grievance registry. Lodge your municipal complaints, track investigation updates, and connect with division heads instantly.
           </p>
         </div>
@@ -616,6 +627,7 @@ export default function GrievancePage() {
                               <option value="Chirang">Chirang</option>
                               <option value="Udalguri">Udalguri</option>
                               <option value="Baksa">Baksa</option>
+                              <option value="Tamulpur">Tamulpur</option>
                             </select>
                           </div>
                         </div>

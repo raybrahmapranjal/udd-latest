@@ -5,6 +5,19 @@ import { navLinks } from '@/lib/data';
 import { Menu, X, ChevronDown, Home, Building, Briefcase, MapPin, Phone, Sparkles, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const ulbItems = [
+  { id: 'basugaon_mb', name: 'Basugaon Municipal Board' },
+  { id: 'bijni_mb', name: 'Bijni Municipal Board' },
+  { id: 'fakiragram_mb', name: 'Fakiragram Municipal Board' },
+  { id: 'goreswar_mb', name: 'Goreswar Municipal Board' },
+  { id: 'gossaigaon_mb', name: 'Gossaigaon Municipal Board' },
+  { id: 'kajalgaon_mb', name: 'Kajalgaon Municipal Board' },
+  { id: 'kokrajhar_mb', name: 'Kokrajhar Municipal Board' },
+  { id: 'mushalpur_mb', name: 'Mushalpur Municipal Board' },
+  { id: 'tamulpur_mb', name: 'Tamulpur Municipal Board' },
+  { id: 'tangla_mb', name: 'Tangla Municipal Board' },
+];
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -62,7 +75,51 @@ export default function Header() {
                   {link.children && <ChevronDown className="w-3.5 h-3.5 text-gray-400 group-hover:rotate-180 transition-transform duration-200" />}
                 </a>
                 
-                {link.children && (
+                {link.label === 'ULBs' ? (
+                  /* Custom Designed ULB Menu matching image */
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-[640px] bg-white rounded-2xl shadow-2xl border border-slate-200 p-0 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-[120] overflow-hidden">
+                    {/* Blue gradient banner header */}
+                    <div className="bg-sky-50 px-6 py-4 flex items-center gap-3 border-b border-sky-100">
+                      <div className="bg-sky-500/10 p-2.5 rounded-xl text-[#003366] shrink-0">
+                        <MapPin className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-extrabold text-[#003366] text-sm uppercase tracking-wider">
+                          Urban Local Bodies
+                        </h4>
+                        <p className="text-xs text-[#0066cc] font-black mt-0.5">Explore 10 ULBs across BTC</p>
+                      </div>
+                    </div>
+
+                    {/* 2-Column Responsive Board Selector Grid */}
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-3.5 p-6 bg-white">
+                      {ulbItems.map((item) => (
+                        <a 
+                          key={item.id}
+                          href={`/ulb/${item.id}`}
+                          className="flex items-center gap-3.5 hover:bg-slate-50 p-2 rounded-xl transition-all duration-200 group/item border border-transparent hover:border-slate-100"
+                        >
+                          <div className="w-10 h-10 bg-gradient-to-tr from-[#3b82f6] to-[#0284c7] hover:from-[#2563eb] hover:to-[#0369a1] text-white flex items-center justify-center rounded-xl shrink-0 transition-all duration-300 shadow-sm group-hover/item:scale-105 group-hover/item:shadow-md">
+                            <Building className="w-5 h-5 text-white" />
+                          </div>
+                          <span className="font-extrabold text-[#003366] text-[13px] leading-snug group-hover/item:text-[#f26522] transition-colors">
+                            {item.name}
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+
+                    {/* Footer Button Block */}
+                    <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center">
+                      <a 
+                        href="/schemes/15fc"
+                        className="w-full text-center py-3 bg-gradient-to-r from-[#2176ff] to-[#01acff] hover:from-[#0052cc] hover:to-[#017fff] text-white rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-1.5"
+                      >
+                        View All ULBs &rarr;
+                      </a>
+                    </div>
+                  </div>
+                ) : link.children && (
                   <div className="absolute left-0 top-full w-56 bg-white shadow-2xl py-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-[120] border-t-2 border-[#ff6600] rounded-b-lg">
                     {link.children.map((child) => (
                       <a 
@@ -121,7 +178,21 @@ export default function Header() {
                       {link.label}
                     </div>
                   </a>
-                  {link.children && (
+                  {link.label === 'ULBs' ? (
+                    <div className="mt-4 ml-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {ulbItems.map((item) => (
+                        <a 
+                          key={item.id}
+                          href={`/ulb/${item.id}`}
+                          className="flex items-center gap-2 text-gray-500 font-bold text-xs hover:text-[#ff6600] transition-colors py-1.5 pl-2 border-l-2 border-slate-200 hover:border-[#ff6600]"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          <Building className="w-3.5 h-3.5 text-sky-500 shrink-0" />
+                          <span>{item.name}</span>
+                        </a>
+                      ))}
+                    </div>
+                  ) : link.children && (
                     <div className="mt-4 ml-4 space-y-3">
                       {link.children.map((child) => (
                         <a 

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Building2, Landmark, MapPin } from 'lucide-react';
 
 export default function UrbanLocalBodies() {
-  const districts = ['Kokrajhar', 'Chirang', 'Baksa', 'Udalguri'];
+  const districts = ['Kokrajhar', 'Chirang', 'Baksa', 'Udalguri', 'Tamulpur'];
 
   const borderColors = ['border-sky-300', 'border-orange-300', 'border-emerald-300', 'border-purple-300'];
   const leftShadows = [
@@ -25,6 +25,21 @@ export default function UrbanLocalBodies() {
     'bg-gradient-to-br from-emerald-400 to-emerald-600',
     'bg-gradient-to-br from-purple-400 to-purple-600'
   ];
+
+  const getUlbId = (name: string) => {
+    const normName = name.toLowerCase();
+    if (normName.includes("gossaigaon")) return "gossaigaon_mb";
+    if (normName.includes("kokrajhar")) return "kokrajhar_mb";
+    if (normName.includes("basugaon")) return "basugaon_mb";
+    if (normName.includes("bijni")) return "bijni_mb";
+    if (normName.includes("fakiragram")) return "fakiragram_mb";
+    if (normName.includes("goreswar")) return "goreswar_mb";
+    if (normName.includes("kajalgaon")) return "kajalgaon_mb";
+    if (normName.includes("mushalpur")) return "mushalpur_mb";
+    if (normName.includes("tamulpur")) return "tamulpur_mb";
+    if (normName.includes("tangla")) return "tangla_mb";
+    return "gossaigaon_mb";
+  };
 
   return (
     <section id="ulb" className="py-16 md:py-24 px-4 sm:px-6 md:px-16 lg:px-32 bg-lightgray">
@@ -57,26 +72,27 @@ export default function UrbanLocalBodies() {
                 {districtUlbs.map((ulb, idx) => {
                   const colorIdx = idx % 4;
                   return (
-                  <motion.div 
-                    key={idx}
-                    whileHover={{ x: 5, y: -2 }}
-                    className={`bg-white p-6 rounded-lg border-2 ${borderColors[colorIdx]} ${leftShadows[colorIdx]} group cursor-pointer transition-all duration-300 hover:shadow-lg`}
-                  >
-                    <div className="flex items-center gap-5">
-                      <div className={`w-14 h-14 ${bgGradients[colorIdx]} rounded-md flex items-center justify-center border border-white/20 ${iconGlows[colorIdx]} transition-all duration-300 group-hover:scale-110`}>
-                          <Building2 className="w-7 h-7 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-bold text-navy text-sm mb-1.5 group-hover:text-saffron transition-colors leading-tight">{ulb.name}</h4>
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-[9px] bg-navy/5 text-navy font-black px-2 py-0.5 rounded-md uppercase tracking-widest flex items-center gap-1">
-                            <Landmark className="w-3 h-3" />
-                            {ulb.type}
-                          </span>
+                  <a href={`/ulb/${getUlbId(ulb.name)}`} key={idx} className="block">
+                    <motion.div 
+                      whileHover={{ x: 5, y: -2 }}
+                      className={`bg-white p-6 rounded-lg border-2 ${borderColors[colorIdx]} ${leftShadows[colorIdx]} group cursor-pointer transition-all duration-300 hover:shadow-lg`}
+                    >
+                      <div className="flex items-center gap-5">
+                        <div className={`w-14 h-14 ${bgGradients[colorIdx]} rounded-md flex items-center justify-center border border-white/20 ${iconGlows[colorIdx]} transition-all duration-300 group-hover:scale-110`}>
+                            <Building2 className="w-7 h-7 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-navy text-sm mb-1.5 group-hover:text-saffron transition-colors leading-tight">{ulb.name}</h4>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-[9px] bg-navy/5 text-navy font-black px-2 py-0.5 rounded-md uppercase tracking-widest flex items-center gap-1">
+                              <Landmark className="w-3 h-3" />
+                              {ulb.type}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </a>
                   );
                 })}
               </div>

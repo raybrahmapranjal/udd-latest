@@ -71,13 +71,14 @@ export const currentProjects = [
 export const ulbs = [
   { name: 'Kokrajhar Municipal Board', type: 'MB', district: 'Kokrajhar' },
   { name: 'Gossaigaon Municipal Board', type: 'MB', district: 'Kokrajhar' },
-  { name: 'Kajalgaon Town Committee', type: 'TC', district: 'Chirang' },
-  { name: 'Fakiragram Town Committee', type: 'TC', district: 'Kokrajhar' },
-  { name: 'Bijni Town Committee', type: 'TC', district: 'Chirang' },
+  { name: 'Fakiragram Municipal Board', type: 'MB', district: 'Kokrajhar' },
   { name: 'Basugaon Municipal Board', type: 'MB', district: 'Chirang' },
-  { name: 'Udalguri Municipal Board', type: 'MB', district: 'Udalguri' },
+  { name: 'Kajalgaon Municipal Board', type: 'MB', district: 'Chirang' },
+  { name: 'Bijni Municipal Board', type: 'MB', district: 'Chirang' },
   { name: 'Tangla Municipal Board', type: 'MB', district: 'Udalguri' },
-  { name: 'Mushalpur Town Committee', type: 'TC', district: 'Baksa' },
+  { name: 'Mushalpur Municipal Board', type: 'MB', district: 'Baksa' },
+  { name: 'Goreswar Municipal Board', type: 'MB', district: 'Baksa' },
+  { name: 'Tamulpur Municipal Board', type: 'MB', district: 'Tamulpur' },
 ];
 
 export const newsNotices = [

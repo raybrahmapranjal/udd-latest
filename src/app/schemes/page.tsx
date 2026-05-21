@@ -251,46 +251,54 @@ export default function SchemesPage() {
         <Header />
       </div>
 
-      {/* Main Page Layout Header Banner */}
-      <div className="relative py-16 bg-gradient-to-br from-[#003366] via-[#002244] to-slate-900 overflow-hidden text-white shadow-md">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(242,101,34,0.15),rgba(255,255,255,0))]" />
-        
-        {/* Geometric aesthetic accents */}
-        <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-saffron/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-0 left-0 w-80 h-80 bg-blue-600/10 rounded-full blur-2xl pointer-events-none" />
+      {/* Main Page Layout Header Banner with traditional Bodo Aronai horizontal pattern */}
+      <section className="relative py-16 overflow-hidden bg-slate-950 text-white border-b border-purple-950/30 shadow-lg">
+        {/* Traditional Bodo Aronai vertical pattern tiling horizontally */}
+        <div 
+          className="absolute inset-0 z-0 opacity-45 bg-repeat-x bg-center"
+          style={{ 
+            backgroundImage: "url('https://as2.ftcdn.net/jpg/05/39/19/59/1000_F_539195979_di6c1j1rrc8wrybNOkactpWEgWlDioV1.webp')",
+            backgroundSize: "auto 100%"
+          }}
+        />
+        {/* Light Purple Overlay with decreased intensity */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#21113a]/70 via-[#180a2d]/60 to-[#2d114c]/70 mix-blend-multiply" />
 
-        <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
-          <a href="/" className="inline-flex items-center gap-1.5 text-orange-400 hover:text-orange-300 font-extrabold text-xs uppercase tracking-wider mb-6 transition-all">
-            <ArrowLeft className="w-4 h-4" /> Back to Portal Home
+        <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-20">
+          <a 
+            href="/" 
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 text-sky-200 hover:text-white mb-6 transition-all font-semibold text-xs border border-white/5 backdrop-blur-sm shadow-sm"
+          >
+            <ArrowLeft className="w-3.5 h-3.5" /> Back to Portal Home
           </a>
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/15 text-[10px] uppercase tracking-widest font-bold text-orange-300 mb-3 animate-pulse">
-                <Sparkles className="w-3.5 h-3.5" /> Department Actions
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/10 text-[10px] uppercase tracking-widest font-bold text-amber-200 mb-3 backdrop-blur-sm shadow-sm">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.35)]" /> Department Actions
               </div>
-              <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3 uppercase leading-none font-sans">
-                UDD BTC Portal <span className="text-saffron">Schemes</span>
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3 uppercase leading-none font-sans text-white drop-shadow-sm">
+                UDD BTC Portal <span className="text-amber-300">Schemes</span>
               </h1>
-              <p className="text-slate-300 max-w-2xl text-xs sm:text-base font-medium leading-relaxed">
+              <p className="text-sky-100/90 max-w-2xl text-xs sm:text-base font-medium leading-relaxed">
                 A transparent, digital directory detailing all ongoing developmental schemes, physical allocation budgets, and structural community impacts tracked under the Urban Development Department, BTC.
               </p>
             </div>
 
             {/* Quick Stat boxes inside header */}
             <div className="grid grid-cols-2 gap-3 shrink-0">
-              <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl backdrop-blur-md">
-                <span className="text-[9px] uppercase font-black text-slate-300 block tracking-widest leading-none mb-1">CUMULATIVE POOL</span>
-                <span className="text-lg sm:text-2xl font-black text-saffron">₹142.5 Cr</span>
+              <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl backdrop-blur-md shadow-sm">
+                <span className="text-[9px] uppercase font-bold text-slate-300 block tracking-widest leading-none mb-1">CUMULATIVE POOL</span>
+                <span className="text-lg sm:text-2xl font-black text-amber-300">₹142.5 Cr</span>
               </div>
-              <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl backdrop-blur-md">
-                <span className="text-[9px] uppercase font-black text-slate-300 block tracking-widest leading-none mb-1">TOTAL SCHEMES</span>
+              <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl backdrop-blur-md shadow-sm">
+                <span className="text-[9px] uppercase font-bold text-slate-300 block tracking-widest leading-none mb-1">TOTAL SCHEMES</span>
                 <span className="text-lg sm:text-2xl font-black text-emerald-400">8 Flagship</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Schemes Interactive Dashboard Context */}
       <main className="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-6 md:p-8">
