@@ -79,7 +79,7 @@ const ALL_SERVICES: FullService[] = [
     badge: 'Green Initiative',
     gradient: 'from-emerald-400 to-emerald-600 shadow-emerald-500/10',
     actions: [
-      { label: 'Register as Green Volunteer', href: '/grievance' }
+      { label: 'Register as Green Volunteer', href: '/services/green-mission' }
     ]
   },
   {
@@ -105,7 +105,7 @@ const ALL_SERVICES: FullService[] = [
     badge: 'Central Scheme',
     gradient: 'from-sky-400 to-sky-600 shadow-sky-500/10',
     actions: [
-      { label: 'Apply for Water Connection', href: '/grievance' }
+      { label: 'Apply for Water Connection', href: '/services/water-supply' }
     ]
   },
   {
@@ -131,7 +131,7 @@ const ALL_SERVICES: FullService[] = [
     badge: 'High Impact',
     gradient: 'from-indigo-400 to-indigo-600 shadow-indigo-500/10',
     actions: [
-      { label: 'Report Local Litter Hotspot', href: '/grievance' }
+      { label: 'Report Local Litter Hotspot', href: '/services/solid-waste' }
     ]
   },
   {
@@ -157,7 +157,7 @@ const ALL_SERVICES: FullService[] = [
     badge: 'E-Gov Reform',
     gradient: 'from-amber-500 to-orange-600 shadow-amber-500/10',
     actions: [
-      { label: 'Enter OBPS Portal', href: 'https://udd.bodoland.gov.in/' }
+      { label: 'Enter OBPS Portal', href: '/services/building-permission' }
     ]
   },
   {
@@ -183,7 +183,7 @@ const ALL_SERVICES: FullService[] = [
     badge: 'Online Services',
     gradient: 'from-purple-500 to-indigo-600 shadow-purple-500/10',
     actions: [
-      { label: 'Pay Property Tax Online', href: 'https://udd.bodoland.gov.in/' }
+      { label: 'Pay Property Tax Online', href: '/services/property-tax' }
     ]
   },
   {
@@ -209,7 +209,7 @@ const ALL_SERVICES: FullService[] = [
     badge: 'Safety First',
     gradient: 'from-rose-400 to-rose-600 shadow-rose-500/10',
     actions: [
-      { label: 'Request Lighting or Fixes', href: '/grievance' }
+      { label: 'Request Lighting or Fixes', href: '/services/street-lighting' }
     ]
   },
   {
@@ -235,7 +235,7 @@ const ALL_SERVICES: FullService[] = [
     badge: 'Infrastructure',
     gradient: 'from-orange-400 to-orange-600 shadow-orange-500/10',
     actions: [
-      { label: 'View Spatial Master Plan', href: 'https://udd.bodoland.gov.in/' }
+      { label: 'View Spatial Master Plan', href: '/services/spatial-mapping' }
     ]
   },
   {
@@ -261,7 +261,7 @@ const ALL_SERVICES: FullService[] = [
     badge: 'Disaster Prevention',
     gradient: 'from-blue-400 to-cyan-600 shadow-blue-500/10',
     actions: [
-      { label: 'Register Waterlogging Complaint', href: '/grievance' }
+      { label: 'Register Waterlogging Complaint', href: '/services/drainage-schemes' }
     ]
   }
 ];
@@ -373,67 +373,71 @@ export default function ServicesPage() {
             {filteredServices.map((service, idx) => {
               const IconComp = service.icon;
               return (
-                <motion.div
+                <Link
                   key={service.id}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  whileHover={{ y: -5 }}
-                  className="bg-white border-2 border-slate-400 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer"
-                  onClick={() => setSelectedService(service)}
+                  href={service.actions[0]?.href || '/services'}
+                  className="block group"
                 >
-                  <div>
-                    <div className="flex justify-between items-start mb-5">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white shadow-md`}>
-                        <IconComp className="w-6 h-6" />
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.05 }}
+                    whileHover={{ y: -5 }}
+                    className="bg-white border-2 border-slate-400 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer h-full"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-5">
+                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white shadow-md`}>
+                          <IconComp className="w-6 h-6" />
+                        </div>
+                        
+                        <div className="flex items-center gap-2">
+                          <span className="text-[9px] uppercase font-bold tracking-widest px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200">
+                            {service.category}
+                          </span>
+                        </div>
                       </div>
-                      
-                      <div className="flex items-center gap-2">
-                        <span className="text-[9px] uppercase font-bold tracking-widest px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200">
-                          {service.category}
+
+                      <span className="text-[10px] text-saffron uppercase font-extrabold tracking-widest block mb-1">
+                        {service.badge}
+                      </span>
+                      <h3 className="text-xl font-black font-sans text-navy mb-2 leading-tight">
+                        {service.title}
+                      </h3>
+                      <p className="text-slate-400 text-xs font-bold leading-normal mb-3 italic">
+                        &quot;{service.tagline}&quot;
+                      </p>
+                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                        {service.description}
+                      </p>
+
+                      <div className="flex items-center gap-1.5 text-xs text-[#003366] font-black uppercase tracking-wider">
+                        <span>Explore Service Details & Apply</span>
+                        <ArrowRight className="w-4 h-4 text-saffron transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </div>
+
+                    {/* Metadata and statistics footer */}
+                    <div className="border-t border-slate-400 pt-5 mt-6 grid grid-cols-2 gap-3 text-xs">
+                      <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-400">
+                        <span className="text-[9px] uppercase font-black text-slate-400 block leading-none mb-1">Target Metric</span>
+                        <span className="font-extrabold text-slate-705 flex items-center gap-1">
+                          <Target className="w-3.5 h-3.5 text-emerald-500" />
+                          {service.outcomeTarget}
+                        </span>
+                      </div>
+
+                      <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-400">
+                        <span className="text-[9px] uppercase font-black text-slate-400 block leading-none mb-1">Impact Goal</span>
+                        <span className="font-extrabold text-navy flex items-center gap-1">
+                          <TrendingUp className="w-3.5 h-3.5 text-orange-500" />
+                          {service.impactRate}
                         </span>
                       </div>
                     </div>
 
-                    <span className="text-[10px] text-saffron uppercase font-extrabold tracking-widest block mb-1">
-                      {service.badge}
-                    </span>
-                    <h3 className="text-xl font-black font-sans text-navy mb-2 leading-tight">
-                      {service.title}
-                    </h3>
-                    <p className="text-slate-400 text-xs font-bold leading-normal mb-3 italic">
-                      &quot;{service.tagline}&quot;
-                    </p>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-                      {service.description}
-                    </p>
-
-                    <div className="flex items-center gap-1.5 text-xs text-[#003366] font-black uppercase tracking-wider">
-                      <span>Explore Service Details & Apply</span>
-                      <ArrowRight className="w-4 h-4 text-saffron transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-
-                  {/* Metadata and statistics footer */}
-                  <div className="border-t border-slate-400 pt-5 mt-6 grid grid-cols-2 gap-3 text-xs">
-                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-400">
-                      <span className="text-[9px] uppercase font-black text-slate-400 block leading-none mb-1">Target Metric</span>
-                      <span className="font-extrabold text-slate-700 flex items-center gap-1">
-                        <Target className="w-3.5 h-3.5 text-emerald-500" />
-                        {service.outcomeTarget}
-                      </span>
-                    </div>
-
-                    <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-400">
-                      <span className="text-[9px] uppercase font-black text-slate-400 block leading-none mb-1">Impact Goal</span>
-                      <span className="font-extrabold text-navy flex items-center gap-1">
-                        <TrendingUp className="w-3.5 h-3.5 text-orange-500" />
-                        {service.impactRate}
-                      </span>
-                    </div>
-                  </div>
-
-                </motion.div>
+                  </motion.div>
+                </Link>
               );
             })}
           </div>

@@ -4,9 +4,9 @@ export const navLinks = [
     label: 'About UDD', 
     href: '#', 
     children: [
-      { label: 'Wings of UDD BTC', href: '/wings' },
-      { label: 'Vision & Mission', href: '/vision' },
-      { label: 'Org Structure', href: '/structure' },
+      { label: 'Wings of UDD BTC', href: '/about' },
+      { label: 'Objectives', href: '/about/objectives' },
+      { label: 'Org Structure', href: '/about#structure-section' },
       { label: 'Our Team', href: '/team' },
       { label: 'RTI', href: '/rti' }
     ]

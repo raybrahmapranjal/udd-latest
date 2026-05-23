@@ -221,7 +221,7 @@ export default function HeroSlideshow({ ulbId, children }: HeroSlideshowProps) {
 
       {/* Floating Interactive Left and Right Arrows (Placed slightly higher/elevated for premium look) */}
       {slides.length > 1 && (
-        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none z-20 flex justify-between px-3 md:px-8">
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 pointer-events-none z-20 hidden md:flex justify-between px-3 md:px-8">
           <button
             onClick={(e) => handlePrev(e)}
             className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 hover:bg-black/75 hover:scale-105 active:scale-95 text-white flex items-center justify-center transition-all border border-white/10 shadow-lg pointer-events-auto cursor-pointer"

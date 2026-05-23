@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto flex flex-col items-center text-center pb-10 relative z-10">
         
         {/* Double-ring concentric circle styled logo matching screenshot with gradient and glow logo */}
-        <div className="relative w-28 h-28 rounded-full flex items-center justify-center bg-gradient-to-tr from-[#131b3e] via-[#1a2d6b] to-[#0e1635] shadow-[0_0_35px_rgba(59,130,246,0.55),_0_0_15px_rgba(255,153,51,0.35),_0_8px_16px_rgba(0,0,0,0.4)] border-4 border-gradient select-none mb-6 border-[#ff9933]/60 transition-transform duration-300 hover:scale-105">
+        <a href="/" className="block relative w-28 h-28 rounded-full flex items-center justify-center bg-gradient-to-tr from-[#131b3e] via-[#1a2d6b] to-[#0e1635] shadow-[0_0_35px_rgba(59,130,246,0.55),_0_0_15px_rgba(255,153,51,0.35),_0_8px_16px_rgba(0,0,0,0.4)] border-4 border-gradient select-none mb-6 border-[#ff9933]/60 transition-transform duration-300 hover:scale-105 hover:opacity-95">
           {/* Inner metallic glowing ring */}
           <div className="absolute inset-[3px] rounded-full border border-[#ff9933]/30 shadow-[0_0_10px_rgba(255,153,51,0.2)]"></div>
           
@@ -28,15 +28,17 @@ export default function Footer() {
               priority
             />
           </div>
-        </div>
+        </a>
 
         {/* Brand Headings matched exactly to screenshot */}
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-snug">
-          Urban Development Department
-        </h3>
-        <p className="text-sm sm:text-base font-extrabold tracking-wide text-[#ff9933] mt-2">
-          Kokrajhar, BTC, Assam
-        </p>
+        <a href="/" className="hover:opacity-90 transition-opacity">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-snug">
+            Urban Development Department
+          </h3>
+          <p className="text-sm sm:text-base font-extrabold tracking-wide text-[#ff9933] mt-2">
+            Kokrajhar, BTC, Assam
+          </p>
+        </a>
 
         {/* Social media connections matched to screenshot */}
         <div className="flex items-center gap-4 mt-8">
