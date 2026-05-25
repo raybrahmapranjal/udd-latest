@@ -100,12 +100,20 @@ export default function ObjectivesPage() {
         <Header />
       </div>
 
-      {/* Hero Banner Section */}
-      <section id="hero-banner-section" className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-orange-950 text-white py-20 overflow-hidden text-center">
-        {/* Decorative ambient gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-400/20 via-transparent to-transparent z-0" />
+      {/* Styled Banner Section with traditional Bodo Aronai horizontal pattern */}
+      <section id="hero-banner-section" className="relative py-16 overflow-hidden bg-slate-950 text-white border-b border-purple-950/30 shadow-lg text-center">
+        {/* Traditional Bodo Aronai vertical pattern tiling horizontally */}
+        <div 
+          className="absolute inset-0 z-0 opacity-45 bg-repeat-x bg-center"
+          style={{ 
+            backgroundImage: "url('https://as2.ftcdn.net/jpg/05/39/19/59/1000_F_539195979_di6c1j1rrc8wrybNOkactpWEgWlDioV1.webp')",
+            backgroundSize: "auto 100%"
+          }}
+        />
+        {/* Light Purple Overlay with decreased intensity */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#21113a]/70 via-[#180a2d]/60 to-[#2d114c]/70 mix-blend-multiply" />
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto relative z-20 px-4">
           {/* USER SPECIFIED REQUIREMENT: Keep same breadcrumb style strictly as grievance page */}
           <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-bold mb-6 select-none bg-white/5 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/5 inline-flex">
             <Link href="/" className="hover:text-emerald-400 transition-colors uppercase tracking-wider">Home</Link>
@@ -121,7 +129,7 @@ export default function ObjectivesPage() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 shadow-2xl ring-4 ring-white/20 backdrop-blur-xs mb-6"
+              className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 shadow-2xl ring-4 ring-white/20 backdrop-blur-xs mb-6"
             >
               <Target className="w-12 h-12 text-white" />
             </motion.div>
@@ -130,7 +138,7 @@ export default function ObjectivesPage() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.5 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight drop-shadow-sm"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight drop-shadow-sm text-white"
             >
               UDD Objectives
             </motion.h1>
@@ -139,7 +147,7 @@ export default function ObjectivesPage() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-lg md:text-xl text-orange-100 max-w-3xl mx-auto drop-shadow-xs font-normal leading-relaxed"
+              className="text-lg md:text-xl text-sky-100 max-w-3xl mx-auto drop-shadow-xs font-normal leading-relaxed"
             >
               Our mission to build sustainable, inclusive, and well-planned urban areas across Bodoland Territorial Council
             </motion.p>
@@ -149,10 +157,10 @@ export default function ObjectivesPage() {
               initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.4 }}
-              className="mt-6 flex items-center justify-center gap-4 text-sm text-orange-200"
+              className="mt-6 flex items-center justify-center gap-4 text-sm text-sky-200"
             >
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm py-1.5 px-4 rounded-full border border-white/10 shadow-sm">
-                <Building2 className="w-5 h-5 text-orange-300" />
+                <Building2 className="w-5 h-5 text-emerald-300" />
                 <span className="font-semibold tracking-wide">Led by CHD: Sri Lankeswar Owarie</span>
               </div>
             </motion.div>
@@ -319,12 +327,14 @@ export default function ObjectivesPage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link 
+              id="objectives-learn-more-btn"
               href="/about" 
               className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-blue-900 font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
               Learn More About UDD
             </Link>
             <Link 
+              id="objectives-get-in-touch-btn"
               href="/contact" 
               className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
