@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { 
   FileText, 
   UploadCloud, 
@@ -406,7 +407,7 @@ export default function GrievancePage() {
           
           {/* USER SPECIFIED REQUIREMENT: Keep same breadcrumb style strictly */}
           <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-bold mb-6 select-none bg-white/5 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/5 inline-flex">
-            <a href="/" className="hover:text-emerald-400 transition-colors uppercase tracking-wider">Home</a>
+            <Link href="/" className="hover:text-emerald-400 transition-colors uppercase tracking-wider">Home</Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
             <span className="text-emerald-400 font-black uppercase tracking-wider">Grievance</span>
           </div>

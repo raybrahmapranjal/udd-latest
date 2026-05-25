@@ -36,13 +36,13 @@ export default function Header() {
 
   const getIcon = (label: string) => {
     switch (label) {
-      case 'Home': return <Home className="w-4 h-4 text-orange-500" />;
-      case 'About UDD': return <Building className="w-4 h-4 text-blue-600" />;
-      case 'Services': return <Briefcase className="w-4 h-4 text-green-600" />;
-      case 'Grievance': return <MessageSquare className="w-4 h-4 text-red-500 animate-pulse" />;
-      case 'AI Services': return <Sparkles className="w-4 h-4 text-purple-600 animate-pulse" />;
-      case 'ULBs': return <MapPin className="w-4 h-4 text-blue-600" />;
-      case 'Contact': return <Phone className="w-4 h-4 text-green-600" />;
+      case 'Home': return <Home className="w-[18px] h-[18px] text-orange-500" />;
+      case 'About UDD': return <Building className="w-[18px] h-[18px] text-blue-600" />;
+      case 'Services': return <Briefcase className="w-[18px] h-[18px] text-green-600" />;
+      case 'Grievance': return <MessageSquare className="w-[18px] h-[18px] text-red-500 animate-pulse" />;
+      case 'AI Services': return <Sparkles className="w-[18px] h-[18px] text-purple-600 animate-pulse" />;
+      case 'ULBs': return <MapPin className="w-[18px] h-[18px] text-blue-600" />;
+      case 'Contact': return <Phone className="w-[18px] h-[18px] text-green-600" />;
       default: return null;
     }
   };
@@ -85,27 +85,27 @@ export default function Header() {
               />
             </div>
             <div className="text-left min-w-0">
-              <h1 className="text-xs sm:text-sm md:text-base lg:text-[16px] xl:text-[17px] font-black uppercase text-[#003366] tracking-tight leading-tight select-none">
+              <h1 className="text-sm sm:text-base md:text-lg lg:text-[14px] xl:text-[16px] 2xl:text-[18px] font-black uppercase text-[#0d3b84] tracking-tight leading-none select-none whitespace-nowrap">
                 <span className="block sm:hidden">UDD BTC</span>
                 <span className="hidden sm:block">Urban Development Department</span>
               </h1>
-              <h2 className="text-[8px] sm:text-[9px] md:text-[10px] font-bold text-[#ff6600] uppercase tracking-wider leading-none select-none mt-0.5">
+              <h2 className="text-[8px] sm:text-[10px] md:text-[11px] lg:text-[9px] xl:text-[10px] 2xl:text-[11px] font-extrabold text-[#f26522] uppercase tracking-wider leading-none select-none mt-1">
                 KOKRAJHAR, BTC, ASSAM
               </h2>
             </div>
           </a>
           
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-5">
+          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-3 px-1">
             {navLinks.map((link) => (
               <div key={link.label} className="relative group">
                 <a 
                   href={link.href} 
-                  className="flex items-center gap-1.5 py-2 px-2.5 rounded-lg text-slate-700 font-bold hover:bg-gray-50 hover:text-[#003366] transition-all duration-200"
+                  className="flex items-center gap-1.5 py-2 px-[6px] xl:px-[8px] 2xl:px-[10px] rounded-lg text-slate-750 font-bold hover:bg-gray-50/70 hover:text-[#003366] transition-all duration-200 select-none whitespace-nowrap"
                 >
                   {getIcon(link.label)}
-                  <span className="text-sm tracking-tight">{link.label}</span>
-                  {link.children && <ChevronDown className="w-3.5 h-3.5 text-gray-400 group-hover:rotate-180 transition-transform duration-200" />}
+                  <span className="text-[14px] xl:text-[15px] 2xl:text-[16px] tracking-tight">{link.label}</span>
+                  {link.children && <ChevronDown className="w-3.5 h-3.5 text-gray-400 group-hover:rotate-180 transition-transform duration-200 shrink-0" />}
                 </a>
                 
                 {link.label === 'About UDD' ? (
@@ -139,7 +139,7 @@ export default function Header() {
                         },
                         { 
                           name: 'Organizational Structure', 
-                          href: '/about#structure-section', 
+                          href: '/about/organization', 
                           icon: Network 
                         }
                       ].map((item) => {

@@ -6,7 +6,7 @@ export const navLinks = [
     children: [
       { label: 'Wings of UDD BTC', href: '/about' },
       { label: 'Objectives', href: '/about/objectives' },
-      { label: 'Org Structure', href: '/about#structure-section' },
+      { label: 'Org Structure', href: '/about/organization' },
       { label: 'Our Team', href: '/team' },
       { label: 'RTI', href: '/rti' }
     ]

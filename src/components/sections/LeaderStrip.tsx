@@ -9,7 +9,7 @@ export default function LeaderStrip() {
       name: "Shri Hagrama Mohilary",
       role: "Visionary Leader & CEM",
       subRole: "Bodoland Territorial Council",
-      img: "https://uddbtr.online/images/hagrama_mohilary.jpg",
+      img: "/images/leaders/hagrama_mohilary.jpg",
       description: "Shri Hagrama Mohilary is the Chief Executive of the Bodoland Territorial Region and a prominent leader who has played a decisive role in shaping peace, stability, and development in Bodoland.",
       focusTitle: "KEY FOCUS AREAS",
       focusItems: [
@@ -23,7 +23,7 @@ export default function LeaderStrip() {
       name: "Smt. Moon Moon Brahma",
       role: "Hon'ble Executive Member",
       subRole: "Urban Development Dept, BTC",
-      img: "https://uddbtr.online/images/moon_moon_brahma.jpg",
+      img: "/images/leaders/moon_moon_brahma.jpg",
       description: "Smt. Moon Moon Brahma, representing Parbatjhora constituency (BPF), oversees the Urban Development Department and was sworn in on October 14, 2025, marking a historic milestone as one of the first female EMs in BTC in 22 years.",
       focusTitle: "KEY FOCUS AREAS",
       focusItems: [
@@ -37,7 +37,7 @@ export default function LeaderStrip() {
       name: "Shri Lankeshwar Owarie",
       role: "Council Head of Department",
       subRole: "Urban Development Dept, BTC",
-      img: "https://uddbtr.online/images/lankeshwar_owarie.jpg",
+      img: "/images/leaders/lankeshwar_owarie.jpg",
       description: "Shri Lankeshwar Owarie serves as the Council Head of Department for Urban Development. He holds an M.R.P. (Urban Planning) from IIT Kharagpur (1990-91) and is responsible for operational leadership across 9 Municipal Boards and 1 Development Authority.",
       focusTitle: "KEY RESPONSIBILITIES",
       focusItems: [
