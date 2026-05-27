@@ -890,54 +890,54 @@ export default function GrievancePage() {
                       <div className="p-6 sm:p-8 space-y-6">
                         
                         {/* CASE PARSING */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                          <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/60 space-y-3">
-                            <h4 className="text-xs font-black text-navy uppercase tracking-wider border-b border-slate-200/80 pb-2">Grievance Information</h4>
+                        <div id="grievance-track-details" className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                          <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/60 flex flex-col justify-start">
+                            <h4 className="text-xs font-black text-navy uppercase tracking-wider border-b border-slate-200/80 pb-2 mb-3">Grievance Information</h4>
                             
-                            <div className="grid grid-cols-3 gap-2">
+                            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                               <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">Subject</span>
-                              <span className="text-slate-800 font-bold col-span-2">{searchResult.subject}</span>
+                              <span className="text-slate-800 font-bold sm:col-span-2">{searchResult.subject}</span>
                             </div>
-                            <div className="grid grid-cols-3 gap-2 pt-2">
+                            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                               <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">Category</span>
-                              <span className="text-slate-800 font-bold col-span-2 text-xs">{searchResult.category}</span>
+                              <span className="text-slate-800 font-bold sm:col-span-2 text-xs">{searchResult.category}</span>
                             </div>
-                            <div className="grid grid-cols-3 gap-2 pt-2">
+                            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                               <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">Details</span>
-                              <p className="text-slate-600 font-medium col-span-2 text-xs leading-relaxed">{searchResult.description}</p>
+                              <p className="text-slate-600 font-medium sm:col-span-2 text-xs leading-relaxed">{searchResult.description}</p>
                             </div>
                             {searchResult.attachmentName && (
-                              <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-200">
+                              <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                                 <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">Attachment</span>
-                                <span className="col-span-2 text-xs font-bold text-slate-800 flex items-center gap-1.5 select-all bg-white py-1 px-2 border border-slate-200 rounded">
+                                <span className="sm:col-span-2 text-xs font-bold text-slate-800 flex items-center gap-1.5 select-all bg-white py-1.5 px-2.5 border border-slate-200 rounded">
                                   <FileText className="w-3.5 h-3.5 text-orange-500" /> {searchResult.attachmentName} ({searchResult.attachmentSize})
                                 </span>
                               </div>
                             )}
                           </div>
 
-                          <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/60 space-y-3">
-                            <h4 className="text-xs font-black text-navy uppercase tracking-wider border-b border-slate-200/80 pb-2">Lodgee & Jurisdiction</h4>
+                          <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/60 flex flex-col justify-start">
+                            <h4 className="text-xs font-black text-navy uppercase tracking-wider border-b border-slate-200/80 pb-2 mb-3">Lodgee & Jurisdiction</h4>
                             
-                            <div className="grid grid-cols-3 gap-2">
+                            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                               <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">Name</span>
-                              <span className="text-slate-800 font-bold col-span-2">{searchResult.fullName}</span>
+                              <span className="text-slate-800 font-bold sm:col-span-2">{searchResult.fullName}</span>
                             </div>
-                            <div className="grid grid-cols-3 gap-2 pt-1 border-t border-slate-200/30">
+                            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                               <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">Phone</span>
-                              <span className="text-slate-800 font-bold col-span-2 font-mono">{searchResult.phone}</span>
+                              <span className="text-slate-800 font-bold sm:col-span-2 font-mono">{searchResult.phone}</span>
                             </div>
-                            <div className="grid grid-cols-3 gap-2 pt-1 border-t border-slate-200/30">
+                            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                               <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">Email</span>
-                              <span className="text-slate-800 font-medium col-span-2 select-all text-xs">{searchResult.email}</span>
+                              <span className="text-slate-800 font-medium sm:col-span-2 select-all text-xs">{searchResult.email}</span>
                             </div>
-                            <div className="grid grid-cols-3 gap-2 pt-1 border-t border-slate-200/30">
+                            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                               <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">District</span>
-                              <span className="text-slate-800 font-bold col-span-2">{searchResult.district}</span>
+                              <span className="text-slate-800 font-bold sm:col-span-2">{searchResult.district}</span>
                             </div>
-                            <div className="grid grid-cols-3 gap-2 pt-1 border-t border-slate-200/30">
+                            <div className="flex flex-col sm:grid sm:grid-cols-3 gap-1 sm:gap-4 py-2.5 border-b border-slate-200/50 first:pt-0 last:pb-0 last:border-0">
                               <span className="text-slate-400 text-xs uppercase font-extrabold tracking-wider">Jurisdiction</span>
-                              <span className="text-slate-800 font-extrabold col-span-2 text-xs text-[#ff6600]">{searchResult.ulb}</span>
+                              <span className="text-slate-800 font-extrabold sm:col-span-2 text-xs text-[#ff6600]">{searchResult.ulb}</span>
                             </div>
                           </div>
                         </div>
