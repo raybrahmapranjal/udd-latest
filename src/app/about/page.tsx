@@ -1,6 +1,6 @@
 "use client";
-
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { 
@@ -40,17 +40,12 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#21113a]/70 via-[#180a2d]/60 to-[#2d114c]/70 mix-blend-multiply" />
 
         <div className="max-w-4xl mx-auto relative z-20 px-4">
-          
-          {/* BREADCRUMB STYLE KEY REQUIREMENT - Kept exactly as in grievance page */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-bold mb-6 select-none bg-white/5 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/5 inline-flex">
-            <Link href="/" className="hover:text-emerald-400 transition-colors uppercase tracking-wider">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            <span className="text-emerald-400 font-black uppercase tracking-wider">About Us</span>
-          </div>
-          
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight text-white font-sans drop-shadow-sm mt-4">
-            About the Department
+            About Us
           </h1>
+          <p className="text-lg md:text-xl text-sky-100 max-w-3xl mx-auto drop-shadow-xs font-normal leading-relaxed mt-4">
+            Committed to sustainable urban development and improving quality of life across Bodoland Territorial Region
+          </p>
         </div>
       </section>
 
@@ -316,15 +311,15 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Section 4: About Bodoland Territorial Region Card on Left & Maps on Right (without Card wrapper) */}
-        <section id="btr-info-section" className="pt-4 w-full">
+        {/* Section 4: About Bodoland Territorial Council Card on Left & Maps on Right (without Card wrapper) */}
+        <section id="btc-info-section" className="pt-4 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Card: About Bodoland Territorial Region */}
+            {/* Left Card: About Bodoland Territorial Council */}
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+               initial={{ opacity: 0, x: -20 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
               className="lg:col-span-7 bg-[#F0FDF4]/60 border border-slate-200 border-l-4 border-l-[#10B981] rounded-2xl p-8 sm:p-10 shadow-xs hover:shadow-md transition-all space-y-6"
             >
               <div className="flex items-center gap-4">
@@ -332,16 +327,16 @@ export default function AboutPage() {
                   <Building className="w-7 h-7" />
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] tracking-tight">
-                  About Bodoland Territorial Region
+                  About Bodoland Territorial Council
                 </h2>
               </div>
               
               <div className="space-y-5 text-slate-700 font-medium text-sm sm:text-base leading-relaxed">
                 <p>
-                  The Bodoland Territorial Region (BTR) is an autonomous administrative region in Assam, comprising five districts: Kokrajhar, Chirang, Baksa, Udalguri, and Tamulpur. With a total area of 8,970 sq km and a population of over 3.1 million, BTR represents a unique governance model in Northeast India.
+                  The Bodoland Territorial Council (BTC) is an autonomous administrative council in Assam, comprising five districts: Kokrajhar, Chirang, Baksa, Udalguri, and Tamulpur. With a total area of 8,970 sq km and a population of over 3.1 million, BTC represents a unique governance model in Northeast India.
                 </p>
                 <p>
-                  The Urban Development Department plays a crucial role in shaping the urban landscape of BTR, working closely with 9 Municipal Boards to deliver essential services and infrastructure to the urban population of 150,530 citizens.
+                  The Urban Development Department plays a crucial role in shaping the urban landscape of BTC, working closely with 9 Municipal Boards to deliver essential services and infrastructure to the urban population of 150,530 citizens.
                 </p>
                 <p>
                   Our department is committed to sustainable development, ensuring that urban growth is planned, inclusive, and environmentally responsible while preserving the rich cultural heritage of the Bodo people and other communities in the region.
@@ -360,28 +355,34 @@ export default function AboutPage() {
               {/* Section 4a: Assam Map */}
               <div className="w-full max-w-[420px] flex flex-col items-center">
                 <div className="w-full flex items-center justify-center">
-                  <img 
+                  <Image 
                     src="/assammap.png" 
                     alt="Assam Map showing Bodoland" 
+                    width={420}
+                    height={280}
+                    referrerPolicy="no-referrer"
                     className="w-full h-auto max-h-[280px] object-contain transition-all hover:scale-[1.03] duration-300 select-none filter drop-shadow-md"
                     onError={(e) => {
                       (e.target as HTMLImageElement).onerror = null;
-                      (e.target as HTMLImageElement).src = 'https://bodoland.gov.in/assets/img/assammap.png';
+                      (e.target as HTMLImageElement).src = 'https://udd-latest.vercel.app/assammap.png';
                     }}
                   />
                 </div>
               </div>
 
-              {/* Section 4b: BTR Map */}
+              {/* Section 4b: BTC Map */}
               <div className="w-full max-w-[420px] flex flex-col items-center">
                 <div className="w-full flex items-center justify-center">
-                  <img 
+                  <Image 
                     src="/map.png" 
-                    alt="Bodoland Territorial Region Map" 
+                    alt="Bodoland Territorial Council Map" 
+                    width={420}
+                    height={280}
+                    referrerPolicy="no-referrer"
                     className="w-full h-auto max-h-[280px] object-contain transition-all hover:scale-[1.03] duration-300 select-none filter drop-shadow-md"
                     onError={(e) => {
                       (e.target as HTMLImageElement).onerror = null;
-                      (e.target as HTMLImageElement).src = 'https://bodoland.gov.in/assets/img/map.png';
+                      (e.target as HTMLImageElement).src = 'https://udd-latest.vercel.app/map.png';
                     }}
                   />
                 </div>

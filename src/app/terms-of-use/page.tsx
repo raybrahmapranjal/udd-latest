@@ -76,7 +76,7 @@ export default function TermsOfUsePage() {
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">1. Acceptance of Terms</h2>
                   </div>
                   <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg font-medium">
-                    By accessing and using the UDD BTR website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services. These terms apply to all visitors, users, and others who access or use the service.
+                    By accessing and using the UDD BTC website and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services. These terms apply to all visitors, users, and others who access or use the service.
                   </p>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function TermsOfUsePage() {
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">4. Limitation of Liability</h2>
                   </div>
                   <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg font-medium">
-                    UDD BTR shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use the service. We do not guarantee the accuracy, completeness, or reliability of any content on the website. Use of the service is at your own risk.
+                    UDD BTC shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use the service. We do not guarantee the accuracy, completeness, or reliability of any content on the website. Use of the service is at your own risk.
                   </p>
                 </div>
               </div>
@@ -143,7 +143,7 @@ export default function TermsOfUsePage() {
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">5. Intellectual Property</h2>
                   </div>
                   <p className="text-gray-700 leading-relaxed text-sm sm:text-base md:text-lg font-medium">
-                    All content, features, and functionality on this website are owned by UDD BTR or its licensors and are protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without express written permission.
+                    All content, features, and functionality on this website are owned by UDD BTC or its licensors and are protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without express written permission.
                   </p>
                 </div>
               </div>

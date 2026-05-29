@@ -114,15 +114,6 @@ export default function ObjectivesPage() {
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#21113a]/70 via-[#180a2d]/60 to-[#2d114c]/70 mix-blend-multiply" />
         
         <div className="max-w-4xl mx-auto relative z-20 px-4">
-          {/* USER SPECIFIED REQUIREMENT: Keep same breadcrumb style strictly as grievance page */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-bold mb-6 select-none bg-white/5 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/5 inline-flex">
-            <Link href="/" className="hover:text-emerald-400 transition-colors uppercase tracking-wider">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            <Link href="/about" className="hover:text-emerald-400 transition-colors uppercase tracking-wider">About Us</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            <span className="text-emerald-400 font-black uppercase tracking-wider">Our Objectives</span>
-          </div>
-
           <div className="text-center">
             {/* Top Emblem and Icon Container */}
             <motion.div 

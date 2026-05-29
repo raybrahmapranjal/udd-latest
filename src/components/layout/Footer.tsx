@@ -122,14 +122,14 @@ export default function Footer() {
 
             {/* Email contact card */}
             <a 
-              href="mailto:contact@uddbtr.org" 
+              href="mailto:contact@uddbtc.org" 
               className="flex items-center gap-3.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 p-3 rounded-xl transition-all duration-300 group cursor-pointer"
             >
               <div className="bg-[#ff6600] p-2 rounded-lg text-white group-hover:scale-105 transition-transform">
                 <Mail className="h-4 w-4" />
               </div>
               <span className="font-extrabold text-[#ff6600] text-xs sm:text-sm tracking-tight transition-colors">
-                contact@uddbtr.org
+                contact@uddbtc.org
               </span>
             </a>
           </div>
@@ -249,10 +249,10 @@ export default function Footer() {
             <span>in India 🇮🇳</span>
             <span className="mx-1">|</span>
             <span>Developed & Maintained by</span>
-            <span className="text-orange-400 font-extrabold uppercase">smartbtr private limited</span>
+            <span className="text-orange-400 font-extrabold uppercase">smartbtc private limited</span>
           </p>
           <p className="text-slate-500/90 text-[11px] mt-1 font-medium">
-            &copy; {currentYear} smartbtr private limited. All rights reserved.
+            &copy; {currentYear} smartbtc private limited. All rights reserved.
           </p>
         </div>
 

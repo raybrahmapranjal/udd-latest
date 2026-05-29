@@ -66,7 +66,7 @@ export default function AccessibilityPage() {
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 font-sans">Our Commitment</h2>
                   </div>
                   <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
-                    UDD BTR is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying relevant accessibility standards to ensure our website is accessible to all users, regardless of ability or technology used.
+                    UDD BTC is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying relevant accessibility standards to ensure our website is accessible to all users, regardless of ability or technology used.
                   </p>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export default function AccessibilityPage() {
                     We welcome your feedback on the accessibility of our website. If you encounter any accessibility barriers or have suggestions for improvement, please contact us:
                     <br />
                     <br />
-                    <strong>Email:</strong> accessibility@uddbtr.org
+                    <strong>Email:</strong> accessibility@uddbtc.org
                     <br />
                     <strong>Phone:</strong> 8812825012
                     <br />

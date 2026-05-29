@@ -36,13 +36,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://uddbtr.online",
+    url: "https://uddbtc.online",
     title: "Urban Development Department | Bodoland Territorial Council",
     description: "Official online portal of the Urban Development Department, BTC. Empowering municipal growth, transparent town administration, and swift citizen e-services.",
     siteName: "Urban Development Department BTC",
     images: [
       {
-        url: "https://uddbtr.online/images/logo.png",
+        url: "https://uddbtc.online/images/logo.png",
         width: 1200,
         height: 630,
         alt: "UDD BTC Logo",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Urban Development Department | Bodoland Territorial Council",
     description: "Official online portal of the Urban Development Department, BTC. Providing active citizen care, online building permissions, and infrastructure tracking.",
-    images: ["https://uddbtr.online/images/logo.png"],
+    images: ["https://uddbtc.online/images/logo.png"],
     creator: "@UDD_BTC",
   },
   robots: {

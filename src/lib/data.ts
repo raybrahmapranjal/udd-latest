@@ -4,11 +4,9 @@ export const navLinks = [
     label: 'About UDD', 
     href: '#', 
     children: [
-      { label: 'Wings of UDD BTC', href: '/about' },
+      { label: 'About Us', href: '/about' },
       { label: 'Objectives', href: '/about/objectives' },
-      { label: 'Org Structure', href: '/about/organization' },
-      { label: 'Our Team', href: '/team' },
-      { label: 'RTI', href: '/rti' }
+      { label: 'Org Structure', href: '/about/organization' }
     ]
   },
   { 
@@ -23,12 +21,13 @@ export const navLinks = [
     ]
   },
   {
-    label: 'AI Services',
+    label: 'Governance',
     href: '#',
     children: [
-      { label: 'Grievance Chatbot AI', href: '#' },
-      { label: 'Scheme Eligibility Chat', href: '#' },
-      { label: 'Document/Notice Summarizer', href: '#' }
+      { label: 'Schemes', href: '/schemes' },
+      { label: 'Departments', href: '/departments' },
+      { label: 'Tenders', href: '/tenders' },
+      { label: 'Grievance', href: '/grievance' }
     ]
   },
   { 

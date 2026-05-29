@@ -43,7 +43,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email Address",
-      content: "contact@uddbtr.org",
+      content: "contact@uddbtc.org",
       color: "from-orange-500 to-orange-600"
     }
   ];
@@ -133,24 +133,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#21113a]/70 via-[#180a2d]/60 to-[#2d114c]/70 mix-blend-multiply" />
         
         <div className="max-w-4xl mx-auto relative z-20 px-4">
-          {/* USER SPECIFIED REQUIREMENT: Keep same breadcrumb style strictly as grievance page */}
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-400 font-bold mb-6 select-none bg-white/5 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/5 inline-flex">
-            <Link href="/" className="hover:text-emerald-400 transition-colors uppercase tracking-wider">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-            <span className="text-emerald-400 font-black uppercase tracking-wider">Contact Us</span>
-          </div>
-
-          <div className="text-center">
-            {/* Top Mail bubble */}
-            <motion.div 
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-emerald-500 to-teal-600 shadow-2xl ring-4 ring-white/20 backdrop-blur-xs mb-6"
-            >
-              <Mail className="w-12 h-12 text-white" />
-            </motion.div>
-            
+          <div className="text-center pt-8">
             <motion.h1 
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}

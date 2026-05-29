@@ -18,7 +18,7 @@ import {
   DollarSign
 } from 'lucide-react';
 
-// Data structure for the flagship BTR Urban Development Department key initiatives
+// Data structure for the flagship BTC Urban Development Department key initiatives
 interface Initiative {
   id: string;
   title: string;

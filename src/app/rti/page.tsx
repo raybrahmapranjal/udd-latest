@@ -12,21 +12,21 @@ export default function RTIPage() {
       name: "Sri Gurnel Singh, IAS",
       designation: "Director & CHD, Urban Development Department, BTC",
       email: "dir.udd.btc@gmail.com",
-      address: "CHD Office, Urban Development Department, Kokrajhar, BTR, Assam - 783370",
+      address: "CHD Office, Urban Development Department, Kokrajhar, BTC, Assam - 783370",
     },
     {
       role: "State Public Information Officer (SPlO)",
       name: "Sri Dwipen Chandra Boro",
       designation: "Deputy Director, Urban Development Department, BTC",
       email: "spio.udd.btc@gmail.com",
-      address: "Urban Development Department, BTC Secretariat, Kokrajhar, BTR, Assam - 783370",
+      address: "Urban Development Department, BTC Secretariat, Kokrajhar, BTC, Assam - 783370",
     },
     {
       role: "Assistant Public Information Officer (APlO)",
       name: "Smt. Anjali Basumatary",
       designation: "Superintendent, UDD CHD Office, Kokrajhar",
       email: "apio.udd.btc@gmail.com",
-      address: "CHD Office reception, Kokrajhar, BTR, Assam - 783370",
+      address: "CHD Office reception, Kokrajhar, BTC, Assam - 783370",
     }
   ];
 

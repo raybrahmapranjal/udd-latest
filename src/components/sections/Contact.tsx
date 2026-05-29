@@ -50,7 +50,7 @@ export default function Contact() {
                  </div>
                  <div>
                     <h4 className="font-bold mb-1">Email Support</h4>
-                    <p className="text-white/60 text-sm font-medium">uddbtr@gmail.com</p>
+                    <p className="text-white/60 text-sm font-medium">uddbtc@gmail.com</p>
                  </div>
               </div>
            </div>

@@ -169,7 +169,7 @@ export default function PrivacyPolicyPage() {
                     If you have questions about this Privacy Policy, please contact us at:
                     <br />
                     <br />
-                    <strong>Email:</strong> privacy@uddbtr.org
+                    <strong>Email:</strong> privacy@uddbtc.org
                     <br />
                     <strong>Phone:</strong> 8812825012
                   </p>

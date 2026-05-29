@@ -27,7 +27,7 @@ export default function NeedAssistance() {
               </div>
               <div className="flex items-center gap-4 text-xl bg-black/20 p-4 px-6 rounded-full border border-white/10">
                   <div className="bg-orange-600 p-3 rounded-full shadow-[0_0_20px_rgba(234,88,12,0.6)]"><Mail className="w-6 h-6 text-white" /></div>
-                  <span className="font-semibold text-2xl">contact@uddbtr.org</span>
+                  <span className="font-semibold text-2xl">contact@uddbtc.org</span>
               </div>
           </div>
           

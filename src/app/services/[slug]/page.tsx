@@ -140,7 +140,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { num: "1", title: "Apply Online", desc: "Submit your volunteer credentials, proposed site location and select the type of indigenous saplings." },
       { num: "2", title: "Verify Ward Area", desc: "Zonal botanical coordinators evaluate site parameters, spacing and municipal permissions." },
       { num: "3", title: "Saplings Allocation", desc: "Approved tree stocks are reserved and assigned at the municipal central distribution nursery." },
-      { num: "4", title: "On-site Planting & Protection", desc: "Saplings are planted with protective tree-guards and logged on BTR geographic tracker maps." }
+      { num: "4", title: "On-site Planting & Protection", desc: "Saplings are planted with protective tree-guards and logged on BTC geographic tracker maps." }
     ],
     documents: [
       "Voter ID or Aadhaar Card of volunteering individual",
@@ -149,7 +149,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       "High-resolution photograph of the proposed site location"
     ],
     eligibility: [
-      "Resident of Bodoland Territorial Region (BTR) municipal circles",
+      "Resident of Bodoland Territorial Council (BTC) municipal circles",
       "Committed to watering, nursing, and securing tree protection",
       "Sufficient space available on local residential compound or public boundary offsets"
     ],
@@ -159,26 +159,26 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { category: "Corporate & Commercial Institutional Request", fee: "Free of Cost", extra: "Subject to environmental green-bylaw declarations" }
     ],
     faqs: [
-      { q: "Who can apply as a Green Volunteer?", a: "Any citizen living within BTR municipal borders can apply. Non-profits, schools, and youth clubs are also encouraged to register bulk drives." },
+      { q: "Who can apply as a Green Volunteer?", a: "Any citizen living within BTC municipal borders can apply. Non-profits, schools, and youth clubs are also encouraged to register bulk drives." },
       { q: "Are saplings and tree-guards completely free?", a: "Yes, both saplings and durable tree guards are distributed free of cost under the environmental restoration corpus of UDD BTC." },
       { q: "How can I request maintenance help?", a: "If a sapling is experiencing disease, you can submit a grievance ticket. Our botanical expert will visit to apply treatment compounds." }
     ],
     helpline: "8812825013",
-    email: "greenmission@uddbtr.org",
+    email: "greenmission@uddbtc.org",
     officeHours: "Mon-Fri: 10 AM - 5 PM",
     sampleCode: "BTC/GREEN/101"
   },
   'water-supply': {
     slug: 'water-supply',
-    title: 'AMRUT Water Supply Connection',
+    title: 'Water Connection',
     category: 'Public Utilities',
     iconName: 'water',
     processing: '7 - 10 Working Days',
     fee: 'As per connection tier',
     mode: 'Online & Physical Clearing',
-    overviewHeading: 'AMRUT Water Connection Overview',
+    overviewHeading: 'Water Connection Overview',
     overviewParagraphs: [
-      'The AMRUT Mission guarantees stable, treated pipe water connections to all eligible properties inside BTR towns. Built using modern steel transmission lines, state-of-the-art filtration reservoirs, and centralized IoT monitoring.',
+      'The AMRUT Mission guarantees stable, treated pipe water connections to all eligible properties inside BTC towns. Built using modern steel transmission lines, state-of-the-art filtration reservoirs, and centralized IoT monitoring.',
       'Property owners can apply to install fresh plinth connections, calculate water security deposits, select meter variants, and coordinate with licensed engineering plumbers for installation clearances.'
     ],
     noticeTitle: 'Sizing & Plumbing Guidelines',
@@ -196,7 +196,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       "Coordinating plumber NOC if tapping shared auxiliary lines"
     ],
     eligibility: [
-      "Must own a legal structure (residential, commercial, or industrial) inside BTR limits",
+      "Must own a legal structure (residential, commercial, or industrial) inside BTC limits",
       "Has cleared all property assessment dues up to current fiscal year",
       "Connection site lies within distance margins of active AMRUT main distribution grid"
     ],
@@ -210,7 +210,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { q: "Is water usage billed monthly?", a: "Yes, water usage is recorded via volumetric smart meters and billed monthly under your municipal property account." }
     ],
     helpline: "8812825014",
-    email: "watersupply@uddbtr.org",
+    email: "watersupply@uddbtc.org",
     officeHours: "Mon-Fri: 10 AM - 5 PM",
     sampleCode: "BTC/WATER/201"
   },
@@ -241,7 +241,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       "Applicant Mobile Contact reference"
     ],
     eligibility: [
-      "Open to all individuals, communities, and commercial institutions within active BTR municipality councils"
+      "Open to all individuals, communities, and commercial institutions within active BTC municipality councils"
     ],
     fees: [
       { category: "Daily Household Door Garbage collection", fee: "Free of Cost", extra: "Covered within annual municipal service taxes" },
@@ -253,13 +253,13 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { q: "How can I buy organic municipal compost?", a: "Compost processed under our green sorting units is sold at municipal nurseries for a nominal ₹5/kg to encourage garden growth." }
     ],
     helpline: "8812825015",
-    email: "solidwaste@uddbtr.org",
+    email: "solidwaste@uddbtc.org",
     officeHours: "Mon-Fri: 10 AM - 5 PM",
     sampleCode: "BTC/WASTE/301"
   },
   'building-permission': {
     slug: 'building-permission',
-    title: 'Online Building Permission System',
+    title: 'OBPS (Online Building Permission System)',
     category: 'Digital Governance',
     iconName: 'obps',
     processing: '14 - 21 Working Days',
@@ -271,7 +271,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       'Integrating geographic zoning registries ensures immediate validation of layout setbacks, road expansion offsets, territorial bypass factors, seismic criteria, and environmental parameters.'
     ],
     noticeTitle: 'Filing Prerequisite',
-    noticeContent: 'All structural drawing blueprints must be prepared in CAD formats aligned with Unified BTR Building Bylaws. Physical layout markings are checked post dynamic file checks.',
+    noticeContent: 'All structural drawing blueprints must be prepared in CAD formats aligned with Unified BTC Building Bylaws. Physical layout markings are checked post dynamic file checks.',
     steps: [
       { num: "1", title: "Architect Registry", desc: "Choose a registered structural designer or architect to compile and upload file parameters." },
       { num: "2", title: "Draft Upload", desc: "Submit building plan drawings, patta documents, land deeds, and municipal holding tax papers." },
@@ -287,7 +287,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
     ],
     eligibility: [
       "Property layouts residing legally inside municipal borders",
-      "Filing must be routed via registered draftsmen listed with the BTR Municipal panel"
+      "Filing must be routed via registered draftsmen listed with the BTC Municipal panel"
     ],
     fees: [
       { category: "Residential House (up to G+1 Floors)", fee: "₹15 / sq. mt. plinth", extra: "Includes structural check and line-level demarcation" },
@@ -299,7 +299,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { q: "What is the validation term of building permission?", a: "Once structural permission is emitted, construction must begin within 3 years. The permit can be renewed for an additional 2 years if needed." }
     ],
     helpline: "8812825016",
-    email: "obps@uddbtr.org",
+    email: "obps@uddbtc.org",
     officeHours: "Mon-Fri: 10 AM - 5 PM",
     sampleCode: "BTC/OBPS/401"
   },
@@ -330,7 +330,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       "Applicant Mobile Contact reference for site coordination"
     ],
     eligibility: [
-      "Open to all individuals, neighborhood clubs, and merchants residing in BTR municipal areas"
+      "Open to all individuals, neighborhood clubs, and merchants residing in BTC municipal areas"
     ],
     fees: [
       { category: "Streetlight LED Fixture Repair / Swap", fee: "Free of Cost", extra: "Handled under urban civic asset maintenance funds" },
@@ -341,7 +341,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { q: "Can I request light layout in layout tracks?", a: "Yes, you can register a 'New lamp proposal' in our support portal, specifying the dark-spot lane. Neighbors can add supporting votes online." }
     ],
     helpline: "8812825017",
-    email: "streetlights@uddbtr.org",
+    email: "streetlights@uddbtc.org",
     officeHours: "Mon-Fri: 10 AM - 5 PM",
     sampleCode: "BTC/LIGHT/501"
   },
@@ -372,7 +372,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       "Original land sketch card of local survey units (if uploading differences)"
     ],
     eligibility: [
-      "Available to any land owners, potential property buyers, and listed engineers inside BTR"
+      "Available to any land owners, potential property buyers, and listed engineers inside BTC"
     ],
     fees: [
       { category: "Dynamic Interactive Web-map lookup", fee: "Free of Cost", extra: "Accessible on desktop or mobile at any hour" },
@@ -383,7 +383,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { q: "Can we build on a GIS-reserve zone?", a: "No, construction is strictly disallowed in protected zones (recreation belts, flood buffers, forest lines) to prevent damage risks." }
     ],
     helpline: "8812825018",
-    email: "gismapping@uddbtr.org",
+    email: "gismapping@uddbtc.org",
     officeHours: "Mon-Fri: 10 AM - 5 PM",
     sampleCode: "BTC/GIS/601"
   },
@@ -397,7 +397,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
     mode: 'Online Complaint Redressal',
     overviewHeading: 'Urban Stormwater Drainage Overview',
     overviewParagraphs: [
-      'Managing seasonal heavy rainfall in BTR towns prompts active maintenance of deep masonry storm drains, concrete bypass channels, and high-capacity river outfall stations.',
+      'Managing seasonal heavy rainfall in BTC towns prompts active maintenance of deep masonry storm drains, concrete bypass channels, and high-capacity river outfall stations.',
       'Through this service system, neighborhoods flag blocked concrete conduits, request scheduled pre-monsoon desiltation cycles, file complaints on commercial refuse dumping, or ask for pump deployments in flooded spaces.'
     ],
     noticeTitle: 'Urban Maintenance Notice',
@@ -414,7 +414,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       "Applicant contact identifier for validation"
     ],
     eligibility: [
-      "Residents, commercial trader associations, and wards within BTR urban boards"
+      "Residents, commercial trader associations, and wards within BTC urban boards"
     ],
     fees: [
       { category: "Masonry Drain Silt Clearance / Vacuuming", fee: "Free of Cost", extra: "Conducted routinely by municipal drainage units" },
@@ -425,13 +425,13 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { q: "How are open drains treated for vector control?", a: "Post mechanical cleaning, crews treat standing water regions with biodegradable bio-larvicides to prevent mosquito breeding." }
     ],
     helpline: "8812825019",
-    email: "drainagedispatch@uddbtr.org",
+    email: "drainagedispatch@uddbtc.org",
     officeHours: "Mon-Fri: 10 AM - 5 PM",
     sampleCode: "BTC/DRAIN/701"
   },
   'trade-license': {
     slug: 'trade-license',
-    title: 'Municipal Trade License Certification',
+    title: 'Trade Licence Application',
     category: 'Digital Governance',
     iconName: 'trade',
     processing: '5 - 7 Working Days',
@@ -439,7 +439,7 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
     mode: 'Online Application & Renewals',
     overviewHeading: 'Municipal Trade License Overview',
     overviewParagraphs: [
-      'Any individual or corporate body intending to run commercial, trading, or industrial operations inside BTR urban zones must legally procure a Municipal Trade License.',
+      'Any individual or corporate body intending to run commercial, trading, or industrial operations inside BTC urban zones must legally procure a Municipal Trade License.',
       'Our centralized digital license module lets merchants apply for new trade credentials, compute annual fees based on commercial categories, request fast renewals, and download dynamic certified licenses with stamp signatures.'
     ],
     noticeTitle: 'General Compliance Rule',
@@ -470,10 +470,233 @@ const SERVICES_DB: Record<string, ServiceDetail> = {
       { q: "What is the penalty for non-renewal after March 31st?", a: "A late penalty fine of 10% of the active license fee is applied monthly for non-renewal past the April 30th grace window." }
     ],
     helpline: "8812825012",
-    email: "tradelicense@uddbtr.org",
+    email: "tradelicense@uddbtc.org",
     officeHours: "Mon-Fri: 10 AM - 5 PM",
     sampleCode: "BTC/TRADE/801"
+  },
+  'hoarding-permission': {
+    slug: 'hoarding-permission',
+    title: 'Hoarding Permission',
+    category: 'Commercial & Advertising',
+    iconName: 'obps',
+    processing: '5 - 7 Working Days',
+    fee: 'Based on hoarding size',
+    mode: 'Online Application & Structural Audit',
+    overviewHeading: 'Hoarding Permission Overview',
+    overviewParagraphs: [
+      'Individuals or companies wishing to set up display boards, banners, or advertising hoardings within BTC urban limits must obtain municipal hoarding permission.',
+      'This process ensures that advertising installations are structurally stable, comply with public safety norms, and do not cause obstruction or distraction to vehicular or pedestrian traffic.'
+    ],
+    noticeTitle: 'Structural Stability Certificate Required',
+    noticeContent: 'All commercial hoardings exceeding standard size thresholds require a structural durability index report signed by a registered civil engineer. Installations must be renewed dynamically on an annual basis.',
+    steps: [
+      { num: "1", title: "Submit Layout Plan", desc: "Specify site coordinates, dimensional drawings of hoarding, and local area photo." },
+      { num: "2", title: "Structural Assessment", desc: "Inspect design wind loads, frame stability, and proximity to electric lines." },
+      { num: "3", title: "Clear Permissions Fee", desc: "Pay space allocation dues and eco-surcharges securely online based on square footage." },
+      { num: "4", title: "Certificate Download", desc: "Download the digitally stamped permit certificate file to display on the physical frame structure." }
+    ],
+    documents: [
+      "Property boundary document or landowner lease agreement",
+      "Structural stability blueprint certified by a registered engineer",
+      "Draft representation of designed advertising graphics",
+      "Proximity clearance NOC from nearest electrical or highway unit"
+    ],
+    eligibility: [
+      "Open to registered agencies, business houses, and landowners in BTC municipal areas",
+      "The site must not lie inside protected scenic corridors or cause traffic visibility hazards"
+    ],
+    fees: [
+      { category: "Standard Vinyl Banner (Up to 100 sq.ft.)", fee: "₹2,500 annually", extra: "Includes structural check and zoning reference assignment" },
+      { category: "Large Unipole Billboard (Up to 400 sq.ft.)", fee: "₹10,500 annually", extra: "Requires wind load analysis audit and SBM safety sticker" },
+      { category: "Digital Electronic LED Billboard", fee: "₹25,000 annually", extra: "Subject to street illumination limits and energy efficiency ratings" }
+    ],
+    faqs: [
+      { q: "What happens if a hoarding is installed without permission?", a: "Unpermitted hoardings are subject to immediate removal by the municipal eviction squad and attract heavy penalties under BTC advertising bylaws." },
+      { q: "How do I renew an active hoarding permit?", a: "Permit holders can log in, enter their stenciled Billboard ID, upload an updated safety clearance photo, and pay the renewal fee." }
+    ],
+    helpline: "8812825021",
+    email: "hoarding@uddbtc.org",
+    officeHours: "Mon-Fri: 10 AM - 5 PM",
+    sampleCode: "BTC/AD/331"
+  },
+  'cesspool-request': {
+    slug: 'cesspool-request',
+    title: 'Cesspool Request',
+    category: 'Public Utilities',
+    iconName: 'sbm',
+    processing: '24 - 48 Hours',
+    fee: '₹1,500 per tanker trip',
+    mode: 'Online On-Demand Booking',
+    overviewHeading: 'Cesspool Vacuum Tanker Overview',
+    overviewParagraphs: [
+      'The municipal cesspool cleaning service regulates the emptying, hygienic transport, and scientific treatment of septic slurry across BTC residential and commercial properties.',
+      'Our sanitation department coordinates localized vacuum tanker deployments to clear soak pits, septic tanks, and commercial bio-digesters, ensuring safe disposal at urban sewage processing yards.'
+    ],
+    noticeTitle: 'SLA Response Guarantee',
+    noticeContent: 'All cesspool tanker trips are dispatched dynamically according to queue priorities. Residential emergency blockages are prioritized during early morning slots.',
+    steps: [
+      { num: "1", title: "Request Tanker", desc: "Select septic tank volume, provide property landmark, and describe access pipeline length." },
+      { num: "2", title: "Route Queue Mapping", desc: "SBM fleet allocator schedules the vacuum truck based on municipal transit boundaries." },
+      { num: "3", title: "Pay Cleaning Fee", desc: "Clear tanker booking flat fees securely online through card, UPI, or dynamic wallet portal." },
+      { num: "4", title: "On-site Extraction", desc: "Crews pump out the slurry cleanly, seal the tanker, and apply disinfectant spray at the plinth." }
+    ],
+    documents: [
+      "Applicant valid mobile number and address landmarks",
+      "Property Tax holding card showing cleared dues",
+      "Recent receipt of municipal service clearing (if requested previously)"
+    ],
+    eligibility: [
+      "Open to all residential societies, hotels, schools, and business establishments in BTC limits",
+      "The septic site must have at least an 1.5-meter wide access lane for vacuum vehicles"
+    ],
+    fees: [
+      { category: "Standard Domestic Tanker (3,000 Liters)", fee: "₹1,500 flat fee", extra: "Includes vacuum pump and post-extraction sanitizing spray" },
+      { category: "Extended Domestic Tanker (5,000 Liters)", fee: "₹2,500 flat fee", extra: "For multi-family holding wells or heavy load tanks" },
+      { category: "Institutional & Industrial Slurry (10k+ L)", fee: "₹5,000 flat fee", extra: "Subject to environmental chemical waste verification index" }
+    ],
+    faqs: [
+      { q: "How long is the suction hose carried by the truck?", a: "Our standard vacuum tankers carry a highly durable heavy-duty suction hose extending up to 50 feet. If your septic tank is farther from the road, mention it in the booking notes." },
+      { q: "Is the extracted waste treated safely?", a: "Yes, all collected slurry is strictly transported to legal bio-digestion facilities to prevent local water table contamination." }
+    ],
+    helpline: "8812825022",
+    email: "cesspool@uddbtc.org",
+    officeHours: "Mon-Sat: 8 AM - 6 PM",
+    sampleCode: "BTC/CESS/501"
+  },
+  'film-shooting': {
+    slug: 'film-shooting',
+    title: 'Film Shooting Permission',
+    category: 'Cultural & Public Spaces',
+    iconName: 'green',
+    processing: '5 - 7 Working Days',
+    fee: 'Based on location tiers',
+    mode: 'Online Single Window Permit',
+    overviewHeading: 'Film Shooting Permission Overview',
+    overviewParagraphs: [
+      'To encourage and coordinate film, media, and creative projects in the Bodoland region, we offer an streamlined single-window permit for filming in public gardens, lakes, municipal buildings, and urban roads.',
+      'This clearance coordinates administrative oversight, security allocations, venue lock-downs, and municipal resource deployments to ensure safe, creative, and hassle-free media productions.'
+    ],
+    noticeTitle: 'Liaison & Police NOC Prerequisite',
+    noticeContent: 'Filmmakers must specify shooting hours, camera layout areas, crew count, and drone usage requirements. Final permits are forwarded to BTC Traffic Police departments automatically.',
+    steps: [
+      { num: "1", title: "Submit Production Plan", desc: "Select public sites, specify shooting schedules, crew size, and equipment listing." },
+      { num: "2", title: "Zonal Field Audit", desc: "Municipal managers review the proposed sites for traffic flow, public safety, and park impact." },
+      { num: "3", title: "Pay Venue Dues", desc: "Clear location booking charges and security deposits cleanly via digital payment gateways." },
+      { num: "4", title: "Download Shooting Pass", desc: "Obtain the stamped digital shooting permission pass with coordinated helpline contact contacts." }
+    ],
+    documents: [
+      "Production House registration license or GST certificate",
+      "Detailed shooting script outline and location breakdown grid",
+      "Comprehensive insurance cover certificate for crew public safety",
+      "Indemnity undertaking declaration signed by the executive producer"
+    ],
+    eligibility: [
+      "Open to local, national, and global creative production houses and certified filmmakers",
+      "Requires compliance with public order, heritage safety, and local environment regulations"
+    ],
+    fees: [
+      { category: "Public Gardens & Eco-Parks (Per Day)", fee: "₹5,000 location fee", extra: "Includes basic solid waste cleanup and water support nodes" },
+      { category: "Main Street & Traffic Roads (Per Day)", fee: "₹12,000 location fee", extra: "Includes police barricade coordination and diversion signs" },
+      { category: "Heritage Buildings & Municipal Offices", fee: "₹15,000 location fee", extra: "Subject to structural preservation guidelines and off-hour bounds" }
+    ],
+    faqs: [
+      { q: "Is drone filming permitted in urban sectors?", a: "Yes, drone filming is allowed, but you must upload your valid DGCA drone registration log during the application process." },
+      { q: "Is the security deposit refundable?", a: "Yes, a standard ₹10,000 refundable security deposit is held against any civic property damages and returned within 5 working days post-shoot." }
+    ],
+    helpline: "8812825023",
+    email: "filming@uddbtc.org",
+    officeHours: "Mon-Fri: 10 AM - 5 PM",
+    sampleCode: "BTC/FILM/701"
+  },
+  'field-hall-booking': {
+    slug: 'field-hall-booking',
+    title: 'Field & Hall Booking',
+    category: 'Public Utilities',
+    iconName: 'obps',
+    processing: '24 - 48 Hours',
+    fee: 'Based on venue capacity',
+    mode: 'Online Instant Booking',
+    overviewHeading: 'Municipal Field & Hall Reservation',
+    overviewParagraphs: [
+      'The Urban Development Department manages pristine multi-purpose community halls, athletic fields, and indoor auditoriums to serve sports, social functions, and local community gatherings.',
+      'This service allows citizens and sports associations to verify real-time calendar availability, submit block details, select event setups, and pay venue booking rentals online.'
+    ],
+    noticeTitle: 'Reservation Terms',
+    noticeContent: 'Event reservations must be completed at least 7 days prior to the desired date. Sound level limitations are strictly enforced according to local zone decibel laws.',
+    steps: [
+      { num: "1", title: "Check Availability", desc: "Filter municipal venues by town, select date slots, and inspect real-time digital calendar grids." },
+      { num: "2", title: "Fill Event Outline", desc: "Specify total guest counts, electrical load requirements, and catering/cleanup needs." },
+      { num: "3", title: "Pay Venue Rental", desc: "Submit the standard rental booking charges and security deposits using the payment gateway." },
+      { num: "4", title: "Download Booking Pass", desc: "Receive the digital booking allocation pass with entry barcode for local site caretakers." }
+    ],
+    documents: [
+      "Applicant Identity confirmation (PAN Card, Aadhaar, or Passport)",
+      "Local address validation (voter card or current property receipt)",
+      "Undertaking to comply with environment, noise, and plastic-free guidelines"
+    ],
+    eligibility: [
+      "Open to resident citizens of BTC, sports federations, and licensed event managers",
+      "The applicant must not have historically violated civic venue codes or caused damage"
+    ],
+    fees: [
+      { category: "Public Municipal Playground (Daily sports)", fee: "₹1,505 per day", extra: "Excludes floodlight utilities and mechanical rolling" },
+      { category: "Zonal Community Hall (Up to 500 Guests)", fee: "₹7,500 per day", extra: "Includes basic electricity, staging, and garbage clearing" },
+      { category: "Central AC Auditorium (Up to 1000 Seats)", fee: "₹20,000 per day", extra: "Includes acoustic systems, power backup, and security officers" }
+    ],
+    faqs: [
+      { q: "What is your cancellation refund policy?", a: "Cancellations made 10 days before the scheduled date receive a 90% rental refund. Cancellations under 3 days forfeit booking charges." },
+      { q: "Are tables, chairs, and decorations provided?", a: "Our venues provide a baseline physical stage, backup generators, and clean dining tables. Additional chairs, seating covers, and decorations are coordinated via panel event decors." }
+    ],
+    helpline: "8812825024",
+    email: "venuebooking@uddbtc.org",
+    officeHours: "Mon-Sat: 9 AM - 6 PM",
+    sampleCode: "BTC/HALL/801"
+  },
+  'transfer-development-rights': {
+    slug: 'transfer-development-rights',
+    title: 'TDR (Transfer of Development Rights)',
+    category: 'Planning & Zoning',
+    iconName: 'gis',
+    processing: '15 - 30 Working Days',
+    fee: 'Based on spatial plinth indices',
+    mode: 'Zoning & Master Plan Clearance',
+    overviewHeading: 'TDR Certification Overview',
+    overviewParagraphs: [
+      'Transfer of Development Rights (TDR) is a strategic urban development tool allowing landowners to surrender their land for public projects (like roads, parks, or school zones) in exchange for certificate metrics.',
+      'These certificate metrics can be traded in the open commercial market or utilized directly to construct additional floor area index (FAR) beyond standard building bylaws in authorized receiving zones.'
+    ],
+    noticeTitle: 'Master Plan Surrender Rules',
+    noticeContent: 'All TDR certificates are evaluated based on cadastral coordinate mapping, site width surrender ratios, and the latest zonal master planning guidelines of the UDD BTC.',
+    steps: [
+      { num: "1", title: "Submit Surrender proposal", desc: "File property coordinates, original patta land revenue documents, and surrender outlines." },
+      { num: "2", title: "Joint Field Verification", desc: "Urban planning designers and revenue surveyors visit the site to mark coordinates and surrenders." },
+      { num: "3", title: "TDR Index Calculation", desc: "The spatial mapping division computes equivalent Floor Area Ratio multipliers." },
+      { num: "4", title: "Digitized Certificate Issue", desc: "The certified TDR certificate is registered and issued, complete with ledger IDs." }
+    ],
+    documents: [
+      "Original clear title deed & non-encumbrance certificate (30-year span)",
+      "Detailed cadastral boundary map prepared by a registered licensed surveyor",
+      "No Objection Certificate (NOC) from any registered mortgage lenders",
+      "Surrender agreement signed and verified with local revenue authorities"
+    ],
+    eligibility: [
+      "Open to registered land title owners whose properties fall under public expansion zones",
+      "Surrendered land must be free from any legal, financial, or boundary disputes"
+    ],
+    fees: [
+      { category: "Surrender Validation & Coordinates Mapping", fee: "₹5,000 flat fee", extra: "Includes technical board survey and CAD mapping" },
+      { category: "TDR Certificate Issuance & Registration", fee: "₹10,000 stamp fee", extra: "Includes registration of the unique ledger ID in our public index" }
+    ],
+    faqs: [
+      { q: "Can I sell my TDR Certificate to other developers?", a: "Yes, certified TDR indicators are fully tradeable asset instruments that can be sold locally to developers wanting higher construction heights in active zones." },
+      { q: "What are the receiving zones for building FAR benefits?", a: "Most central commercial rings and mixed residential corridors are labeled as active TDR receiving zones. Restricted green belts or low-rise heritage blocks are excluded." }
+    ],
+    helpline: "8812825025",
+    email: "tdr@uddbtc.org",
+    officeHours: "Mon-Fri: 10 AM - 5 PM",
+    sampleCode: "BTC/TDR/901"
   }
+
 };
 
 // Unified Status Map for sample code checks inside Tracker Modal
@@ -1041,7 +1264,7 @@ export default function ServiceSpecificDynamicPage() {
                           required
                           value={availForm.email}
                           onChange={(e) => setAvailForm({ ...availForm, email: e.target.value })}
-                          placeholder="e.g. citizen@uddbtr.org"
+                          placeholder="e.g. citizen@uddbtc.org"
                           className="w-full bg-slate-5 font-bold border border-slate-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#003366]/20"
                         />
                       </div>
@@ -1193,7 +1416,7 @@ export default function ServiceSpecificDynamicPage() {
                   <Search className="w-6 h-6 text-emerald-300" />
                   <div>
                     <h3 className="text-lg font-extrabold font-serif">Check Application Status</h3>
-                    <p className="text-xs text-slate-300 font-medium">BTR Unified Municipal Status Tracker</p>
+                    <p className="text-xs text-slate-300 font-medium">BTC Unified Municipal Status Tracker</p>
                   </div>
                 </div>
               </div>

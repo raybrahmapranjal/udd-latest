@@ -62,7 +62,7 @@ const ALL_SCHEMES: FullScheme[] = [
     budget: '₹42.5 Crores',
     impactRate: '92% Connectivity Improvement',
     outcomeTarget: '350 km High-Grade Roads',
-    districtFocus: 'All 12 ULBs in BTR',
+    districtFocus: 'All 12 ULBs in BTC',
     fy: 'FY 2025-26',
     icon: Building2,
     color: 'blue',

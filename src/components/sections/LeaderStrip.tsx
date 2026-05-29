@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion';
 import { Landmark, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 
 export default function LeaderStrip() {
   const leaders = [
@@ -125,6 +127,7 @@ export default function LeaderStrip() {
                           src={leader.img} 
                           alt={leader.name} 
                           fill
+                          unoptimized
                           className="object-cover transition-transform duration-500 group-hover:scale-105" 
                           referrerPolicy="no-referrer"
                         />
@@ -171,13 +174,22 @@ export default function LeaderStrip() {
                     </ul>
                   </div>
 
-                  <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`w-full py-4 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors shadow-lg ${theme.button}`}
+                  <Link 
+                    href={
+                      leader.theme === 'sky' ? '/about/leaders/hagrama-mohilary' :
+                      leader.theme === 'purple' ? '/about/leaders/moon-moon-brahma' :
+                      '/about/leaders/lankeshwar-owarie'
+                    }
+                    className="block"
                   >
-                    Read Full Profile <ExternalLink className="w-4 h-4" />
-                  </motion.button>
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`w-full py-4 rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors shadow-lg cursor-pointer ${theme.button}`}
+                    >
+                      Read Full Profile <ExternalLink className="w-4 h-4" />
+                    </motion.div>
+                  </Link>
                 </motion.div>
               </div>
             );

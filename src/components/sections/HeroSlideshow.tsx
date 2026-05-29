@@ -21,7 +21,7 @@ const slideshowImages: Record<string, SlideImage[]> = {
     },
     {
       url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Misty Foothills & Serene Rivers of BTR Region"
+      caption: "Misty Foothills & Serene Rivers of BTC Region"
     },
     {
       url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1600&h=600&q=80",

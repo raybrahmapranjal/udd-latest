@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { navLinks } from '@/lib/data';
-import { Menu, X, ChevronDown, Home, Building, Briefcase, MapPin, Phone, Sparkles, MessageSquare, FileText, Info, Target, ChevronRight, Network } from 'lucide-react';
+import { Menu, X, ChevronDown, Home, Building, Briefcase, MapPin, Phone, Sparkles, MessageSquare, FileText, Info, Target, ChevronRight, Network, Landmark, Award, Users, FileCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ulbItems = [
@@ -20,14 +21,14 @@ const ulbItems = [
 
 const servicesMenu = [
   { name: 'Property Tax', href: '/services/property-tax' },
-  { name: 'Trade Licence Application', href: '/services' },
-  { name: 'Hoarding Permission', href: '/services' },
-  { name: 'Cesspool Request', href: '/services' },
-  { name: 'Film Shooting Permission', href: '/services' },
-  { name: 'Field & Hall Booking', href: '/services' },
-  { name: 'Water Connection', href: '/services' },
-  { name: 'TDR (Transfer of Development Rights)', href: '/services' },
-  { name: 'OBPS (Online Building Permission System)', href: '/services' },
+  { name: 'Trade Licence Application', href: '/services/trade-license' },
+  { name: 'Hoarding Permission', href: '/services/hoarding-permission' },
+  { name: 'Cesspool Request', href: '/services/cesspool-request' },
+  { name: 'Film Shooting Permission', href: '/services/film-shooting' },
+  { name: 'Field & Hall Booking', href: '/services/field-hall-booking' },
+  { name: 'Water Connection', href: '/services/water-supply' },
+  { name: 'TDR (Transfer of Development Rights)', href: '/services/transfer-development-rights' },
+  { name: 'OBPS (Online Building Permission System)', href: '/services/building-permission' },
 ];
 
 export default function Header() {
@@ -40,7 +41,7 @@ export default function Header() {
       case 'About UDD': return <Building className="w-[18px] h-[18px] text-blue-600" />;
       case 'Services': return <Briefcase className="w-[18px] h-[18px] text-green-600" />;
       case 'Grievance': return <MessageSquare className="w-[18px] h-[18px] text-red-500 animate-pulse" />;
-      case 'AI Services': return <Sparkles className="w-[18px] h-[18px] text-purple-600 animate-pulse" />;
+      case 'Governance': return <Landmark className="w-[18px] h-[18px] text-purple-600" />;
       case 'ULBs': return <MapPin className="w-[18px] h-[18px] text-blue-600" />;
       case 'Contact': return <Phone className="w-[18px] h-[18px] text-green-600" />;
       default: return null;
@@ -51,7 +52,7 @@ export default function Header() {
     switch (label) {
       case 'About UDD': return 'border-blue-600/30';
       case 'Services': return 'border-green-600/30';
-      case 'AI Services': return 'border-purple-600/30';
+      case 'Governance': return 'border-purple-600/30';
       case 'ULBs': return 'border-blue-600/30';
       default: return 'border-slate-200';
     }
@@ -61,7 +62,7 @@ export default function Header() {
     switch (label) {
       case 'About UDD': return 'hover:text-blue-600 hover:bg-blue-50/50';
       case 'Services': return 'hover:text-green-600 hover:bg-green-50/50';
-      case 'AI Services': return 'hover:text-purple-600 hover:bg-purple-50/50';
+      case 'Governance': return 'hover:text-purple-600 hover:bg-purple-50/50';
       case 'ULBs': return 'hover:text-blue-600 hover:bg-blue-50/50';
       default: return 'hover:text-[#ff6600]';
     }
@@ -202,7 +203,7 @@ export default function Header() {
                     {/* Footer Button Block */}
                     <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center flex-row">
                       <a 
-                        href="/schemes/15fc"
+                        href="/schemes"
                         className="w-full text-center py-3 bg-gradient-to-r from-[#2176ff] to-[#01acff] hover:from-[#0052cc] hover:to-[#017fff] text-white rounded-xl font-bold text-xs tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-1.5"
                       >
                         View All ULBs &rarr;
@@ -253,6 +254,50 @@ export default function Header() {
                       </a>
                     </div>
                   </div>
+                ) : link.label === 'Governance' ? (
+                  /* Custom Designed Governance Menu matching uploaded image */
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-[380px] bg-white rounded-xl shadow-2xl border-2 border-[#7C3AED]/20 p-0 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-[120] overflow-hidden">
+                    {/* Header banner exactly matching the style in the uploaded image */}
+                    <div className="bg-gradient-to-r from-violet-50 via-white to-fuchsia-50/10 px-6 py-5 flex items-start gap-4 border-b border-violet-100">
+                      <div className="bg-violet-100 p-2 text-violet-700 shrink-0 rounded-xl">
+                        <Landmark className="w-5.5 h-5.5 stroke-[1.5] text-violet-600" />
+                      </div>
+                      <div>
+                        <h4 className="font-extrabold text-[#5B21B6] text-xs tracking-wider uppercase flex items-center gap-1.5 leading-none">
+                          GOVERNANCE & SERVICES
+                        </h4>
+                        <p className="text-[11px] text-[#7C3AED] font-bold mt-1.5 leading-normal">Smart solutions and government services</p>
+                      </div>
+                    </div>
+
+                    {/* Content List containing the four items from the photo (RTI removed) */}
+                    <div className="p-4 bg-white flex flex-col gap-1">
+                      {[
+                        { name: 'Schemes', href: '/schemes', icon: Award, iconColor: 'text-amber-500' },
+                        { name: 'Departments', href: '/departments', icon: Users, iconColor: 'text-blue-500' },
+                        { name: 'Tenders', href: '/tenders', icon: FileCheck, iconColor: 'text-emerald-500' },
+                        { name: 'Grievance', href: '/grievance', icon: MessageSquare, iconColor: 'text-rose-500' }
+                      ].map((item) => {
+                        const IconComponent = item.icon;
+                        return (
+                          <a 
+                            key={item.name}
+                            href={item.href}
+                            className="flex items-center justify-between p-3 rounded-xl transition-all duration-250 group/item border border-transparent hover:bg-slate-50"
+                          >
+                            <div className="flex items-center gap-4">
+                              {/* Left icon with clean styled color - only icon is colored */}
+                              <IconComponent className={`w-5.5 h-5.5 stroke-[1.5] shrink-0 transition-transform duration-300 group-hover/item:scale-110 ${item.iconColor}`} />
+                              <span className="font-extrabold text-black text-[15px] transition-colors">
+                                {item.name}
+                              </span>
+                            </div>
+                            <ChevronRight className="w-4 h-4 text-slate-300 group-hover/item:translate-x-1 transition-all shrink-0 group-hover/item:text-slate-450" />
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
                 ) : link.children && (
                   <div className={`absolute left-0 top-full w-56 bg-white shadow-2xl py-2 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-[120] border-2 ${getBorderColor(link.label)} rounded-md`}>
                     {link.children.map((child) => (
@@ -274,9 +319,12 @@ export default function Header() {
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <div className="hidden lg:block h-8 w-px bg-gray-200 mx-1" />
             
-            <button className="hidden lg:block bg-[#ff6a00] hover:bg-[#e05315] text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5">
+            <a 
+              href="/login"
+              className="hidden lg:block bg-[#ff6a00] hover:bg-[#e05315] text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 text-center"
+            >
               Login
-            </button>
+            </a>
 
             {/* Mobile Toggle Button (Visible strictly on mobile/tablet) */}
             <button 
@@ -363,6 +411,28 @@ export default function Header() {
                               </a>
                             ))}
                           </div>
+                        ) : link.label === 'Governance' ? (
+                          <div className="mt-3 ml-4 grid grid-cols-1 sm:grid-cols-2 gap-2 pb-2">
+                            {[
+                              { name: 'Schemes', href: '/schemes', icon: Award, iconColor: 'text-amber-500', hoverBorder: 'hover:border-amber-500' },
+                              { name: 'Departments', href: '/departments', icon: Users, iconColor: 'text-blue-500', hoverBorder: 'hover:border-blue-500' },
+                              { name: 'Tenders', href: '/tenders', icon: FileCheck, iconColor: 'text-emerald-500', hoverBorder: 'hover:border-emerald-500' },
+                              { name: 'Grievance', href: '/grievance', icon: MessageSquare, iconColor: 'text-rose-500', hoverBorder: 'hover:border-rose-500' }
+                            ].map((item) => {
+                              const IconComponent = item.icon;
+                              return (
+                                <a 
+                                  key={item.name}
+                                  href={item.href}
+                                  className={`flex items-center gap-2 text-black font-extrabold text-xs transition-colors py-1.5 pl-2 border-l-2 border-slate-200 ${item.hoverBorder}`}
+                                  onClick={() => setIsMenuOpen(false)}
+                                >
+                                  <IconComponent className={`w-3.5 h-3.5 stroke-[1.5] shrink-0 ${item.iconColor}`} />
+                                  <span>{item.name}</span>
+                                </a>
+                              );
+                            })}
+                          </div>
                         ) : (
                           <div className="mt-3 ml-4 space-y-3 pb-2">
                             {link.children.map((child) => (
@@ -385,12 +455,13 @@ export default function Header() {
               
               {/* Login Button in Mobile Menu */}
               <div className="pt-6">
-                <button 
+                <a 
+                  href="/login"
                   onClick={() => setIsMenuOpen(false)}
-                  className="w-full bg-[#ff6600] text-white py-3 rounded-xl font-bold text-sm hover:bg-[#e05315] shadow-md hover:shadow-lg transition-all"
+                  className="block w-full text-center bg-[#ff6b00] text-white py-3 rounded-xl font-bold text-sm hover:bg-[#e05315] shadow-md hover:shadow-lg transition-all"
                 >
                   Login
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

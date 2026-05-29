@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { 
   Building, 
@@ -12,8 +12,6 @@ import {
   Map, 
   Activity, 
   ArrowLeft,
-  Search,
-  Filter,
   DollarSign,
   Target,
   MapPin,
@@ -29,7 +27,13 @@ import {
   Scale,
   X,
   TrendingUp,
-  Award
+  Award,
+  ChevronRight,
+  Clock,
+  Briefcase,
+  FileText,
+  Flag,
+  Film
 } from 'lucide-react';
 import UtilityBar from '@/components/layout/UtilityBar';
 import Header from '@/components/layout/Header';
@@ -49,7 +53,7 @@ interface FullService {
   officerInCharge: string;
   timeline: string;
   icon: any;
-  color: string;
+  iconBg: string;
   badge: string;
   gradient: string;
   actions: { label: string; href: string }[];
@@ -57,528 +61,507 @@ interface FullService {
 
 const ALL_SERVICES: FullService[] = [
   {
-    id: 'green',
-    title: 'Bodoland Green Mission',
-    category: 'Civic Programs',
-    tagline: 'Eco-Restoration & Urban Greening',
-    description: 'A stellar flagship initiative dedicated to transforming public urban zones with massive plantation drives, scenic public parks, and eco-friendly recreational spaces.',
-    longDescription: 'Under the Bodoland Green Mission, the Urban Development Department aims to mitigate micro-urban heat effects, enrich city aesthetics, and improve health indexes. High-density block forestation, botanical recreation centers, and active tree guards around newly paved avenues form the bedrock of this eco-recovery system.',
+    id: 'property-tax',
+    title: 'Property Tax',
+    category: 'E-Services',
+    tagline: 'Unified Property Valuation & Online Taxation',
+    description: 'Easy online payment of property taxes for all registered properties in urban areas.',
+    longDescription: 'Brings all standard holdings and properties under a fully computerized system, enabling owners to calculate tax indices, submit declarations, and download instant payment receipts.',
     scope: [
-      'Planting 10,000+ indigenous trees to maximize local biodiversity density.',
-      'Establishing eco-conscious urban gardens, children parks, and walking tracks across BTC towns.',
-      'Integrating vertical landscaping along prime town dividers and institutional boundary walls.',
-      'Conducting regular municipal workshops and sapling donation camps to involve student bodies.'
-    ],
-    budget: '₹8.5 Crores',
-    impactRate: '35% Carbon Sink Increase',
-    outcomeTarget: '33% Urban Canopy Cover',
-    officerInCharge: 'Nodal Director (Eco), BTC',
-    timeline: 'Ongoing (Phase III Active)',
-    icon: Leaf,
-    color: 'emerald',
-    badge: 'Green Initiative',
-    gradient: 'from-emerald-400 to-emerald-600 shadow-emerald-500/10',
-    actions: [
-      { label: 'Register as Green Volunteer', href: '/services/green-mission' }
-    ]
-  },
-  {
-    id: 'water',
-    title: 'AMRUT Water Supply Mission',
-    category: 'Public Utilities',
-    tagline: 'Guaranteed Piped Water for All Wards',
-    description: 'Accelerating pure, treated water connections to every municipal home with centralized storage projects and IoT monitoring.',
-    longDescription: 'This utility overhauls outdated shallow wells with heavy steel transmission pipelines, clean water filter stations, and storage reservoirs. Fully monitored with online pressure logs and computerized chemical analyzers to ensure excellent hygienic delivery standards.',
-    scope: [
-      'Laying leak-proof high-grade pipe grids directly to and inside residential wards.',
-      'Constructing modern water filtering plants and high-capacity storage reservoirs.',
-      'Implementing automated digital water meters for sustainable usage diagnostics.',
-      'Expanding safe drinking water kiosks at central market hubs and public transit points.'
-    ],
-    budget: '₹24.5 Crores',
-    impactRate: '100% Payer Supply Security',
-    outcomeTarget: '42,000+ Connected Households',
-    officerInCharge: 'Executive Engineer (PHE), Kokrajhar',
-    timeline: 'Target Completion: Dec 2026',
-    icon: Droplet,
-    color: 'sky',
-    badge: 'Central Scheme',
-    gradient: 'from-sky-400 to-sky-600 shadow-sky-500/10',
-    actions: [
-      { label: 'Apply for Water Connection', href: '/services/water-supply' }
-    ]
-  },
-  {
-    id: 'sbm',
-    title: 'Integrated Solid Waste Management',
-    category: 'Public Utilities',
-    tagline: 'Waste-to-Wealth Zero Landfill Goals',
-    description: 'Deploying source segregation standards, decentralized composting, and modern processing yards to secure 100% garbage cleanups.',
-    longDescription: 'Driven by "Swachh Bodoland", we deploy modernized secondary waste transport vehicles, sorting plants, and organic fertilizer converters, removing unmonitored garbage heaps from open public areas.',
-    scope: [
-      'Comprehensive door-to-door waste collection services across all 12 ULBs in BTC.',
-      'Providing color-segregated bins (dry/wet/hazardous) to families.',
-      'Establishing high-capacity bio-methanation and composting stations.',
-      'Mechanized road swept fleet operations for high-density commercial centers.'
-    ],
-    budget: '₹12.0 Crores',
-    impactRate: '98% Daily Collection coverage',
-    outcomeTarget: 'Zero Open Refuse Dumps',
-    officerInCharge: 'Chief Project Manager, Swachh Bodoland',
-    timeline: 'Active / Scaling',
-    icon: Trash2,
-    color: 'indigo',
-    badge: 'High Impact',
-    gradient: 'from-indigo-400 to-indigo-600 shadow-indigo-500/10',
-    actions: [
-      { label: 'Report Local Litter Hotspot', href: '/services/solid-waste' }
-    ]
-  },
-  {
-    id: 'obps',
-    title: 'Online Building Permission System (OBPS)',
-    category: 'Digital Governance',
-    tagline: 'Instant Automated Structural Clearance',
-    description: 'Submit designs, process application files, and download authorized certificates in a fast, transparent digital portal.',
-    longDescription: 'OBPS removes unnecessary administrative loops from commercial and housing layouts. Integrates geo-coordinate matching to ensure structural compliance, setbacks, and seismic guidelines are automatically processed.',
-    scope: [
-      'Eliminating manual, slow file routing with structured CAD drawing upload.',
-      'Unified processing of fire safety, aviation, and environment clearances.',
-      'Transparent tracking of application processing phases at any hour.',
-      'Automated payments via multiple secured UPI and banking gateways.'
-    ],
-    budget: '₹3.2 Crores',
-    impactRate: 'Under 14 Days Approval Cycle',
-    outcomeTarget: '100% Paperless Clearance',
-    officerInCharge: 'Zonal Urban Planner, BTC Office',
-    timeline: 'Fully Operational',
-    icon: FileCheck,
-    color: 'amber',
-    badge: 'E-Gov Reform',
-    gradient: 'from-amber-500 to-orange-600 shadow-amber-500/10',
-    actions: [
-      { label: 'Enter OBPS Portal', href: '/services/building-permission' }
-    ]
-  },
-  {
-    id: 'tax',
-    title: 'e-Property Tax & Assessment',
-    category: 'Digital Governance',
-    tagline: 'Swift Online Tax Calculations & Receipts',
-    description: 'Assess property assets systematically, clear outstanding municipal dues, and manage receipt records in our unified billing dashboard.',
-    longDescription: 'Bringing all standard spatial layouts under a unified computerized system allows people to view records, calculate dynamic taxes based on built zone categories, and file returns efficiently.',
-    scope: [
-      'Interactive online self-assessment calculators matching actual property categories.',
-      'Instant verification via mapped GIS Unique Property Identification Numbers.',
-      'Saves historical clearance certificates in secure profile digital wallets.',
-      'Immediate alert notification on pending annual dues via mobile SMS.'
+      'Self-assessment tax calculator based on structural floor area.',
+      'Instant search and tracking via Unique Property Identification Numbers.',
+      'Generous 5% rebate incentive for early payments cleared before September 30th.',
+      'Saves historic digital tax receipts in your secure profile.'
     ],
     budget: '₹2.5 Crores',
-    impactRate: '99% Error-Free billing',
-    outcomeTarget: '90,000+ Property Accounts',
-    officerInCharge: 'Revenue & Valuation Officer, BTC',
+    impactRate: '99% Error-Free Billing',
+    outcomeTarget: '90,000+ Active Accounts',
+    officerInCharge: 'Revenue & Valuation Director, BTC',
     timeline: 'Fully Operational',
-    icon: CreditCard,
-    color: 'purple',
-    badge: 'Online Services',
+    icon: FileText,
+    iconBg: 'bg-blue-600',
+    badge: 'Popular E-Service',
     gradient: 'from-purple-500 to-indigo-600 shadow-purple-500/10',
     actions: [
       { label: 'Pay Property Tax Online', href: '/services/property-tax' }
     ]
   },
   {
-    id: 'lights',
-    title: 'Smart LED Street Lighting',
-    category: 'Civic Programs',
-    tagline: 'High-Efficiency Grid for Commuter Safety',
-    description: 'Replacing legacy mercury bulbs with power-saving LEDs and installing tall structural high-masts at main intersections.',
-    longDescription: 'This mission eliminates dark-spot vulnerability zones across all our 12 major towns. Installing dust-proof fixtures connected into astronomical tracking schedules helps lower energy waste while keeping high street light counts active.',
+    id: 'trade-license',
+    title: 'Trade Licence Application',
+    category: 'E-Services',
+    tagline: 'Digital Commercial Registration & Certifications',
+    description: 'Apply for new trade licenses or renew existing ones for your business operations.',
+    longDescription: 'Enables any commercial entity or merchant to file coordinates, upload requisite certificates, pay standard operational fees, and receive verified municipal commercial clearances.',
     scope: [
-      'Replacing old lighting assets with power-saving smart LED fixtures.',
-      'Erecting multi-directional decorative high-mast lights over major community nodes.',
-      'Deploying automatic dusk-to-dawn astronomical timer sensors to save electricity.',
-      'Setting up continuous centralized control system networks for reporting faults.'
+      'Simple online sign-up with merchant credentials.',
+      'Automated commercial tax fee computation based on merchant classifications.',
+      'Fast-track renewal with zero manual processing delays.',
+      'Secure download of QR-scannable enterprise license certificates.'
     ],
-    budget: '₹6.2 Crores',
-    impactRate: '55% Power Bill Savings',
-    outcomeTarget: '100% Covered Major Roads',
-    officerInCharge: 'Project Engineer, Municipal Electricals',
-    timeline: 'Ongoing Implementation',
-    icon: Lightbulb,
-    color: 'rose',
-    badge: 'Safety First',
-    gradient: 'from-rose-400 to-rose-600 shadow-rose-500/10',
+    budget: '₹1.8 Crores',
+    impactRate: '95% Merchant Compliance',
+    outcomeTarget: '15,000+ Registered Trades',
+    officerInCharge: 'License Officer, Municipal Commerce',
+    timeline: 'Fully Operational',
+    icon: Award,
+    iconBg: 'bg-[#10B981]',
+    badge: 'E-Commerce Desk',
+    gradient: 'from-teal-500 to-emerald-600 shadow-teal-500/10',
     actions: [
-      { label: 'Request Lighting or Fixes', href: '/services/street-lighting' }
+      { label: 'Apply Trade Licence', href: '/services/trade-license' }
     ]
   },
   {
-    id: 'gis',
-    title: 'GIS-Based Spatial Mapping',
-    category: 'Planning & Zoning',
-    tagline: 'Digitized Records & Structural Planning',
-    description: 'Formulating satellite property mappings and digitized master records to streamline municipal building clearances and zoning.',
-    longDescription: 'Using drone aerial photographic surveys and geo-indices, we create reliable records for master-planning, developmental buffer margins, and layout validations.',
+    id: 'hoarding-permission',
+    title: 'Hoarding Permission',
+    category: 'Planning & Development',
+    tagline: 'Outdoor Board & Billboard Display Permissions',
+    description: 'Get permissions for outdoor advertising hoardings and display boards.',
+    longDescription: 'Ensures advertising assets meet structurally sound safety profiles and are designated inside permissible commercial zones to avoid visual clutter and public safety hazards.',
     scope: [
-      'Utilizing high-precision geospatial surveys to map residential layouts.',
-      'Upgrading municipal building layout approval cycles with precise reference maps.',
-      'Interlinking property identifiers for swift online digital tax processing.',
-      'Designing smart spatial growth frameworks to assist strategic town councils.'
+      'Interactive mapping of billboard mounting zones.',
+      'Submit load-testing compliance certificates and structural layout drawings.',
+      'Online renewal of advertising space licenses.',
+      'Interactive ledger for advertisement sittings and public tax schedules.'
     ],
-    budget: '₹4.8 Crores',
-    impactRate: '100% Digital GIS Trace',
-    outcomeTarget: 'All 12 ULBs Digitized',
-    officerInCharge: 'Chief GIS Advisor, Town & Country Planning',
-    timeline: 'Active Progress: 80% Complete',
-    icon: Map,
-    color: 'orange',
-    badge: 'Infrastructure',
-    gradient: 'from-orange-400 to-orange-600 shadow-orange-500/10',
+    budget: '₹1.5 Crores',
+    impactRate: 'Standardized Public Landscapes',
+    outcomeTarget: 'All Commercial Agencies Logged',
+    officerInCharge: 'Advertisement Cell Commissioner, BTC',
+    timeline: 'Active Services',
+    icon: Flag,
+    iconBg: 'bg-orange-600',
+    badge: 'Revenue Program',
+    gradient: 'from-indigo-500 to-violet-600 shadow-indigo-500/10',
     actions: [
-      { label: 'View Spatial Master Plan', href: '/services/spatial-mapping' }
+      { label: 'Request Display Permission', href: '/services/hoarding-permission' }
     ]
   },
   {
-    id: 'drainage',
-    title: 'Stormwater Drainage Schemes',
+    id: 'cesspool-request',
+    title: 'Cesspool Request',
     category: 'Public Utilities',
-    tagline: 'Climate-Resilient Monsoonal Security',
-    description: 'Constructing robust masonry drains and strategic outfall channels to prevent monsoonal waterlogging in municipal marketplaces.',
-    longDescription: 'Enabling planned runoff routes protects structural properties, controls public sanitation degradation risks, and secures daily commutes through storm waves.',
+    tagline: 'On-Demand Sludge Evacuation Services',
+    description: 'Request cesspool cleaning and sanitation services for residential and commercial properties.',
+    longDescription: 'Part of our Swachh Bodoland project, this service provides clean vacuum tankers on-demand to maintain household hygiene and eliminate unauthorized waste dumping.',
     scope: [
-      'Drafting deep-masonry water drainage conduits to evacuate stormwater highflows.',
-      'Conducting routine pre-monsoon mechanical desiltation on primary feeder trunks.',
-      'Deploying secure retaining walls alongside urban riverfronts and major water outfalls.',
-      'Creating flood-vulnerable spot lists paired with mobile pump-out crews.'
+      'Book cleaning appointments online based on municipal truck calendars.',
+      'Instant SMS alert with tanker details and driver contact coordinates.',
+      'Standardized distance-based utility billing with digital payment.',
+      'Certified mechanical disposal at designated treatment plants.'
     ],
-    budget: '₹15.5 Crores',
-    impactRate: 'Zero Waterlog Transit Incidents',
-    outcomeTarget: '120 km Retaining Conduits',
-    officerInCharge: 'Asst. General Director, Urban Drainage Civil',
-    timeline: 'Pre-Monsoon Upgrades Active',
-    icon: Activity,
-    color: 'blue',
-    badge: 'Disaster Prevention',
-    gradient: 'from-blue-400 to-cyan-600 shadow-blue-500/10',
+    budget: '₹2.1 Crores',
+    impactRate: '100% Sanitized Sump Drainage',
+    outcomeTarget: 'Under 24-Hour Service Response',
+    officerInCharge: 'Urban Sanitation Superintendent, BTC',
+    timeline: 'Active & Reliable',
+    icon: Droplet,
+    iconBg: 'bg-violet-600',
+    badge: 'Civic Utility',
+    gradient: 'from-cyan-400 to-blue-600 shadow-cyan-500/10',
     actions: [
-      { label: 'Register Waterlogging Complaint', href: '/services/drainage-schemes' }
+      { label: 'Book Cesspool Tanker', href: '/services/cesspool-request' }
+    ]
+  },
+  {
+    id: 'film-shooting',
+    title: 'Film Shooting Permission',
+    category: 'E-Services',
+    tagline: 'Commercial Filming Space Clearance & Permissions',
+    description: 'Obtain permissions for film and video shooting at public locations.',
+    longDescription: 'A streamlined single-window option to review shooting schedules, reserve public gardens/heritage sites, pay security deposits, and receive official police and municipal NOCs.',
+    scope: [
+      'Online reservation of municipal property shoots and public zones.',
+      'Automatic single-window security deposits clearance.',
+      'Consolidated clearances from Traffic and Municipal units.',
+      'Downloadable Shooting License PDF with official seal stamps.'
+    ],
+    budget: '₹0.8 Crores',
+    impactRate: 'Boost Local Media Tourism',
+    outcomeTarget: '100% Digital Filming NOCs',
+    officerInCharge: 'Nodal Officer, Tourism & Culture BTC',
+    timeline: 'Active Window',
+    icon: Film,
+    iconBg: 'bg-pink-600',
+    badge: 'Single Window NOC',
+    gradient: 'from-rose-500 to-pink-600 shadow-rose-500/10',
+    actions: [
+      { label: 'Apply Film Permission', href: '/services/film-shooting' }
+    ]
+  },
+  {
+    id: 'field-hall-booking',
+    title: 'Field & Hall Booking',
+    category: 'E-Services',
+    tagline: 'Municipal Venue Allocations & Event Reservoirs',
+    description: 'Book public fields, halls, and community centers for events and gatherings.',
+    longDescription: 'Protects citizens from local middle-men by providing an online slot booking engine with dynamic rent matrix definitions and secure deposit refunds.',
+    scope: [
+      'Transparent live daily slot availability charts per municipality.',
+      'Dynamic security deposit processing with cashless cancellations.',
+      'Integrated public venue facilities assessment checklists.',
+      'Automated noise level and safety guideline checklist clearances.'
+    ],
+    budget: '₹1.9 Crores',
+    impactRate: '100% Double-Booking Prevention',
+    outcomeTarget: '35+ Municipal Venues Integrated',
+    officerInCharge: 'Estate Officer, Municipal Administration',
+    timeline: 'Fully Operational',
+    icon: Building2,
+    iconBg: 'bg-indigo-600',
+    badge: 'Public Reservoirs',
+    gradient: 'from-emerald-500 to-teal-600 shadow-emerald-500/10',
+    actions: [
+      { label: 'Book Public Venue', href: '/services/field-hall-booking' }
+    ]
+  },
+  {
+    id: 'water-supply',
+    title: 'Water Connection',
+    category: 'Public Utilities',
+    tagline: 'Guaranteed Treated Drinking Water Pipelines',
+    description: 'Apply for new water connections or manage existing water supply services.',
+    longDescription: 'Implements modern clean drinking water pipes and treatment plants directly to municipal families across BTC towns with automated quality monitoring systems.',
+    scope: [
+      'Submit connection layouts and municipal pipeline integration coordinates.',
+      'Online application processing & inspector allocations under 72 hours.',
+      'Track household water meter setups and usage bill receipts.',
+      'Fast online requests for seasonal municipal community water tankers.'
+    ],
+    budget: '₹24.5 Crores',
+    impactRate: '100% Payer Supply Security',
+    outcomeTarget: '42,000+ Connected Households',
+    officerInCharge: 'Executive Engineer (PHE), Kokrajhar',
+    timeline: 'Scaling Up (Phase II Active)',
+    icon: Droplet,
+    iconBg: 'bg-sky-500',
+    badge: 'Flagship Scheme',
+    gradient: 'from-sky-400 to-sky-600 shadow-sky-500/10',
+    actions: [
+      { label: 'Apply for Water Connection', href: '/services/water-supply' }
+    ]
+  },
+  {
+    id: 'transfer-development-rights',
+    title: 'TDR (Transfer of Development Rights)',
+    category: 'Planning & Development',
+    tagline: 'Development Rights Certificates Dispatch',
+    description: 'Process TDR applications for urban development and infrastructure projects.',
+    longDescription: 'Manages zoning right conversions and issues digital development right credits to help developers optimize heights in subsequent real estate projects.',
+    scope: [
+      'Submit property maps and surrender land records maps.',
+      'Dynamic valuation of right index ratios matching zoning blueprints.',
+      'Saves accredited TDR digital certificate credits in government ledgers.',
+      'Interactive tracking of transfer rights transactions with partners.'
+    ],
+    budget: '₹4.3 Crores',
+    impactRate: 'Transparent Land Negotiations',
+    outcomeTarget: 'Fast Road Widening Clearances',
+    officerInCharge: 'Zonal Commissioner, Town Planning Cell',
+    timeline: 'Active Portal',
+    icon: MapPin,
+    iconBg: 'bg-teal-600',
+    badge: 'Infrastructure Reform',
+    gradient: 'from-orange-500 to-amber-600 shadow-orange-500/10',
+    actions: [
+      { label: 'Apply TDR Certification', href: '/services/transfer-development-rights' }
+    ]
+  },
+  {
+    id: 'building-permission',
+    title: 'OBPS (Online Building Permission System)',
+    category: 'Planning & Development',
+    tagline: 'Instant Automated Structural Blueprints Clearance',
+    description: 'Submit and track building plan approvals and construction permissions online.',
+    longDescription: 'OBPS automates manual clearance bottlenecks and verifies zoning setups, height thresholds, and seismic safety protocols using computer-aided rule assessments.',
+    scope: [
+      'Fast AutoCAD blueprint drawing analysis pipeline.',
+      'Integrated NOCs from fire safety, environmental, and disaster management cells.',
+      'Track verification states by building surveyors dynamically.',
+      'Auto-generation of authorized digital sanction stamps.'
+    ],
+    budget: '₹3.2 Crores',
+    impactRate: 'Approval under 14 days',
+    outcomeTarget: '100% Digital Clearances',
+    officerInCharge: 'Nodal Town Planner, BTC Council Office',
+    timeline: 'Fully Operational',
+    icon: Building,
+    iconBg: 'bg-amber-500',
+    badge: 'E-Gov Reform',
+    gradient: 'from-amber-500 to-orange-600 shadow-amber-500/10',
+    actions: [
+      { label: 'Enter OBPS Portal', href: '/services/building-permission' }
     ]
   }
 ];
 
-const CATEGORIES = ['All', 'Public Utilities', 'Digital Governance', 'Civic Programs', 'Planning & Zoning'];
-
 export default function ServicesPage() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedService, setSelectedService] = useState<FullService | null>(null);
-
-  const filteredServices = ALL_SERVICES.filter(service => {
-    const matchesSearch = 
-      service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      service.tagline.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      service.description.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesCategory = selectedCategory === 'All' || service.category === selectedCategory;
-
-    return matchesSearch && matchesCategory;
-  });
+  const handleGetStartedClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.location.href = '/login';
+  };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
-      <div className="sticky top-0 z-[110]">
+    <div className="min-h-screen bg-slate-50 flex flex-col font-sans selection:bg-[#f97316] selection:text-white">
+      <div className="sticky top-0 z-[110] shadow-sm">
         <UtilityBar />
         <Header />
       </div>
 
-      {/* Main Banner Header */}
-      <div className="relative py-16 bg-gradient-to-br from-[#0c1a30] via-[#041a2f] to-[#010915] overflow-hidden text-white shadow-md">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(16,185,129,0.12),rgba(255,255,255,0))]" />
-        
-        {/* Accent graphics */}
-        <div className="absolute -bottom-10 -left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+      {/* Styled Banner Section with traditional Bodo Aronai horizontal pattern */}
+      <section className="relative py-16 overflow-hidden bg-slate-950 text-white border-b border-purple-950/30 shadow-lg text-center">
+        {/* Traditional Bodo Aronai vertical pattern tiling horizontally */}
+        <div 
+          className="absolute inset-0 z-0 opacity-45 bg-repeat-x bg-center"
+          style={{ 
+            backgroundImage: "url('https://as2.ftcdn.net/jpg/05/39/19/59/1000_F_539195979_di6c1j1rrc8wrybNOkactpWEgWlDioV1.webp')",
+            backgroundSize: "auto 100%"
+          }}
+        />
+        {/* Light Purple Overlay with decreased intensity */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#21113a]/70 via-[#180a2d]/60 to-[#2d114c]/70 mix-blend-multiply" />
 
-        <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
-          <a href="/" className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-extrabold text-xs uppercase tracking-wider mb-6 transition-all">
-            <ArrowLeft className="w-4 h-4" /> Back to Portal Home
-          </a>
-
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full border border-white/15 text-[10px] uppercase tracking-widest font-bold text-emerald-300 mb-3 animate-pulse">
-                <Sparkles className="w-3.5 h-3.5" /> Department Services
-              </div>
-              <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-3 uppercase leading-none font-sans">
-                UDD BTC <span className="text-saffron">Services</span>
-              </h1>
-              <p className="text-slate-300 max-w-2xl text-xs sm:text-base font-medium leading-relaxed">
-                Explore, track, and apply for digital and physical municipal utilities, planning reforms, and public ecosystem programs initiated by the Urban Development Department, BTC.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 shrink-0">
-              <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl backdrop-blur-md">
-                <span className="text-[9px] uppercase font-black text-slate-300 block tracking-widest leading-none mb-1">E-TRANSFORMATION</span>
-                <span className="text-lg sm:text-2xl font-black text-saffron">100% Online</span>
-              </div>
-              <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl backdrop-blur-md">
-                <span className="text-[9px] uppercase font-black text-slate-300 block tracking-widest leading-none mb-1">MUNICIPALITIES</span>
-                <span className="text-lg sm:text-2xl font-black text-emerald-400">12 Towns</span>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto relative z-20 px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight text-white font-sans drop-shadow-sm">
+            Our Services
+          </h1>
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-sky-100/90 max-w-2xl mx-auto font-medium leading-relaxed">
+            Comprehensive urban development services for citizens and businesses across BTC
+          </p>
         </div>
-      </div>
+      </section>
 
       {/* Main Content Areas */}
-      <main className="flex-grow max-w-6xl w-full mx-auto p-4 sm:p-6 md:p-8">
+      <main className="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14" id="services-list">
         
-        {/* Search & Filter Component Dock */}
-        <div className="bg-white p-4 rounded-2xl border border-slate-400 shadow-md mb-8 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-          
-          <div className="relative flex-grow">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4.5 h-4.5" />
-            <input 
-              type="text" 
-              placeholder="Search active utilities, planning approvals, taxes..." 
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-400 rounded-xl text-slate-700 placeholder-slate-400 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:bg-white transition-all"
-            />
-          </div>
-
-          <div className="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none scroll-smooth">
-            <Filter className="text-slate-400 w-4 h-4 shrink-0 hidden sm:block mr-1" />
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`text-xs px-4 py-2.5 rounded-xl font-bold uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap ${
-                  selectedCategory === cat 
-                    ? 'bg-emerald-600 text-white shadow-md' 
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-600'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
+        {/* All Services Title Section */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight">
+            All Services
+          </h2>
+          <p className="text-slate-500 text-sm sm:text-base mt-2 font-semibold">
+            Access essential UDD services conveniently
+          </p>
         </div>
 
-        {/* Grid and listings */}
-        {filteredServices.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-20">
-            {filteredServices.map((service, idx) => {
-              const IconComp = service.icon;
-              return (
-                <Link
-                  key={service.id}
-                  href={service.actions[0]?.href || '/services'}
-                  className="block group"
-                >
-                  <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    whileHover={{ y: -5 }}
-                    className="bg-white border-2 border-slate-400 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between cursor-pointer h-full"
-                  >
-                    <div>
-                      <div className="flex justify-between items-start mb-5">
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white shadow-md`}>
-                          <IconComp className="w-6 h-6" />
-                        </div>
-                        
-                        <div className="flex items-center gap-2">
-                          <span className="text-[9px] uppercase font-bold tracking-widest px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200">
-                            {service.category}
-                          </span>
-                        </div>
-                      </div>
+        {/* Grid and list with customized border, background, and hover states per-category */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {ALL_SERVICES.map((service, idx) => {
+            const IconComp = service.icon;
+            const pathMapping = service.id === 'property-tax' 
+              ? '/services/property-tax'
+              : `/services/${service.id}`;
 
-                      <span className="text-[10px] text-saffron uppercase font-extrabold tracking-widest block mb-1">
-                        {service.badge}
-                      </span>
-                      <h3 className="text-xl font-black font-sans text-navy mb-2 leading-tight">
-                        {service.title}
-                      </h3>
-                      <p className="text-slate-400 text-xs font-bold leading-normal mb-3 italic">
-                        &quot;{service.tagline}&quot;
-                      </p>
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-                        {service.description}
-                      </p>
+            // Define unique styling matching each service's icon theme
+            const serviceStyles: Record<string, { bgClass: string; borderClass: string; borderLeftClass: string; hoverShadowClass: string; textClass: string }> = {
+              'property-tax': {
+                bgClass: 'bg-[#f0f7ff]', // soft sky/blue
+                borderClass: 'border-blue-400',
+                borderLeftClass: 'border-l-blue-600',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(37,99,235,0.12)]',
+                textClass: 'text-blue-600',
+              },
+              'trade-license': {
+                bgClass: 'bg-[#f0fdf4]', // soft emerald/green
+                borderClass: 'border-emerald-400',
+                borderLeftClass: 'border-l-[#10B981]',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(16,185,129,0.12)]',
+                textClass: 'text-[#10B981]',
+              },
+              'hoarding-permission': {
+                bgClass: 'bg-[#fff7ed]', // soft amber/orange
+                borderClass: 'border-orange-400',
+                borderLeftClass: 'border-l-orange-600',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(234,88,12,0.12)]',
+                textClass: 'text-orange-600',
+              },
+              'cesspool-request': {
+                bgClass: 'bg-[#f5f3ff]', // soft violet
+                borderClass: 'border-violet-400',
+                borderLeftClass: 'border-l-violet-600',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(124,58,237,0.12)]',
+                textClass: 'text-violet-600',
+              },
+              'film-shooting': {
+                bgClass: 'bg-[#fdf2f8]', // soft pink
+                borderClass: 'border-pink-400',
+                borderLeftClass: 'border-l-pink-600',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(219,39,119,0.12)]',
+                textClass: 'text-pink-600',
+              },
+              'field-hall-booking': {
+                bgClass: 'bg-[#faf5ff]', // soft indigo
+                borderClass: 'border-indigo-400',
+                borderLeftClass: 'border-l-indigo-600',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(79,70,229,0.12)]',
+                textClass: 'text-indigo-600',
+              },
+              'water-supply': {
+                bgClass: 'bg-[#f0f9ff]', // soft cyan/sky
+                borderClass: 'border-sky-400',
+                borderLeftClass: 'border-l-sky-500',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(14,165,233,0.12)]',
+                textClass: 'text-sky-500',
+              },
+              'transfer-development-rights': {
+                bgClass: 'bg-[#f0fdfa]', // soft teal
+                borderClass: 'border-teal-400',
+                borderLeftClass: 'border-l-teal-600',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(13,148,136,0.12)]',
+                textClass: 'text-teal-600',
+              },
+              'building-permission': {
+                bgClass: 'bg-[#fdfbeb]', // soft building/amber layout
+                borderClass: 'border-amber-400',
+                borderLeftClass: 'border-l-amber-500',
+                hoverShadowClass: 'hover:shadow-[0_8px_20px_-4px_rgba(245,158,11,0.12)]',
+                textClass: 'text-amber-500',
+              },
+            };
 
-                      <div className="flex items-center gap-1.5 text-xs text-[#003366] font-black uppercase tracking-wider">
-                        <span>Explore Service Details & Apply</span>
-                        <ArrowRight className="w-4 h-4 text-saffron transition-transform group-hover:translate-x-1" />
-                      </div>
-                    </div>
+            const style = serviceStyles[service.id] || {
+              bgClass: 'bg-[#fffbf8]',
+              borderClass: 'border-[#f97316]',
+              borderLeftClass: 'border-l-[#f97316]',
+              hoverShadowClass: 'hover:shadow-[-4px_4px_12px_rgba(249,115,22,0.06)]',
+              textClass: 'text-[#f97316]',
+            };
 
-                    {/* Metadata and statistics footer */}
-                    <div className="border-t border-slate-400 pt-5 mt-6 grid grid-cols-2 gap-3 text-xs">
-                      <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-400">
-                        <span className="text-[9px] uppercase font-black text-slate-400 block leading-none mb-1">Target Metric</span>
-                        <span className="font-extrabold text-slate-705 flex items-center gap-1">
-                          <Target className="w-3.5 h-3.5 text-emerald-500" />
-                          {service.outcomeTarget}
-                        </span>
-                      </div>
-
-                      <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-400">
-                        <span className="text-[9px] uppercase font-black text-slate-400 block leading-none mb-1">Impact Goal</span>
-                        <span className="font-extrabold text-navy flex items-center gap-1">
-                          <TrendingUp className="w-3.5 h-3.5 text-orange-500" />
-                          {service.impactRate}
-                        </span>
-                      </div>
-                    </div>
-
-                  </motion.div>
-                </Link>
-              );
-            })}
-          </div>
-        ) : (
-          <div className="text-center py-20 bg-white border border-slate-200/80 rounded-2xl p-8 max-w-lg mx-auto shadow-sm">
-            <Layers className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-            <h3 className="text-lg font-black text-navy uppercase tracking-tight mb-2">No Matching Services</h3>
-            <p className="text-slate-500 text-xs sm:text-sm font-semibold mb-6">
-              We couldn&apos;t find any services matching &quot;{searchTerm}&quot; under direct filter category &quot;{selectedCategory}&quot;. Please adjust your search input.
-            </p>
-            <button 
-              onClick={() => { setSearchTerm(''); setSelectedCategory('All'); }}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black uppercase tracking-wider py-3 px-6 rounded-xl transition-all"
-            >
-              Reset Filters
-            </button>
-          </div>
-        )}
-
-        {/* Detailed Modal view */}
-        <AnimatePresence>
-          {selectedService && (
-            <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setSelectedService(null)}
-                className="absolute inset-0 bg-slate-950/70 backdrop-blur-md"
-              />
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 30 }}
-                transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                className="bg-white rounded-3xl w-full max-w-2xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.35)] border border-slate-100 relative z-10 flex flex-col max-h-[90vh]"
+            return (
+              <Link
+                key={service.id}
+                href={pathMapping}
+                className="block group h-full"
               >
-                <div className={`h-3 bg-gradient-to-r ${selectedService.gradient}`} />
-
-                <div className="p-6 md:p-8 flex items-start justify-between border-b border-slate-100 shrink-0 bg-slate-50/50">
-                  <div className="flex gap-4 items-center">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${selectedService.gradient} flex items-center justify-center text-white shrink-0 shadow-md`}>
-                      {React.createElement(selectedService.icon, { className: "w-6 h-6" })}
-                    </div>
-                    <div>
-                      <span className="text-[9px] font-black uppercase text-emerald-600 tracking-widest block mb-0.5">
-                        {selectedService.category} Service Code
-                      </span>
-                      <h3 className="text-xl md:text-2xl font-black text-navy leading-tight uppercase">
-                        {selectedService.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => setSelectedService(null)}
-                    className="p-1.5 rounded-full hover:bg-slate-200 text-slate-400 hover:text-slate-700 transition-colors"
-                    aria-label="Close modal"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-
-                <div className="p-6 md:p-8 overflow-y-auto space-y-6 flex-1 text-slate-700 scrollbar-thin">
+                <motion.div
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: idx * 0.04 }}
+                  whileHover={{ y: -5 }}
+                  className={`${style.bgClass} border ${style.borderClass} border-l-4 ${style.borderLeftClass} rounded-lg p-6 sm:p-7 flex flex-col justify-between cursor-pointer h-full shadow-[0_2px_8px_rgba(0,0,0,0.02)] ${style.hoverShadowClass} transition-all duration-300`}
+                >
                   <div>
-                    <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1">Tagline Purpose</h4>
-                    <p className="text-sm md:text-base font-bold text-navy italic leading-snug">
-                      &quot;{selectedService.tagline}&quot;
+                    {/* circular icon */}
+                    <div className="mb-5">
+                      <div className={`w-16 h-16 rounded-full ${service.iconBg} flex items-center justify-center text-white shadow-md shadow-black/10`}>
+                        <IconComp className="w-8 h-8 text-white" />
+                      </div>
+                    </div>
+
+                    {/* Card Content Titles */}
+                    <h3 className="text-xl sm:text-2xl font-black font-sans text-slate-950 group-hover:text-[#f97316] transition-colors leading-tight mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-slate-705 text-sm sm:text-base leading-relaxed mb-6 font-semibold">
+                      {service.description}
                     </p>
                   </div>
 
-                  <div>
-                    <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-2">Detailed Scope</h4>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                      {selectedService.longDescription}
-                    </p>
+                  {/* Learn More Link matching the orange text and layout exactly */}
+                  <div className="flex items-center gap-1.5 text-xs text-[#f97316] font-black uppercase tracking-wider pt-2 mt-auto">
+                    <span>Learn more</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#f97316] transition-transform group-hover:translate-x-1" />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100 flex flex-col justify-between">
-                      <span className="text-[9px] font-extrabold uppercase text-emerald-600 tracking-wider flex items-center gap-1 mb-1">
-                        <DollarSign className="w-3.5 h-3.5" /> Allocated Funds
-                      </span>
-                      <span className="text-base font-extrabold text-navy">{selectedService.budget}</span>
-                    </div>
+                </motion.div>
+              </Link>
+            );
+          })}
+        </div>
 
-                    <div className="bg-blue-50/50 p-4 rounded-xl border border-blue-100 flex flex-col justify-between">
-                      <span className="text-[9px] font-extrabold uppercase text-blue-600 tracking-wider flex items-center gap-1 mb-1">
-                        <Award className="w-3.5 h-3.5" /> Scope Target
-                      </span>
-                      <span className="text-xs font-extrabold text-[#003366] leading-snug">{selectedService.outcomeTarget}</span>
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl space-y-2 text-xs">
-                    <div className="flex justify-between">
-                      <span className="text-slate-400 font-bold uppercase tracking-wide">Officer-in-Charge:</span>
-                      <strong className="text-slate-800">{selectedService.officerInCharge}</strong>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-slate-400 font-bold uppercase tracking-wide">Timeline Frame:</span>
-                      <strong className="text-slate-800">{selectedService.timeline}</strong>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-[10px] font-black uppercase text-slate-400 tracking-wider mb-3">Project Action Pillars</h4>
-                    <ul className="space-y-3 font-semibold text-xs sm:text-sm text-slate-600">
-                      {selectedService.scope.map((point, idx) => (
-                        <li key={idx} className="flex gap-2.5 items-start">
-                          <ShieldCheck className="w-[18px] h-[18px] text-emerald-500 shrink-0 mt-0.5" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="p-4 bg-slate-50 border-t border-slate-400 flex flex-col sm:flex-row gap-2 justify-end shrink-0">
-                  {selectedService.actions.map((act, i) => (
-                    <a
-                      key={i}
-                      href={act.href}
-                      onClick={() => setSelectedService(null)}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition-all text-center"
-                    >
-                      {act.label}
-                    </a>
-                  ))}
-                  <button
-                    onClick={() => setSelectedService(null)}
-                    className="border border-slate-400 bg-white hover:bg-slate-100 font-extrabold text-xs uppercase tracking-wider px-6 py-3 rounded-xl transition-all"
-                  >
-                    Close Window
-                  </button>
-                </div>
-              </motion.div>
+        {/* How to Access Services Container Section - Highly Polished matching Image 4 & 5 */}
+        <section className="mt-16 max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-[#f0f7ff] via-[#f5f9ff] to-[#e6f2ff] rounded-lg border border-blue-500/30 border-l-[4px] border-l-[#2563EB] p-6 sm:p-10 relative shadow-[-6px_6px_18px_rgba(37,99,235,0.08)]">
+            
+            {/* Top overlapping circular badge with white text icon */}
+            <div className="absolute -top-6 left-6 sm:left-10 w-12 h-12 rounded-full bg-[#2563EB] flex items-center justify-center text-white shadow-lg border-2 border-white">
+              <FileText className="w-6 h-6" />
             </div>
-          )}
-        </AnimatePresence>
+
+            {/* Title block */}
+            <div className="mt-2 mb-8">
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 font-sans tracking-tight">
+                How to Access Services
+              </h3>
+            </div>
+
+            {/* List of Steps structured as beautifully clean soft solid-white cards */}
+            <div className="space-y-4">
+              {/* Step 1 */}
+              <div className="flex items-center gap-5 bg-white p-5 rounded-md border border-blue-200 shadow-sm transition-all duration-200">
+                <div className="w-11 h-11 rounded-full bg-[#2563eb] text-white font-extrabold flex items-center justify-center shrink-0 shadow-md text-sm sm:text-base">
+                  1
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-slate-900 text-sm sm:text-base md:text-lg leading-tight">
+                    Register/Login
+                  </h4>
+                  <p className="text-slate-600 text-xs sm:text-sm font-semibold mt-1">
+                    Create an account or login to access personalized services.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex items-center gap-5 bg-white p-5 rounded-md border border-blue-200 shadow-sm transition-all duration-200">
+                <div className="w-11 h-11 rounded-full bg-[#10b981] text-white font-extrabold flex items-center justify-center shrink-0 shadow-md text-sm sm:text-base">
+                  2
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-slate-900 text-sm sm:text-base md:text-lg leading-tight">
+                    Select Service
+                  </h4>
+                  <p className="text-slate-600 text-xs sm:text-sm font-semibold mt-1">
+                    Choose the service you need from the available options.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex items-center gap-5 bg-white p-5 rounded-md border border-blue-200 shadow-sm transition-all duration-200">
+                <div className="w-11 h-11 rounded-full bg-[#f97316] text-white font-extrabold flex items-center justify-center shrink-0 shadow-md text-sm sm:text-base">
+                  3
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-slate-900 text-sm sm:text-base md:text-lg leading-tight">
+                    Submit Application
+                  </h4>
+                  <p className="text-slate-600 text-xs sm:text-sm font-semibold mt-1">
+                    Fill out the required forms and submit necessary documents.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 4 */}
+              <div className="flex items-center gap-5 bg-white p-5 rounded-md border border-blue-200 shadow-sm transition-all duration-200">
+                <div className="w-11 h-11 rounded-full bg-[#8b5cf6] text-white font-extrabold flex items-center justify-center shrink-0 shadow-md text-sm sm:text-base">
+                  4
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-slate-900 text-sm sm:text-base md:text-lg leading-tight">
+                    Track Status
+                  </h4>
+                  <p className="text-slate-600 text-xs sm:text-sm font-semibold mt-1">
+                    Monitor your application status through your account dashboard.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Central Get Started Button */}
+            <div className="flex justify-center mt-10">
+              <button
+                onClick={handleGetStartedClick}
+                className="bg-[#e04f10] hover:bg-[#c2410c] text-white text-xs sm:text-sm font-black uppercase tracking-wider py-3.5 px-8 rounded-xl transition-all cursor-pointer shadow-md inline-flex items-center gap-2"
+              >
+                Get Started
+                <ArrowRight className="w-4 h-4 text-white" />
+              </button>
+            </div>
+
+          </div>
+        </section>
 
       </main>
 

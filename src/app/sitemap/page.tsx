@@ -73,8 +73,8 @@ export default function SitemapPage() {
             </div>
             <ul className="space-y-3 font-semibold text-sm text-slate-600">
               <li><a href="/" className="hover:text-orange-500 flex items-center gap-2">&rarr; Home Portal Welcome Page</a></li>
-              <li><a href="/#about" className="hover:text-orange-500 flex items-center gap-2">&rarr; Wings of UDD BTC & Mission</a></li>
-              <li><a href="/#structure" className="hover:text-orange-500 flex items-center gap-2">&rarr; Organizational Directory & Team</a></li>
+              <li><a href="/departments" className="hover:text-orange-500 flex items-center gap-2">&rarr; UDD BTC Departments & Administration Wings</a></li>
+              <li><a href="/tenders" className="hover:text-orange-500 flex items-center gap-2">&rarr; Public Procurement, Open Bidding & Tenders</a></li>
               <li><a href="/grievance" className="hover:text-orange-500 flex items-center gap-2">&rarr; Citizen Grievance Portal (Register/Track)</a></li>
               <li><a href="/contact" className="hover:text-orange-500 flex items-center gap-2">&rarr; Contact Us & Headquarters Location</a></li>
             </ul>

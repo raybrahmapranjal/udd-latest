@@ -92,7 +92,7 @@ const MOCK_HOLDINGS_STATUS: Record<string, {
     status: "Tax Paid",
     amountDue: 0,
     lastPaymentDate: "2026-05-10",
-    referenceNo: "TXN-BTR-8812-901"
+    referenceNo: "TXN-BTC-8812-901"
   },
   "BTC/PROP/2026-902": {
     ownerName: "Anjali Basumatary",
@@ -101,7 +101,7 @@ const MOCK_HOLDINGS_STATUS: Record<string, {
     category: "Residential (Rented)",
     status: "Overdue",
     amountDue: 14400,
-    referenceNo: "TXN-BTR-8812-902"
+    referenceNo: "TXN-BTC-8812-902"
   },
   "BTC/PROP/2026-903": {
     ownerName: "Bodo Commercial Ventures Ltd",
@@ -110,7 +110,7 @@ const MOCK_HOLDINGS_STATUS: Record<string, {
     category: "Commercial",
     status: "Under Review",
     amountDue: 48000,
-    referenceNo: "TXN-BTR-8812-903"
+    referenceNo: "TXN-BTC-8812-903"
   }
 };
 
@@ -285,7 +285,7 @@ export default function PropertyTaxPage() {
                   {
                     num: "1",
                     title: "Visit the Portal",
-                    desc: "Access the online property tax payment portal through the UDD BTR website or your respective ULB portal."
+                    desc: "Access the online property tax payment portal through the UDD BTC website or your respective ULB portal."
                   },
                   {
                     num: "2",
@@ -495,7 +495,7 @@ export default function PropertyTaxPage() {
                   <Mail className="w-6 h-6 text-[#2563EB] shrink-0 mt-0.5" />
                   <div>
                     <span className="text-xs sm:text-sm text-slate-500 block leading-none mb-1.5 font-bold">Email</span>
-                    <a href="mailto:propertytax@uddbtr.org" className="text-slate-800 font-extrabold hover:underline">propertytax@uddbtr.org</a>
+                    <a href="mailto:propertytax@uddbtc.org" className="text-slate-800 font-extrabold hover:underline">propertytax@uddbtc.org</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
@@ -628,7 +628,7 @@ export default function PropertyTaxPage() {
                           required
                           value={availForm.email}
                           onChange={(e) => setAvailForm({ ...availForm, email: e.target.value })}
-                          placeholder="e.g. owner@uddbtr.org"
+                          placeholder="e.g. owner@uddbtc.org"
                           className="w-full bg-slate-5 font-bold border border-slate-300 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-[#003366]/20"
                         />
                       </div>
@@ -779,7 +779,7 @@ export default function PropertyTaxPage() {
                   <Search className="w-6 h-6 text-emerald-300" />
                   <div>
                     <h3 className="text-lg font-extrabold font-serif">Check Holding Status</h3>
-                    <p className="text-xs text-slate-300 font-medium">BTR Unified Municipal Status Tracker</p>
+                    <p className="text-xs text-slate-300 font-medium">BTC Unified Municipal Status Tracker</p>
                   </div>
                 </div>
               </div>
