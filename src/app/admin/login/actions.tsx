@@ -1,23 +1,38 @@
-'use server'
+'use server';
 
 import { createClient } from '@/utils/supabase/server'
-import { redirect } from 'next/navigation'
-import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation';
 
-export async function login(formData: FormData) {
-  const supabase = await createClient()
+export interface ActionResponse {
+  success: boolean;
+  error?: string;
+}
 
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
+export async function signIn(formData: FormData): Promise<ActionResponse> {
+  const email = formData.get('email') as string;
+  const password = formData.get('password') as string;
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password })
-
-  if (error) {
-    // If login fails, redirect back to login page with an error message
-    redirect('/admin/login?error=Authentication failed')
+  if (!email || !password) {
+    return { success: false, error: 'Email and password are required.' };
   }
 
-  // Clear cache and redirect to the dashboard
-  revalidatePath('/admin', 'layout')
-  redirect('/admin')
+  const supabase = await createClient();
+
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    return { success: false, error: error.message };
+  }
+
+  // Redirect to admin panel upon success
+  redirect('/admin');
+}
+
+export async function signOut(): Promise<void> {
+  const supabase = await createClient();
+  await supabase.auth.signOut();
+  redirect('/admin/login');
 }
