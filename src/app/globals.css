@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #0B1F3A;
+  --color-saffron: #E8650A;
+  --color-govgreen: #1A6B3C;
+  --color-gold: #C9940A;
+  --color-lightgray: #F4F6F9;
+  
+  --font-sans: var(--font-nunito);
+  --font-serif: var(--font-nunito);
+  
+  @keyframes marquee {
+    from { transform: translateX(100vw); }
+    to { transform: translateX(-100%); }
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    120deg,
+    rgba(11,31,58,0.93) 0%,
+    rgba(11,31,58,0.72) 55%,
+    rgba(232,101,10,0.28) 100%
+  );
+}
+
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.dd-menu {
+  display: none;
+}
+
+.dd-parent:hover .dd-menu {
+  display: block;
+}
+
+/* Custom Swiper Styles */
+.swiper-button-next, .swiper-button-prev {
+  color: #fff !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #E8650A !important;
+}
+
+.animate-marquee {
+  animation: marquee 65s linear infinite;
+}
+
+/* Custom vector, hardware-accelerated representation of traditional Bodo decorative patterns.
+   Guarantees 0% chance of browser/GPU rasterization crashes or subpixel rendering noise on mobile. */
+.aronai-banner-pattern {
+  background-image: radial-gradient(rgba(232, 101, 10, 0.18) 1.5px, transparent 1.5px) !important;
+  background-size: 20px 20px !important;
+  background-repeat: repeat !important;
+  opacity: 0.35 !important;
+}
+
+*[style*="539195979"], [style*="539195979"] {
+  background-image: url('/aronai-pattern.webp') !important;
+}
+
+/* Global full-page background tiling of the traditional Bodo Aronai design */
+/* body {
+  background-image: url('/aronai-pattern.webp') !important;
+  background-repeat: repeat !important;
+  background-size: 160px auto !important;
+} */
+
+/* Let the elegant pattern subtly tile and show through the main page containers */
+.min-h-screen {
+  background-color: rgba(248, 250, 252, 0.94) !important;
+}
+
+/* Fail-safe fallback for the page loader to prevent blank pages on slow networks, hydration blocks, or Hot Module Replacement glitches */
+@keyframes loader-fail-safe {
+  0% { opacity: 1; visibility: visible; }
+  85% { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+.loader-fail-safe-animation {
+  animation: loader-fail-safe 2.5s forwards ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  /* Prevent heavy compositor blending crashes and GPU vertical/horizontal scanline artifacts on mobile viewports */
+  .blur-3xl, .blur-2xl, .blur-xl, .blur-lg, 
+  [class*="blur-3xl"], [class*="blur-2xl"], [class*="blur-xl"], [class*="blur-lg"] {
+    display: none !important;
+    filter: none !important;
+    opacity: 0 !important;
+  }
+  
+  .backdrop-blur, .backdrop-blur-sm, .backdrop-blur-md, .backdrop-blur-lg, .backdrop-blur-xl, 
+  [class*="backdrop-blur-"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* De-arm WebKit and mobile chrome tap-highlight rectangles which flash white over custom cards and footer anchors */
+  * {
+    -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+}
+/* toaster*/
+@keyframes draw-circle {
+  0% { stroke-dashoffset: 100; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-check {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-circle {
+  animation: draw-circle 0.8s ease-out forwards;
+}
+
+.animate-check {
+  animation: draw-check 0.4s ease-out 0.8s forwards;
+}
