@@ -2,14 +2,18 @@ import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
+  // 0. Build-time safety: prevent middleware logic during static compilation
+  // This check ensures we only run auth logic when variables are actually present
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  
+  if (!supabaseUrl || !supabaseKey) {
+    return NextResponse.next();
+  }
+
   let response = NextResponse.next({
     request: { headers: request.headers },
   });
-
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (!supabaseUrl || !supabaseKey) return response;
 
   const supabase = createServerClient(supabaseUrl, supabaseKey, {
     cookies: {
@@ -24,6 +28,7 @@ export async function middleware(request: NextRequest) {
     },
   });
 
+  // Now it is safe to call getUser() because we verified variables exist above
   const { data: { user } } = await supabase.auth.getUser();
   const url = new URL(request.url);
 
@@ -42,7 +47,6 @@ export async function middleware(request: NextRequest) {
     const redirectUrl = new URL('/admin/login', request.url);
     const res = NextResponse.redirect(redirectUrl);
     
-    // Apply strict cache-control for redirects
     res.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0');
     return res;
   }
