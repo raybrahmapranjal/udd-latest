@@ -4,15 +4,20 @@ import React, { useState } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
 import { Loader2, Mail } from 'lucide-react';
 import Image from 'next/image';
+
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; isError: boolean } | null>(null);
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  // Helper function to create client only when needed
+  // This prevents the build process from crashing while prerendering
+  const getSupabase = () => {
+    return createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+  };
 
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +25,9 @@ export default function ForgotPasswordPage() {
     setMessage(null);
 
     try {
-      // 1. Verify existence via profiles (ensure RLS allows anon SELECT)
+      const supabase = getSupabase();
+
+      // 1. Verify existence via profiles
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('email')
@@ -32,10 +39,7 @@ export default function ForgotPasswordPage() {
       }
 
       // 2. Trigger reset
-      // Ensure the redirect URL is in your Supabase Dashboard "Redirect URLs" list
-      // 2. Trigger reset
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        // Point to the callback route, not the change-password page directly
         redirectTo: `${window.location.origin}/admin/auth/callback`,
       });
 
@@ -53,8 +57,8 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="h-[10dvh] overflow-hidden w-screen h-screen flex flex-col items-center justify-start pt-[8vh] sm:justify-center sm:pt-0 bg-gradient-to-br from-orange-50 to-orange-50 text-slate-900 p-4 relative overflow-hidden font-sans antialiased select-none">
-      <div className="flex flex-col items-center mb-3 sm:mb-4 text-center px-2" id="login_header">
+    <div className="min-h-screen w-screen flex flex-col items-center justify-start pt-[8vh] sm:justify-center sm:pt-0 bg-gradient-to-br from-orange-50 to-orange-50 text-slate-900 p-4 font-sans antialiased select-none">
+      <div className="flex flex-col items-center mb-3 sm:mb-4 text-center px-2">
         <div className="inline-flex items-center justify-center mb-2 transition-transform duration-300 hover:scale-105">
           <Image 
             src="/btc-logo.png" 
@@ -65,10 +69,9 @@ export default function ForgotPasswordPage() {
             className="object-contain max-w-[50px] sm:max-w-[60px]"
           />
         </div>
-        <h1 className="text-[4.2vw] xs:text-xl sm:text-2xl font-black tracking-tight text-slate-900 mb-0.5 uppercase leading-none whitespace-nowrap">
+        <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 mb-0.5 uppercase leading-none whitespace-nowrap">
           Urban Development Department
         </h1>
-        
       </div>
       
       <form onSubmit={handleReset} className="w-full max-w-sm bg-white p-8 rounded-2xl shadow-xl border-l-4 border border-orange-600">
