@@ -21,10 +21,13 @@ export default function ChangePasswordPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  // Helper to initialize client only when needed (avoids build-time errors)
+  const getSupabase = () => {
+    return createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+  };
 
   const triggerToast = (message: string, type: 'success' | 'error' = 'success') => {
     setToast({ message, type });
@@ -43,15 +46,14 @@ export default function ChangePasswordPage() {
 
     setLoading(true);
     try {
+      const supabase = getSupabase();
       const { error } = await supabase.auth.updateUser({ password: newPassword });
       if (error) throw error;
       
       triggerToast("Password updated successfully");
       
-      // Logout after success
       await supabase.auth.signOut();
       
-      // Redirect to login, replacing the history entry so user cannot "go back"
       setTimeout(() => {
         window.location.replace('/admin/login');
       }, 1500);
@@ -61,18 +63,15 @@ export default function ChangePasswordPage() {
       setLoading(false);
     }
   };
+
   const handleGoBack = async () => {
-    // 1. Explicitly clear the session/cookies
-    // Even if the user didn't update the password, we want to end this 
-    // "reset" session state so they don't get stuck in an authenticated loop.
+    const supabase = getSupabase();
     await supabase.auth.signOut();
-    
-    // 2. Use window.location.replace to ensure a clean navigation
-    // that forces the browser to re-evaluate the middleware.
     window.location.replace('/admin/login');
   };
+
   return (
-    <div className="h-[10dvh] overflow-hidden w-screen h-screen flex flex-col items-center justify-start pt-[8vh] sm:justify-center sm:pt-0 bg-slate-100 text-slate-900 p-4 relative overflow-hidden font-sans antialiased select-none bg-gradient-to-br from-indigo-50 to-purple-50">
+    <div className="h-screen w-screen flex flex-col items-center justify-start pt-[8vh] sm:justify-center sm:pt-0 bg-slate-100 text-slate-900 p-4 relative overflow-hidden font-sans antialiased select-none bg-gradient-to-br from-indigo-50 to-purple-50">
       {/* Toast Notification */}
       {toast && (
         <div className={`fixed top-6 right-6 z-[100] px-5 py-4 rounded-xl shadow-2xl text-white font-bold flex items-center gap-3 animate-in fade-in slide-in-from-top-4 duration-300 ${toast.type === 'success' ? 'bg-emerald-600' : 'bg-red-600'}`}>
