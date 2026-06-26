@@ -1,9 +1,10 @@
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
-import ManageAboutUsPage from './ManageAboutUsPage'; // Changed to local import
+import ManageAboutUsPage from './ManageAboutUsPage';
 
 export default async function Page() {
-  const cookieStore = cookies();
+  // Fix: cookies() is now an async function in Next.js 15+
+  const cookieStore = await cookies(); 
   
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -28,6 +29,5 @@ export default async function Page() {
 
   if (!profile) return <div>Admin profile not found.</div>;
 
-  // Passing the profile directly to the component in the same folder
   return <ManageAboutUsPage currentUser={profile} />;
 }
