@@ -1,5 +1,8 @@
 'use client';
 
+// This tells Next.js to skip pre-rendering at build time
+export const dynamic = 'force-dynamic';
+
 import React, { useState } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
 import { Loader2, Mail } from 'lucide-react';
@@ -10,8 +13,8 @@ export default function ForgotPasswordPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; isError: boolean } | null>(null);
 
-  // Helper function to create client only when needed
-  // This prevents the build process from crashing while prerendering
+  // Helper function to create client ONLY when needed
+  // This prevents the build process from reading environment variables prematurely
   const getSupabase = () => {
     return createBrowserClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
