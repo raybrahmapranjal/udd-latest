@@ -1,9 +1,6 @@
 'use client';
 
-// This tells Next.js to skip pre-rendering at build time
-export const dynamic = 'force-dynamic';
-
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
 import { Loader2, Mail } from 'lucide-react';
 import Image from 'next/image';
@@ -13,32 +10,32 @@ export default function ForgotPasswordPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; isError: boolean } | null>(null);
 
-  // Helper function to create client ONLY when needed
-  // This prevents the build process from reading environment variables prematurely
-  const getSupabase = () => {
+  // Initialize Supabase client safely using useMemo to avoid build-time errors
+  const supabase = useMemo(() => {
+    // Only attempt to initialize if environment variables exist
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-    // If variables are missing (which happens during build), 
-    // return a mock or handle it gracefully instead of crashing
+    
     if (!url || !key) {
-      console.warn("Supabase environment variables not found!");
-      // Return a dummy client or null to prevent the crash
-      return {} as any; 
+      console.error("Supabase environment variables are not set.");
+      return null;
     }
-
+    
     return createBrowserClient(url, key);
-  };
+  }, []);
 
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!supabase) {
+      setMessage({ text: "Client configuration error. Please contact support.", isError: true });
+      return;
+    }
+
     setLoading(true);
     setMessage(null);
 
     try {
-      const supabase = getSupabase();
-
-      // 1. Verify existence via profiles
+      // 1. Verify existence
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('email')
@@ -55,8 +52,7 @@ export default function ForgotPasswordPage() {
       });
 
       if (error) {
-        console.error("Supabase Auth Error:", error);
-        throw new Error("Failed to send email. Please check your network or try again later.");
+        throw new Error("Failed to send email. Please try again later.");
       }
 
       setMessage({ text: 'Check your email for the reset link.', isError: false });
@@ -68,7 +64,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen w-screen flex flex-col items-center justify-start pt-[8vh] sm:justify-center sm:pt-0 bg-gradient-to-br from-orange-50 to-orange-50 text-slate-900 p-4 font-sans antialiased select-none">
+    <div className="h-screen w-screen flex flex-col items-center justify-start pt-[8vh] sm:justify-center sm:pt-0 bg-gradient-to-br from-orange-50 to-orange-50 text-slate-900 p-4 relative overflow-hidden font-sans antialiased select-none">
       <div className="flex flex-col items-center mb-3 sm:mb-4 text-center px-2">
         <div className="inline-flex items-center justify-center mb-2 transition-transform duration-300 hover:scale-105">
           <Image 
@@ -80,7 +76,7 @@ export default function ForgotPasswordPage() {
             className="object-contain max-w-[50px] sm:max-w-[60px]"
           />
         </div>
-        <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 mb-0.5 uppercase leading-none whitespace-nowrap">
+        <h1 className="text-[4.2vw] xs:text-xl sm:text-2xl font-black tracking-tight text-slate-900 mb-0.5 uppercase leading-none whitespace-nowrap">
           Urban Development Department
         </h1>
       </div>
@@ -93,6 +89,7 @@ export default function ForgotPasswordPage() {
           <input 
             type="email" 
             required 
+            value={email}
             placeholder="Enter your registered email" 
             className="w-full pl-10 p-3 border border-blue-300 border-l-4 rounded-xl text-sm outline-none transition-all"
             onChange={(e) => setEmail(e.target.value)}
