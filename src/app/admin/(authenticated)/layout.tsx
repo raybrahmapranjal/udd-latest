@@ -7,14 +7,14 @@ import { UserProvider } from './UserContext';
 export const dynamic = 'force-dynamic';
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  // Use a fallback to ensure we don't pass undefined to the client constructor
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? '';
 
-  // 1. Safe build-time check: 
-  // If variables are missing, don't crash; just render the children.
   if (!supabaseUrl || !supabaseKey) {
-    console.error("Supabase environment variables missing. Admin features disabled.");
-    return <>{children}</>;
+    console.error("ENVIRONMENT ERROR: Supabase keys are missing.");
+    // Force a clear error or redirect to a safe page instead of crashing
+    return <div className="p-10">Configuration Error. Please contact support.</div>;
   }
 
   const cookieStore = await cookies();
