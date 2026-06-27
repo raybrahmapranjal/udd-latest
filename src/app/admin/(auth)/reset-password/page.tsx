@@ -5,19 +5,24 @@ import { createBrowserClient } from '@supabase/ssr';
 import { Loader2, Mail } from 'lucide-react';
 import Image from 'next/image';
 
+// MANDATORY: Forces this page to render at runtime, preventing build-time errors
+export const dynamic = 'force-dynamic';
+
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ text: string; isError: boolean } | null>(null);
 
-  // Initialize Supabase client safely using useMemo to avoid build-time errors
+  // Safely initialize client only when in the browser
   const supabase = useMemo(() => {
-    // Only attempt to initialize if environment variables exist
+    // Check if we are in the browser
+    if (typeof window === 'undefined') return null;
+
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
     
     if (!url || !key) {
-      console.error("Supabase environment variables are not set.");
+      console.error("Missing Supabase Environment Variables");
       return null;
     }
     
@@ -27,7 +32,7 @@ export default function ForgotPasswordPage() {
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!supabase) {
-      setMessage({ text: "Client configuration error. Please contact support.", isError: true });
+      setMessage({ text: "Configuration error: Supabase client not initialized.", isError: true });
       return;
     }
 
@@ -35,7 +40,6 @@ export default function ForgotPasswordPage() {
     setMessage(null);
 
     try {
-      // 1. Verify existence
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('email')
@@ -46,14 +50,11 @@ export default function ForgotPasswordPage() {
         throw new Error('This email is not registered in our system.');
       }
 
-      // 2. Trigger reset
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: `${window.location.origin}/admin/auth/callback`,
       });
 
-      if (error) {
-        throw new Error("Failed to send email. Please try again later.");
-      }
+      if (error) throw new Error("Failed to send email. Please try again.");
 
       setMessage({ text: 'Check your email for the reset link.', isError: false });
     } catch (err: any) {
@@ -76,7 +77,7 @@ export default function ForgotPasswordPage() {
             className="object-contain max-w-[50px] sm:max-w-[60px]"
           />
         </div>
-        <h1 className="text-[4.2vw] xs:text-xl sm:text-2xl font-black tracking-tight text-slate-900 mb-0.5 uppercase leading-none whitespace-nowrap">
+        <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 mb-0.5 uppercase leading-none">
           Urban Development Department
         </h1>
       </div>
