@@ -35,20 +35,20 @@ export default function LeaderStrip() {
       ],
       theme: "purple"
     },
-    {
-      name: "Shri Lankeshwar Owarie",
-      role: "Council Head of Department",
-      subRole: "Urban Development Dept, BTC",
-      img: "/images/leaders/lankeshwar.jpg",
-      description: "Shri Lankeshwar Owarie serves as the Council Head of Department for Urban Development. He holds an M.R.P. (Urban Planning) from IIT Kharagpur (1990-91) and is responsible for operational leadership across 9 Municipal Boards and 1 Development Authority.",
-      focusTitle: "KEY RESPONSIBILITIES",
-      focusItems: [
-        "Implementation of urban policies & schemes",
-        "Coordination with ULBs & technical agencies",
-        "Monitoring of projects & service delivery"
-      ],
-      theme: "orange"
-    }
+    // {
+    //   name: "Shri Lankeshwar Owarie",
+    //   role: "Council Head of Department",
+    //   subRole: "Urban Development Dept, BTC",
+    //   img: "/images/leaders/lankeshwar.jpg",
+    //   description: "Shri Lankeshwar Owarie serves as the Council Head of Department for Urban Development. He holds an M.R.P. (Urban Planning) from IIT Kharagpur (1990-91) and is responsible for operational leadership across 9 Municipal Boards and 1 Development Authority.",
+    //   focusTitle: "KEY RESPONSIBILITIES",
+    //   focusItems: [
+    //     "Implementation of urban policies & schemes",
+    //     "Coordination with ULBs & technical agencies",
+    //     "Monitoring of projects & service delivery"
+    //   ],
+    //   theme: "orange"
+    // }
   ];
 
   const getThemeClasses = (theme: string) => {
@@ -109,7 +109,8 @@ export default function LeaderStrip() {
           <p className="text-gray-500 max-w-2xl mx-auto font-medium text-sm md:text-lg leading-relaxed px-4">Guided by the commitment to sustainable urban development and citizen welfare.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-12">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-12"> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 md:gap-12">
           {leaders.map((leader, idx) => {
             const theme = getThemeClasses(leader.theme);
             return (
