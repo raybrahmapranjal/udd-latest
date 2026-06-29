@@ -175,8 +175,8 @@ export default function EditProfilePage() {
               </label>
             </div>
             
-            <input className="w-full p-3 border rounded-xl mb-4 font-bold" value={profile.full_name} onChange={e => setProfile({...profile, full_name: e.target.value})} placeholder="Full Name" />
-            <input className="w-full p-3 border rounded-xl mb-4 font-bold" value={profile.phone} onChange={e => setProfile({...profile, phone: e.target.value})} placeholder="Phone (10 digits)" />
+            <input className="w-full p-3 border border-purple-200 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-all rounded-xl mb-4 font-bold" value={profile.full_name} onChange={e => setProfile({...profile, full_name: e.target.value})} placeholder="Full Name" />
+            <input className="w-full p-3 border border-purple-200 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none transition-all rounded-xl mb-4 font-bold" value={profile.phone} onChange={e => setProfile({...profile, phone: e.target.value})} placeholder="Phone (10 digits)" />
             
             <button onClick={handleUpdate} disabled={saving} className="w-full bg-purple-600 text-white py-3 rounded-xl font-bold flex justify-center">
               {saving ? <Loader2 className="animate-spin" /> : "SAVE CHANGES"}
