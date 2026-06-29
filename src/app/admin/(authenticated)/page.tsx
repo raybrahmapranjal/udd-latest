@@ -13,7 +13,7 @@ export default function AdminDashboardPage() {
       <div className="bg-zinc-900 text-emerald-400 font-mono p-4 rounded-xl border border-zinc-800 shadow-inner flex items-center gap-3 text-xs">
         <Mail className="h-4 w-4 text-emerald-500 animate-pulse shrink-0" />
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-zinc-500">Supabase Authenticated Session:</span>
+          <span className="text-zinc-500">Authenticated Session:</span>
           <span className="bg-zinc-800 text-white px-2 py-0.5 rounded border border-zinc-700 font-bold">
             {admin.name}
           </span>

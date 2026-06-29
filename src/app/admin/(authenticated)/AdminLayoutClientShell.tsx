@@ -250,7 +250,7 @@ export default function AdminLayoutClientShell({ children, user }: ShellProps) {
             </button>
             <div className="flex items-center gap-2">
               <Building2 className="h-4 w-4 text-rose-500 hidden sm:inline shrink-0" />
-              <h2 className="text-sm sm:text-base font-black text-zinc-900 tracking-tight uppercase leading-none">Urban Development Department</h2>
+              <h2 className="text-sm sm:text-base font-black text-zinc-900 tracking-tight uppercase leading-none">Urban Development Department, BTC</h2>
             </div>
           </div>
 
