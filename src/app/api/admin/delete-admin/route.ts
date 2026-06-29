@@ -4,24 +4,25 @@ export async function POST(req: Request) {
   try {
     const { userId } = await req.json();
 
-    if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
-      return Response.json({ error: "Server configuration error" }, { status: 500 });
-    }
-
     const supabaseAdmin = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.SUPABASE_SERVICE_ROLE_KEY!
     );
 
-    const { error } = await supabaseAdmin.auth.admin.deleteUser(userId);
+    // 1. Delete from Auth (This triggers the delete, but might not remove the profile record)
+    const { error: authError } = await supabaseAdmin.auth.admin.deleteUser(userId);
+    if (authError) return Response.json({ error: authError.message }, { status: 400 });
 
-    if (error) {
-      return Response.json({ error: error.message }, { status: 400 });
-    }
+    // 2. Explicitly delete the profile record to ensure UI consistency
+    const { error: dbError } = await supabaseAdmin
+      .from('profiles')
+      .delete()
+      .eq('id', userId);
+
+    if (dbError) return Response.json({ error: dbError.message }, { status: 400 });
 
     return Response.json({ success: true });
   } catch (err: any) {
-    // Catch JSON parsing errors or unexpected crashes
-    return Response.json({ error: err.message || "Internal Server Error" }, { status: 500 });
+    return Response.json({ error: err.message }, { status: 500 });
   }
 }

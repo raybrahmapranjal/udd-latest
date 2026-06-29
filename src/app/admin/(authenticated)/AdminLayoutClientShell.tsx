@@ -56,8 +56,8 @@ export default function AdminLayoutClientShell({ children, user }: ShellProps) {
 
   const webContentItems = [
     { href: '/admin/manage-aboutus', name: 'About Us Content', icon: Info },
-    { href: '/admin/objectives', name: 'Strategic Objectives', icon: Target },
-    { href: '/admin/projects', name: 'Urban Projects', icon: Building2 },
+    // { href: '/admin/objectives', name: 'Strategic Objectives', icon: Target },
+    // { href: '/admin/projects', name: 'Urban Projects', icon: Building2 },
   ];
   const schemeItems = [
     // { href: '/admin/manage-schemes', name: 'Manage Schemes', icon: Target },
