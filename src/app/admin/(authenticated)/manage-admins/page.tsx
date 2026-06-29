@@ -160,10 +160,17 @@ useEffect(() => {
       )}
 
       {/* Header */}
-      <div className="flex justify-between items-center bg-slate-900 p-6 rounded-2xl shadow-lg border-l-4 border-yellow-500">
-        <h1 className="text-white font-black uppercase">Admin Management</h1>
-        <button onClick={() => { resetForm(); setShowForm(true); }} className="bg-indigo-600 text-white px-6 py-2 rounded-xl font-bold flex items-center gap-2">
-          <Plus size={16} /> ADD Admin
+      <div className="flex flex-col md:flex-row justify-between items-center bg-slate-900 p-6 rounded-2xl shadow-lg border-l-4 border-yellow-500 gap-4">
+        <h1 className="text-white font-black uppercase text-center md:text-left">
+          Admin Management
+        </h1>
+        
+        <button 
+          onClick={() => { resetForm(); setShowForm(true); }} 
+          className="w-full md:w-auto bg-indigo-600 text-white px-6 py-2 md:py-2 rounded-xl font-bold flex items-center justify-center gap-2 transition-transform active:scale-95"
+        >
+          <Plus size={16} /> 
+          <span>ADD Admin</span>
         </button>
       </div>
 
