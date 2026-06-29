@@ -160,10 +160,16 @@ export default function AdminLayoutClientShell({ children, user }: ShellProps) {
           </div>
 
           <nav className="p-3.5 space-y-1">
+            {/* Main Navigation Items */}
             {navigationItems.map((item) => {
               const isActive = pathname === item.href;
               return (
-                <Link key={item.href} href={item.href} onClick={() => setIsMobileMenuOpen(false)} className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all group duration-150 ${isActive ? 'bg-rose-500 text-white shadow-md shadow-rose-500/20' : 'text-zinc-500 hover:bg-rose-50/60 hover:text-rose-600'}`}>
+                <Link 
+                  key={item.href} 
+                  href={item.href} 
+                  onClick={() => setIsMobileMenuOpen(false)} // Already exists
+                  className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all group duration-150 ${isActive ? 'bg-rose-500 text-white shadow-md shadow-rose-500/20' : 'text-zinc-500 hover:bg-rose-50/60 hover:text-rose-600'}`}
+                >
                   <div className="flex items-center gap-3">
                     <item.icon className={`h-4 w-4 shrink-0 ${isActive ? 'text-white' : 'text-zinc-400 group-hover:text-rose-500'}`} />
                     <span>{item.name}</span>
@@ -173,26 +179,31 @@ export default function AdminLayoutClientShell({ children, user }: ShellProps) {
               );
             })}
 
+            {/* Website Content Section */}
             <button onClick={() => setIsWebContentOpen(!isWebContentOpen)} className={`flex w-full items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all group duration-150 text-zinc-500 hover:bg-rose-50/60 hover:text-rose-600 cursor-pointer`}>
               <div className="flex items-center gap-3">
                 <Info className="h-4 w-4 shrink-0 text-zinc-400 group-hover:text-rose-500" />
                 <span>Website Content</span>
               </div>
-              <ChevronDown 
-                className={`h-3 w-3 transition-transform duration-300 ${isWebContentOpen ? 'rotate-0' : '-rotate-90'}`} 
-              />
+              <ChevronDown className={`h-3 w-3 transition-transform duration-300 ${isWebContentOpen ? 'rotate-0' : '-rotate-90'}`} />
             </button>
 
             {isWebContentOpen && (
               <div className="ml-7 pl-2 space-y-0.5 animate-in fade-in slide-in-from-top-1 duration-200">
                 {webContentItems.map((item) => (
-                  <Link key={item.href} href={item.href} className={`block px-3 py-2 text-[11px] font-bold ${pathname === item.href ? 'text-rose-600' : 'text-zinc-400 hover:text-rose-500'}`}>
+                  <Link 
+                    key={item.href} 
+                    href={item.href} 
+                    onClick={() => setIsMobileMenuOpen(false)} // ADDED THIS
+                    className={`block px-3 py-2 text-[11px] font-bold ${pathname === item.href ? 'text-rose-600' : 'text-zinc-400 hover:text-rose-500'}`}
+                  >
                     {item.name}
                   </Link>
                 ))}
               </div>
             )}
-            {/* Manage Schemes Section (Super Admin Only) */}
+
+            {/* Manage Schemes Section */}
             {user.role === 'Super Admin' && (
               <>
                 <button onClick={() => setIsSchemeMenuOpen(!isSchemeMenuOpen)} className="flex w-full items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all group duration-150 text-zinc-500 hover:bg-rose-50/60 hover:text-rose-600 cursor-pointer">
@@ -205,7 +216,12 @@ export default function AdminLayoutClientShell({ children, user }: ShellProps) {
                 {isSchemeMenuOpen && (
                   <div className="ml-7 pl-2 space-y-0.5 animate-in fade-in slide-in-from-top-1 duration-200">
                     {schemeItems.map((item) => (
-                      <Link key={item.href} href={item.href} className={`block px-3 py-2 text-[11px] font-bold ${pathname === item.href ? 'text-rose-600' : 'text-zinc-400 hover:text-rose-500'}`}>
+                      <Link 
+                        key={item.href} 
+                        href={item.href} 
+                        onClick={() => setIsMobileMenuOpen(false)} // ADDED THIS
+                        className={`block px-3 py-2 text-[11px] font-bold ${pathname === item.href ? 'text-rose-600' : 'text-zinc-400 hover:text-rose-500'}`}
+                      >
                         {item.name}
                       </Link>
                     ))}
