@@ -17,6 +17,7 @@ const ulbItems = [
   { id: 'mushalpur_mb', name: 'Mushalpur Municipal Board' },
   { id: 'tamulpur_mb', name: 'Tamulpur Municipal Board' },
   { id: 'tangla_mb', name: 'Tangla Municipal Board' },
+  { id: 'udalguri_mb', name: 'Udalguri Municipal Board' },
 ];
 
 const servicesMenu = [
@@ -178,7 +179,7 @@ export default function Header() {
                         <h4 className="font-extrabold text-[#003366] text-sm uppercase tracking-wider">
                           Urban Local Bodies
                         </h4>
-                        <p className="text-xs text-[#0066cc] font-black mt-0.5">Explore 10 ULBs across BTC</p>
+                        <p className="text-xs text-[#0066cc] font-black mt-0.5">Explore 11 ULBs across BTC</p>
                       </div>
                     </div>
 

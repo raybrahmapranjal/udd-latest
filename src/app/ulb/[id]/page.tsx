@@ -372,7 +372,40 @@ const ulbsDatabase: Record<string, ULBData> = {
     perfServices: "142",
     perfGrievances: "65",
     perfProjects: "10"
-  }
+  },
+  udalguri_mb: {
+    name: "Udalguri Municipal Board",
+    district: "Udalguri",
+    estd: "1975",
+    classification: "Municipal Board (Class II)",
+    wards: 13,
+    population: "28,456",
+    area: "11.5",
+    holdings: "6,750",
+    annualRevenue: "₹3.2 Cr",
+    activeProjects: "16",
+    serviceRate: "93%",
+    chairperson: "Smt. Purnima Devi",
+    chairpersonPhone: "03714-270101",
+    chairpersonEmail: "chair.udalguri@btr.gov.in",
+    execOfficer: "Shri Kamal Baruah",
+    execOfficerPhone: "03714-270100",
+    execOfficerEmail: "eo.udalguri@btr.gov.in",
+    address: "Udalguri Municipal Board, Main Road, Udalguri, Assam - 784509",
+    helpline: "03714-270100, 270101",
+    email: "udalguri.mb@btr.gov.in",
+    overview: "Udalguri Municipal Board is the district headquarters and a rapidly developing urban center. The municipality has been implementing various smart city initiatives and digital governance programs.",
+    historyText: "Formally set up in 1971, Tangla MB is an established leader in retail integration. It manages one of BTC's largest daily organic trade markets, maintaining strong public water kiosks and solid waste collection machinery.",
+    infrastructureRating: "Class II Group",
+    literacyRate: "78.4%",
+    pinCode: "784521",
+    stdCode: "03711",
+    perfRevenue: "₹2.8 Cr",
+    perfServices: "142",
+    perfGrievances: "65",
+    perfProjects: "10"
+  },
+  
 };
 
 interface ColorTheme {

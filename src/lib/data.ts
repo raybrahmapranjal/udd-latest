@@ -43,7 +43,7 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: 12, label: 'Urban Local Bodies', suffix: '', icon: 'building' },
+  { value: 11, label: 'Urban Local Bodies', suffix: '', icon: 'building' },
   { value: 4, label: 'Districts of BTC', suffix: '', icon: 'map' },
   { value: 3.5, label: 'Lakh+ Urban Population', suffix: 'L+', icon: 'users' },
   { value: 250, label: 'Project Milestones', suffix: '+', icon: 'zap' },
@@ -78,6 +78,7 @@ export const ulbs = [
   { name: 'Mushalpur Municipal Board', type: 'MB', district: 'Baksa' },
   { name: 'Goreswar Municipal Board', type: 'MB', district: 'Baksa' },
   { name: 'Tamulpur Municipal Board', type: 'MB', district: 'Tamulpur' },
+  { name: 'Udalguri Municipal Board', type: 'MB', district: 'Udalguri' },
 ];
 
 export const newsNotices = [

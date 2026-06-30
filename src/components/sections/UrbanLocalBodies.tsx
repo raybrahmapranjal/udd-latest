@@ -38,6 +38,7 @@ export default function UrbanLocalBodies() {
     if (normName.includes("mushalpur")) return "mushalpur_mb";
     if (normName.includes("tamulpur")) return "tamulpur_mb";
     if (normName.includes("tangla")) return "tangla_mb";
+    if (normName.includes("udalguri")) return "udalguri_mb";
     return "gossaigaon_mb";
   };
 
