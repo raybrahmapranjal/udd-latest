@@ -221,6 +221,7 @@ export default function Footer() {
               { label: 'Mushalpur MB', href: '/ulb/mushalpur_mb' },
               { label: 'Goreswar MB', href: '/ulb/goreswar_mb' },
               { label: 'Tamulpur MB', href: '/ulb/tamulpur_mb' },
+              { label: 'Udalguri MB', href: '/ulb/udalguri_mb' },
             ].map((link, idx) => (
               <li key={idx} className="flex items-center">
                 <a 
