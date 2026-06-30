@@ -87,12 +87,12 @@ export default function Header() {
             </div>
             <div className="text-left min-w-0">
               <h1 className="text-sm sm:text-base md:text-lg lg:text-[14px] xl:text-[16px] 2xl:text-[18px] font-black uppercase text-[#0d3b84] tracking-tight leading-none select-none whitespace-nowrap">
-                <span className="block sm:hidden">UDD BTC</span>
+                <span className="block sm:hidden">Urban Development Department</span>
                 <span className="hidden sm:block">Urban Development Department</span>
               </h1>
-              <h2 className="text-[8px] sm:text-[10px] md:text-[11px] lg:text-[9px] xl:text-[10px] 2xl:text-[11px] font-extrabold text-[#f26522] uppercase tracking-wider leading-none select-none mt-1">
+              {/* <h2 className="text-[8px] sm:text-[10px] md:text-[11px] lg:text-[9px] xl:text-[10px] 2xl:text-[11px] font-extrabold text-[#f26522] uppercase tracking-wider leading-none select-none mt-1">
                 KOKRAJHAR, BTC, ASSAM
-              </h2>
+              </h2> */}
             </div>
           </a>
           
