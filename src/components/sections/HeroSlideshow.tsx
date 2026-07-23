@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import Image from 'next/image';
 interface HeroSlideshowProps {
   ulbId: string;
   children: React.ReactNode;
@@ -16,94 +16,113 @@ interface SlideImage {
 const slideshowImages: Record<string, SlideImage[]> = {
   gossaigaon_mb: [
     {
-      url: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Lush Tea Gardens of Gossaigaon, Kokrajhar"
+      url: "/images/ulbs/gossaigaon_mb2.jpg",
+      caption: "Gossaigaon, Kokrajhar"
     },
     {
-      url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Misty Foothills & Serene Rivers of BTC Region"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Pristine Reserve Forests & Natural Habitat of Assam"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Lush Biodiversity & Canopy in Kokrajhar Sub-division"
+      url: "/images/ulbs/gossaigaon_mb.jpg",
+      caption: "Gossaigaon MB"
     }
+    
   ],
   kokrajhar_mb: [
     {
-      url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Breathtaking landscapes of Kokrajhar Capital"
+      url: "/images/ulbs/kok1.jpg",
+      caption: "Kokrajhar MB"
     },
     {
-      url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Scenic Champamati River of Kokrajhar District"
+      url: "/images/ulbs/kok2.jpg",
+      caption: "Kokrajhar MB"
     },
     {
-      url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Evergreen Sal Canopy in Bodoland Territorial Region"
+      url: "/images/ulbs/kok3.jpg",
+      caption: "Kokrajhar MB"
     }
   ],
   basugaon_mb: [
     {
-      url: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Serene Agricultural Meadows, Chirang"
+      url: "/images/ulbs/bas1.jpg",
+      caption: "Basugaon MB"
     },
     {
-      url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Stunning Northern Hills Interface in Basugaon Grid"
+      url: "/images/ulbs/bas_2.jpg",
+      caption: "Basugaon MB"
+    },
+    {
+      url: "/images/ulbs/bas_3.jpg",
+      caption: "Basugaon MB"
     }
   ],
   bijni_mb: [
     {
-      url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Pragmatic River-basin Settlements, Bijni"
+      url: "/images/ulbs/bij1.jpg",
+      caption: "Bijni MB"
     },
     {
-      url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Lush Reserve Greenery of Chirang Borderlands"
+      url: "/images/ulbs/bij2.jpg",
+      caption: "Bijni MB"
     }
   ],
   fakiragram_mb: [
     {
-      url: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Historical Railway Junction Vista, Fakiragram"
+      url: "/images/ulbs/fak1.jpg",
+      caption: "Fakiragram MB"
+    },
+    {
+      url: "/images/ulbs/fak2.jpg",
+      caption: "Fakiragram MB"
     }
   ],
   goreswar_mb: [
     {
-      url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Warm Solar Golden Meadows of Tamulpur"
+      url: "/images/ulbs/gores1.jpg",
+      caption: "Goreswar MB"
+    },
+    {
+      url: "/images/ulbs/gores2.jpg",
+      caption: "Goreswar MB"
+    },
+    {
+      url: "/images/ulbs/gores3.jpg",
+      caption: "Goreswar MB"
     }
   ],
   kajalgaon_mb: [
     {
-      url: "https://images.unsplash.com/photo-1433832597046-4f10e10ac764?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "District Headquarters Nature Vistas, Chirang"
+      url: "/images/ulbs/kajal1.jpg",
+      caption: "Kajalgaon MB"
+    },
+    {
+      url: "/images/ulbs/kajal2.jpg",
+      caption: "Kajalgaon MB"
     }
   ],
   mushalpur_mb: [
     {
-      url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Majestic Bhutan Foothills Panorama from Baksa"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Evergreen Sal Valleys of Manas Foothills"
+      url: "/images/ulbs/udd.jpg",
+      caption: "Mushalpur MB"
     }
   ],
   tamulpur_mb: [
     {
-      url: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Dense Agro-Forestry & Nature, Tamulpur District"
+      url: "/images/ulbs/udd.jpg",
+      caption: "Tamulpur MB"
     }
   ],
   tangla_mb: [
     {
-      url: "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&w=1600&h=600&q=80",
-      caption: "Bountiful Tea Plantations, Udalguri"
+      url: "/images/ulbs/udd.jpg",
+      caption: "Tangla MB"
+    }
+  ],
+  udalguri_mb: [
+    {
+      url: "/images/ulbs/udal1.jpg",
+      caption: "Udalguri MB"
+    },
+    {
+      url: "/images/ulbs/udal2.jpg",
+      caption: "Udalguri MB"
     }
   ]
 };
