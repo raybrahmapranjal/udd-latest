@@ -123,14 +123,14 @@ export default function Footer() {
 
             {/* Email contact card */}
             <a 
-              href="mailto:contact@uddbtc.org" 
+              href="mailto:contact@uddbtr.in" 
               className="flex items-center gap-3 bg-transparent md:bg-white/5 md:hover:bg-white/10 border-0 md:border md:border-white/10 hover:border-orange-500/30 p-1 md:p-3 rounded-xl transition-all duration-300 group cursor-pointer"
             >
               <div className="bg-[#ff6600] p-2 rounded-lg text-white group-hover:scale-105 transition-transform shrink-0">
                 <Mail className="h-4 w-4 text-white" />
               </div>
               <span className="font-extrabold text-white group-hover:text-orange-400 text-xs sm:text-sm tracking-tight transition-colors font-sans truncate">
-                contact@uddbtc.org
+                contact@uddbtr.in
               </span>
             </a>
           </div>

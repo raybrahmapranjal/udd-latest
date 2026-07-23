@@ -43,7 +43,7 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email Address",
-      content: "contact@uddbtc.org",
+      content: "contact@uddbtr.in",
       color: "from-orange-500 to-orange-600"
     }
   ];

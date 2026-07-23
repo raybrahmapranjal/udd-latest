@@ -32,7 +32,7 @@ export default function NeedAssistance() {
                   <div className="bg-orange-600 p-2 sm:p-3 rounded-lg sm:rounded-full shadow-[0_0_20px_rgba(234,88,12,0.6)] shrink-0">
                       <Mail className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                   </div>
-                  <span className="font-semibold text-xs sm:text-lg md:text-2xl tracking-tight break-all">contact@uddbtc.org</span>
+                  <span className="font-semibold text-xs sm:text-lg md:text-2xl tracking-tight break-all">contact@uddbtr.in</span>
               </div>
           </div>
           
